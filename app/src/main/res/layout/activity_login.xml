@@ -1,0 +1,236 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="#FFFFFF">
+
+    <ScrollView
+        android:id="@+id/login_android"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/login_contenedor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/_bg__login___android___"
+                android:layout_width="match_parent"
+                android:layout_height="640dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp" />
+
+
+            <RelativeLayout
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp">
+
+
+                <RelativeLayout
+                    android:id="@+id/cards___default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp">
+
+                    <View
+                        android:id="@+id/sheet"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/button___acceder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="523dp">
+
+                    <View
+                        android:id="@+id/btn_bg"
+                        android:layout_width="296dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/btn_label"
+                        android:layout_width="260dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="Mulish"
+                        android:gravity="center"
+                        android:text="@string/btn_label_string"
+                        android:textColor="@color/sheet_color"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/textfield___correo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="299dp">
+
+                    <View
+                        android:id="@+id/textarea_bg"
+                        android:layout_width="298dp"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="22dp"
+                         />
+
+                    <TextView
+                        android:id="@+id/textfield"
+                        android:layout_width="291dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="33dp"
+                        android:alpha="0.4"
+                        android:fontFamily="Mulish"
+                        android:text="@string/textfield_string"
+                        android:textColor="@color/textfield_color"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/label"
+                        android:layout_width="313dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:fontFamily="Mulish"
+                        android:text="@string/label_string"
+                        android:textColor="@color/label_color"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/textfield___password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="415dp">
+
+                    <View
+                        android:id="@+id/textarea_bg_ek1"
+                        android:layout_width="298dp"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="22dp"
+                         />
+
+                    <TextView
+                        android:id="@+id/textfield_ek1"
+                        android:layout_width="255dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="33dp"
+                        android:alpha="0.4"
+                        android:fontFamily="Mulish"
+                        android:text="@string/textfield_ek1_string"
+                        android:textColor="@color/textfield_color"
+                        android:textSize="14sp" />
+
+
+                    <RelativeLayout
+                        android:id="@+id/icon___ocultar_password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="260dp"
+                        android:layout_marginTop="33dp">
+
+                        <ImageView
+                            android:id="@+id/vector"
+                            android:layout_width="16.67dp"
+                            android:layout_height="13.33dp"
+                            android:layout_marginStart="1.67dp"
+                            android:layout_marginTop="3.33dp"
+                            android:contentDescription="vector"
+                            android:src="@drawable/vector" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/label_ek1"
+                        android:layout_width="313dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:fontFamily="Mulish"
+                        android:text="@string/label_ek1_string"
+                        android:textColor="@color/label_color"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/logo_comercio"
+                    android:layout_width="158dp"
+                    android:layout_height="93dp"
+                    android:layout_marginStart="101dp"
+                    android:layout_marginTop="36dp"
+                    android:contentDescription="logo_comercio"
+                    android:src="@drawable/logo_comercio" />
+
+                <TextView
+                    android:id="@+id/contrase_a_olvidada"
+                    android:layout_width="236dp"
+                    android:layout_height="31dp"
+                    android:layout_marginLeft="176dp"
+                    android:layout_marginTop="408dp"
+                    android:alpha="0.4"
+                    android:fontFamily="Mulish"
+                    android:text="@string/contrase_a_olvidada_string"
+                    android:textColor="@color/textfield_color"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/login_intro_datos"
+                    android:layout_width="238dp"
+                    android:layout_height="33dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="249dp"
+                    android:alpha="0.4"
+                    android:fontFamily="Mulish"
+                    android:text="@string/login_intro_datos"
+                    android:textColor="@color/textfield_color"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/login_titulo"
+                    android:layout_width="313dp"
+                    android:layout_height="77dp"
+                    android:layout_gravity="center_horizontal|center"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginTop="156dp"
+                    android:fontFamily="Mulish"
+                    android:gravity="center"
+                    android:text="@string/login_titulo"
+                    android:textColor="@color/acceso_sistema_incidencias_color"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+</HorizontalScrollView>
