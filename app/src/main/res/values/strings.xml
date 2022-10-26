@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- login___strings -->
-    <string name="app_name">LOGIN </string>
+    <string name="app_name">Sistema de Gestion Incidencias </string>
+    <!-- LOGIN -->
     <string name="login_btn_acceder">Acceder</string>
     <string name="login_prompt_correo">Correo Electrónico</string>
     <string name="login_correo">CORREO</string>
@@ -10,4 +10,10 @@
     <string name="login_contraseña_olvidada">He olvidado la contraseña</string>
     <string name="login_intro_datos">Introduce tus Datos de Acceso:</string>
     <string name="login_titulo">Acceso Sistema Incidencias</string>
+
+    <!-- REGISTRO -->
+    <string name="registro_titulo">Registro</string>
+    <string name="registro_btn_registrar">Registrar</string>
+    <string name="registro_confirmar_contraseña">CONFIRMAR CONTRASEÑA</string>
+
 </resources>
