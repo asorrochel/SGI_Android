@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- login___android___ strings -->
-
+    <!-- login___strings -->
     <string name="app_name">LOGIN </string>
-    <string name="btn_label_string">Acceder</string>
-    <string name="textfield_string">Correo Electrónico</string>
-    <string name="label_string">CORREO</string>
-    <string name="textfield_ek1_string">Contraseña</string>
-    <string name="label_ek1_string">CONTRASEÑA</string>
-    <string name="contrase_a_olvidada_string">He olvidado la contraseña</string>
+    <string name="login_btn_acceder">Acceder</string>
+    <string name="login_prompt_correo">Correo Electrónico</string>
+    <string name="login_correo">CORREO</string>
+    <string name="login_contraseña">CONTRASEÑA</string>
+    <string name="login_prompt_contraseña">Contraseña</string>
+    <string name="login_contraseña_olvidada">He olvidado la contraseña</string>
     <string name="login_intro_datos">Introduce tus Datos de Acceso:</string>
     <string name="login_titulo">Acceso Sistema Incidencias</string>
 </resources>

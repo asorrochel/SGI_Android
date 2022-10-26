@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Adrian_Sorroche_Datos/Moviles/SGI_ANDROID/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable-v24/btn_bg_shape.xml" value="0.2655" />
+        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable-v24/login_borde_prompt.xml" value="0.2655" />
+        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable-v24/textarea_bg_ek1_shape.xml" value="0.351" />
+        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_login.xml" value="0.4162303664921466" />
       </map>
     </option>
   </component>

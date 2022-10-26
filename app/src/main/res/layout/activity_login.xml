@@ -1,236 +1,171 @@
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:backgroundTint="#FFFFFF">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
 
-    <ScrollView
-        android:id="@+id/login_android"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/logo_comercio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="75dp"
+        android:contentDescription="logo_comercio"
+        android:src="@drawable/logo_comercio" />
 
-        <RelativeLayout
-            android:id="@+id/login_contenedor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/login_titulo"
+        android:layout_width="296dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginTop="25dp"
+        android:fontFamily="Mulish"
+        android:gravity="center"
+        android:text="@string/login_titulo"
+        android:textColor="@color/acceso_sistema_incidencias_color"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-            <View
-                android:id="@+id/_bg__login___android___"
-                android:layout_width="match_parent"
-                android:layout_height="640dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp" />
+    <TextView
+        android:id="@+id/login_intro_datos"
+        android:layout_width="219dp"
+        android:layout_height="23dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:alpha="0.4"
+        android:fontFamily="Mulish"
+        android:text="@string/login_intro_datos"
+        android:textColor="@color/textfield_color"
+        android:textSize="14sp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/login_const_correo"
+        android:layout_width="match_parent"
+        android:layout_height="104dp">
+
+        <TextView
+            android:id="@+id/login_correo"
+            android:layout_width="296dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="Mulish"
+            android:text="@string/login_correo"
+            android:textColor="@color/label_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/login_prompt_correo"
+            android:layout_width="347dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="32dp"
+            android:alpha="0.4"
+            android:background="@drawable/login_borde_prompt"
+            android:fontFamily="Mulish"
+            android:hint="@string/login_prompt_correo"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="15dp"
+            android:textColor="@color/textfield_color"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_correo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/login_const_contraseña"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/login_contraseña"
+            android:layout_width="296dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="Mulish"
+            android:text="@string/login_contraseña"
+            android:textColor="@color/label_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/login_prompt_contraseña"
+            android:layout_width="347dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="29dp"
+            android:alpha="0.4"
+            android:background="@drawable/login_borde_prompt"
+            android:fontFamily="Mulish"
+            android:hint="@string/login_prompt_contraseña"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:textColor="@color/textfield_color"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_contraseña" />
+
+        <TextView
+            android:id="@+id/login_contraseña_olvidada"
+            android:layout_width="219dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="-90dp"
+            android:layout_marginTop="16dp"
+            android:alpha="0.4"
+            android:fontFamily="Mulish"
+            android:text="@string/login_contraseña_olvidada"
+            android:textColor="@color/textfield_color"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/login_contraseña"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/vector_ocultar"
+            android:layout_width="16.67dp"
+            android:layout_height="13.33dp"
+            android:layout_marginStart="310dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="vector"
+            android:src="@drawable/vector_ocultar"
+            app:layout_constraintStart_toStartOf="@+id/login_prompt_contraseña"
+            app:layout_constraintTop_toBottomOf="@+id/login_contraseña_olvidada" />
+
+        <Button
+            android:id="@+id/login_btnAcceder"
+            android:layout_width="296dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/login_boton_acceder_registrar"
+            android:fontFamily="Mulish"
+            android:gravity="center"
+            android:text="@string/login_btn_acceder"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_prompt_contraseña" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            <RelativeLayout
-                android:id="@+id/login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp">
-
-
-                <RelativeLayout
-                    android:id="@+id/cards___default"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp">
-
-                    <View
-                        android:id="@+id/sheet"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="0dp" />
-
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:id="@+id/button___acceder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="523dp">
-
-                    <View
-                        android:id="@+id/btn_bg"
-                        android:layout_width="296dp"
-                        android:layout_height="48dp"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="0dp"
-                        />
-
-                    <TextView
-                        android:id="@+id/btn_label"
-                        android:layout_width="260dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center_horizontal|center"
-                        android:layout_marginLeft="22dp"
-                        android:layout_marginTop="15dp"
-                        android:fontFamily="Mulish"
-                        android:gravity="center"
-                        android:text="@string/btn_label_string"
-                        android:textColor="@color/sheet_color"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:id="@+id/textfield___correo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="299dp">
-
-                    <View
-                        android:id="@+id/textarea_bg"
-                        android:layout_width="298dp"
-                        android:layout_height="44dp"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="22dp"
-                         />
-
-                    <TextView
-                        android:id="@+id/textfield"
-                        android:layout_width="291dp"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="33dp"
-                        android:alpha="0.4"
-                        android:fontFamily="Mulish"
-                        android:text="@string/textfield_string"
-                        android:textColor="@color/textfield_color"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/label"
-                        android:layout_width="313dp"
-                        android:layout_height="24dp"
-                        android:layout_marginLeft="0dp"
-                        android:layout_marginTop="0dp"
-                        android:fontFamily="Mulish"
-                        android:text="@string/label_string"
-                        android:textColor="@color/label_color"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:id="@+id/textfield___password"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="415dp">
-
-                    <View
-                        android:id="@+id/textarea_bg_ek1"
-                        android:layout_width="298dp"
-                        android:layout_height="44dp"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="22dp"
-                         />
-
-                    <TextView
-                        android:id="@+id/textfield_ek1"
-                        android:layout_width="255dp"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="33dp"
-                        android:alpha="0.4"
-                        android:fontFamily="Mulish"
-                        android:text="@string/textfield_ek1_string"
-                        android:textColor="@color/textfield_color"
-                        android:textSize="14sp" />
-
-
-                    <RelativeLayout
-                        android:id="@+id/icon___ocultar_password"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="260dp"
-                        android:layout_marginTop="33dp">
-
-                        <ImageView
-                            android:id="@+id/vector"
-                            android:layout_width="16.67dp"
-                            android:layout_height="13.33dp"
-                            android:layout_marginStart="1.67dp"
-                            android:layout_marginTop="3.33dp"
-                            android:contentDescription="vector"
-                            android:src="@drawable/vector" />
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:id="@+id/label_ek1"
-                        android:layout_width="313dp"
-                        android:layout_height="24dp"
-                        android:layout_marginLeft="0dp"
-                        android:layout_marginTop="0dp"
-                        android:fontFamily="Mulish"
-                        android:text="@string/label_ek1_string"
-                        android:textColor="@color/label_color"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
-
-                <ImageView
-                    android:id="@+id/logo_comercio"
-                    android:layout_width="158dp"
-                    android:layout_height="93dp"
-                    android:layout_marginStart="101dp"
-                    android:layout_marginTop="36dp"
-                    android:contentDescription="logo_comercio"
-                    android:src="@drawable/logo_comercio" />
-
-                <TextView
-                    android:id="@+id/contrase_a_olvidada"
-                    android:layout_width="236dp"
-                    android:layout_height="31dp"
-                    android:layout_marginLeft="176dp"
-                    android:layout_marginTop="408dp"
-                    android:alpha="0.4"
-                    android:fontFamily="Mulish"
-                    android:text="@string/contrase_a_olvidada_string"
-                    android:textColor="@color/textfield_color"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/login_intro_datos"
-                    android:layout_width="238dp"
-                    android:layout_height="33dp"
-                    android:layout_marginLeft="70dp"
-                    android:layout_marginTop="249dp"
-                    android:alpha="0.4"
-                    android:fontFamily="Mulish"
-                    android:text="@string/login_intro_datos"
-                    android:textColor="@color/textfield_color"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/login_titulo"
-                    android:layout_width="313dp"
-                    android:layout_height="77dp"
-                    android:layout_gravity="center_horizontal|center"
-                    android:layout_marginLeft="28dp"
-                    android:layout_marginTop="156dp"
-                    android:fontFamily="Mulish"
-                    android:gravity="center"
-                    android:text="@string/login_titulo"
-                    android:textColor="@color/acceso_sistema_incidencias_color"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-            </RelativeLayout>
-
-        </RelativeLayout>
-
-    </ScrollView>
-</HorizontalScrollView>
+</LinearLayout>
