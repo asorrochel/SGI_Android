@@ -16,7 +16,7 @@
     <string name="registro_btn_registrar">Registrar</string>
     <string name="registro_confirmar_contraseña">CONFIRMAR CONTRASEÑA</string>
 
-    <!-- INICIO TUTORES MANTENIMIENTO -->
+    <!-- INICIO TUTORES MNT | PROFESORES MNT -->
     <string name="inicio_titulo">Inicio</string>
     <string name="inicio_panel_control">Panel de Control</string>
     <string name="inicio_crear_ticket">Crear Ticket</string>
