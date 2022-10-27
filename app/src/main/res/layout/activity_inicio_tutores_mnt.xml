@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/inicio_tutores_mnt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".inicioTutoresMnt">
+
+    <ImageView
+        android:id="@+id/logo_comercio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="75dp"
+        android:contentDescription="logo_comercio"
+        android:src="@drawable/logo_comercio_v2" />
+
+    <TextView
+        android:id="@+id/inicio_tutores_mnt_titulo"
+        android:layout_width="296dp"
+        android:layout_height="18dp"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginTop="20dp"
+        android:fontFamily="Mulish"
+        android:gravity="center"
+        android:text="@string/inicio_titulo"
+        android:textColor="@color/titulos"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/inicio_tutores_cardview_perfil"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="181dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="70dp"
+        app:cardElevation="0dp">
+
+        <ImageView
+            android:id="@+id/inicio_tutores_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/azul_comercio"
+            android:contentDescription="foto_perfil"
+            android:padding="0dp"
+            android:src="@drawable/foto_perfil_con_borde" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/inicio_tutores_mnt_botones"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/inicio_tutores_mnt_btn_panel"
+            android:layout_width="192dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginStart="109dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="109dp"
+            android:background="@drawable/btn_azul"
+            android:fontFamily="Mulish"
+            android:gravity="center"
+            android:text="@string/inicio_panel_control"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/inicio_tutores_mnt_btn_historial_ticket"
+            android:layout_width="192dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginStart="109dp"
+            android:layout_marginTop="296dp"
+            android:layout_marginEnd="109dp"
+            android:background="@drawable/btn_azul"
+            android:fontFamily="Mulish"
+            android:gravity="center"
+            android:text="@string/inicio_historial_ticket"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/inicio_tutores_mnt_btn_estado_ticket"
+            android:layout_width="192dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginStart="109dp"
+            android:layout_marginTop="228dp"
+            android:layout_marginEnd="109dp"
+            android:background="@drawable/btn_azul"
+            android:fontFamily="Mulish"
+            android:gravity="center"
+            android:text="@string/inicio_estado_ticket"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/inicio_tutores_mnt_btn_validar_ticket"
+            android:layout_width="192dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginStart="109dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginEnd="109dp"
+            android:background="@drawable/btn_azul"
+            android:fontFamily="Mulish"
+            android:gravity="center"
+            android:text="@string/inicio_validar_ticket"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/inicio_tutores_mnt_btn_crear_ticket"
+            android:layout_width="192dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginStart="109dp"
+            android:layout_marginTop="92dp"
+            android:layout_marginEnd="109dp"
+            android:background="@drawable/btn_azul"
+            android:fontFamily="Mulish"
+            android:gravity="center"
+            android:text="@string/inicio_crear_ticket"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/inicio_tutores_mnt_btn_cerrar_sesion"
+            android:layout_width="192dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginStart="109dp"
+            android:layout_marginTop="376dp"
+            android:layout_marginEnd="109dp"
+            android:background="@drawable/btn_gris"
+            android:fontFamily="Mulish"
+            android:gravity="center"
+            android:text="@string/inicio_cerrar_sesion"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

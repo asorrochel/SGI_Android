@@ -5,9 +5,16 @@
       <map>
         <entry key="..\:/Adrian_Sorroche_Datos/Moviles/SGI_ANDROID/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable-v24/btn_bg_shape.xml" value="0.2655" />
+        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable-v24/estilo_btn_azul.xml" value="0.3995" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable-v24/login_borde_prompt.xml" value="0.2655" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable-v24/login_boton_acceder_registrar.xml" value="0.46" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable-v24/textarea_bg_ek1_shape.xml" value="0.351" />
+        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable/btn_gris.xml" value="0.3995" />
+        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable/foto_perfil_con_borde.xml" value="0.404" />
+        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable/foto_perfil_definitiva.xml" value="0.404" />
+        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable/img_perfil.xml" value="0.5465" />
+        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable/perfil_borde.xml" value="0.5465" />
+        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_inicio_tutores_mnt.xml" value="0.3157894736842105" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_login.xml" value="0.4162303664921466" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_registro.xml" value="0.5541666666666667" />
       </map>

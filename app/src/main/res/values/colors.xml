@@ -18,5 +18,5 @@
     <color name="textarea_bg_color">#FCFDFE</color>
     <color name="textfield_color">#4A4F6C</color>
     <color name="label_color">#9FA2B4</color>
-    <color name="acceso_sistema_incidencias_color">#252733</color>
+    <color name="titulos">#252733</color>
 </resources>

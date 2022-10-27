@@ -16,4 +16,13 @@
     <string name="registro_btn_registrar">Registrar</string>
     <string name="registro_confirmar_contraseña">CONFIRMAR CONTRASEÑA</string>
 
+    <!-- INICIO TUTORES MANTENIMIENTO -->
+    <string name="inicio_titulo">Inicio</string>
+    <string name="inicio_panel_control">Panel de Control</string>
+    <string name="inicio_crear_ticket">Crear Ticket</string>
+    <string name="inicio_validar_ticket">Validar Ticket</string>
+    <string name="inicio_estado_ticket">Estado Tickets</string>
+    <string name="inicio_historial_ticket">Historial Tickets</string>
+    <string name="inicio_cerrar_sesion">Cerrar sesión</string>
+
 </resources>

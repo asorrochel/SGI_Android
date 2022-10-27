@@ -26,7 +26,7 @@
         android:fontFamily="Mulish"
         android:gravity="center"
         android:text="@string/login_titulo"
-        android:textColor="@color/acceso_sistema_incidencias_color"
+        android:textColor="@color/titulos"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -70,7 +70,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="32dp"
             android:alpha="0.4"
-            android:background="@drawable/login_borde_prompt"
+            android:background="@drawable/estilo_btn_login_registro"
             android:fontFamily="Mulish"
             android:hint="@string/login_prompt_correo"
             android:inputType="textEmailAddress"
@@ -110,7 +110,7 @@
             android:layout_marginTop="2dp"
             android:layout_marginEnd="29dp"
             android:alpha="0.4"
-            android:background="@drawable/login_borde_prompt"
+            android:background="@drawable/estilo_btn_login_registro"
             android:fontFamily="Mulish"
             android:hint="@string/login_prompt_contraseña"
             android:inputType="textPassword"
@@ -147,14 +147,14 @@
             app:layout_constraintTop_toBottomOf="@+id/login_contraseña_olvidada" />
 
         <Button
-            android:id="@+id/login_btnAcceder"
+            android:id="@+id/inicio_tutores_mnt_btn_panel"
             android:layout_width="296dp"
             android:layout_height="48dp"
             android:layout_gravity="center_horizontal|center"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="65dp"
             android:layout_marginEnd="32dp"
-            android:background="@drawable/login_boton_acceder_registrar"
+            android:background="@drawable/btn_azul"
             android:fontFamily="Mulish"
             android:gravity="center"
             android:text="@string/login_btn_acceder"
