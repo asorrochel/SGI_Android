@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/crearTicketImg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".crearTicketImgActivity">
+
+    <ImageView
+        android:id="@+id/logo_comercio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="75dp"
+        android:contentDescription="logo_comercio"
+        android:src="@drawable/logo_comercio_v2" />
+
+    <TextView
+        android:id="@+id/crear_ticket_img_titulo"
+        android:layout_width="296dp"
+        android:layout_height="18dp"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/mulish_ergular"
+        android:gravity="center"
+        android:text="@string/crear_ticket_titulo"
+        android:textColor="@color/titulos"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ajustes_nombre_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/crear_ticket_img_aula"
+            android:layout_width="296dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/mulish_ergular"
+            android:text="@string/crear_ticket_aula"
+            android:textColor="@color/label_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/crear_ticket_aula_spinner"
+            android:layout_width="347dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="32dp"
+            android:alpha="0.4"
+            android:contentDescription="@string/crear_ticket_aula"
+            android:fontFamily="@font/mulish_ergular"
+            android:hint="@string/crear_ticket_aula"
+            android:paddingLeft="15dp"
+            android:textColor="@color/textfield_color"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/crear_ticket_img_aula" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/crear_ticket_img_equipo_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/crear_ticket_img_equipo"
+            android:layout_width="296dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/mulish_ergular"
+            android:text="@string/crear_ticket_equipo"
+            android:textColor="@color/label_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/crear_ticket_aula_spinner2"
+        android:layout_width="347dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:alpha="0.4"
+
+        android:fontFamily="@font/mulish_ergular"
+        android:hint="@string/ajustes_contraseña_actual_prompt"
+        android:paddingLeft="15dp"
+        android:textColor="@color/textfield_color"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/crear_ticket_img_equipo" />
+
+ </androidx.constraintlayout.widget.ConstraintLayout>
+
+ <androidx.constraintlayout.widget.ConstraintLayout
+     android:id="@+id/crear_ticket_img_comentario_form"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+
+     <TextView
+         android:id="@+id/crear_ticket_img_comentario"
+         android:layout_width="296dp"
+         android:layout_height="16dp"
+         android:layout_marginStart="32dp"
+         android:layout_marginTop="8dp"
+         android:fontFamily="@font/mulish_ergular"
+         android:text="@string/crear_ticket_comentario"
+         android:textColor="@color/label_color"
+         android:textSize="12sp"
+         android:textStyle="bold"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+
+     <TextView
+         android:id="@+id/crear_ticket_img_comentario_prompt"
+         android:layout_width="347dp"
+         android:layout_height="196dp"
+         android:layout_marginStart="32dp"
+         android:layout_marginTop="4dp"
+         android:layout_marginEnd="32dp"
+         android:alpha="0.4"
+         android:background="@drawable/estilo_btn_login_registro"
+         android:fontFamily="@font/mulish_ergular"
+         android:gravity="top"
+         android:hint="@string/crear_ticket_comentario_prompt"
+         android:inputType="text"
+         android:paddingLeft="15dp"
+         android:textColor="@color/textfield_color"
+         android:textSize="14sp"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/crear_ticket_img_comentario" />
+ </androidx.constraintlayout.widget.ConstraintLayout>
+
+ <androidx.constraintlayout.widget.ConstraintLayout
+     android:id="@+id/crear_ticket_img_botones"
+     android:layout_width="match_parent"
+     android:layout_height="280dp"
+     tools:layout_editor_absoluteX="23dp"
+     tools:layout_editor_absoluteY="-1dp">
+
+     <Button
+         android:id="@+id/crear_ticket_img_btn_imagen"
+         android:layout_width="135dp"
+         android:layout_height="26dp"
+         android:layout_gravity="center_horizontal|center"
+         android:layout_marginStart="88dp"
+         android:layout_marginTop="16dp"
+         android:layout_marginEnd="19dp"
+         android:background="@drawable/btn_gris"
+         android:fontFamily="@font/mulish_ergular"
+         android:gravity="center"
+         android:text="@string/crear_ticket_imagen"
+         android:textAllCaps="false"
+         android:textColor="@color/white"
+         android:textSize="14sp"
+         android:textStyle="bold"
+         app:layout_constraintEnd_toStartOf="@+id/crear_ticket_img_enviar"
+         app:layout_constraintHorizontal_bias="1.0"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+
+     <Button
+         android:id="@+id/crear_ticket_img_enviar"
+         android:layout_width="135dp"
+         android:layout_height="26dp"
+         android:layout_gravity="center_horizontal|center"
+         android:layout_marginTop="16dp"
+         android:layout_marginEnd="32dp"
+         android:background="@drawable/btn_azul"
+         android:fontFamily="@font/mulish_ergular"
+         android:gravity="center"
+         android:text="@string/crear_ticket_enviar_ticket"
+         android:textAllCaps="false"
+         android:textColor="@color/white"
+         android:textSize="14sp"
+         android:textStyle="bold"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintHorizontal_bias="0.893"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+ </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

@@ -40,7 +40,7 @@
         app:cardCornerRadius="70dp"
         app:cardElevation="0dp">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/inicio_profesor_alumno_perfil"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -22,6 +22,13 @@
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_inicio_tutores_mnt.xml" value="0.3157894736842105" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_login.xml" value="0.4162303664921466" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_registro.xml" value="0.33" />
+        <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/drawable-v24/btn_azul.xml" value="0.2005" />
+        <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/drawable/foto_perfil_con_borde.xml" value="0.2005" />
+        <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/drawable/perfil_borde.xml" value="0.2005" />
+        <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_ajustes.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_crear_ticket_img.xml" value="0.25" />
+        <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_inicio_profesor_alumno.xml" value="0.25" />
+        <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_inicio_tutores.xml" value="0.31657608695652173" />
       </map>
     </option>
   </component>
