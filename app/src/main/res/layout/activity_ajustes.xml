@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ajustes"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ajustesActivity">
+
+    <ImageView
+        android:id="@+id/logo_comercio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="75dp"
+        android:contentDescription="logo_comercio"
+        android:src="@drawable/logo_comercio_v2" />
+
+    <TextView
+        android:id="@+id/ajustes_titulo"
+        android:layout_width="296dp"
+        android:layout_height="18dp"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginTop="20dp"
+        android:fontFamily="mulish"
+        android:gravity="center"
+        android:text="@string/ajustes_titulo"
+        android:textColor="@color/titulos"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/ajustes_cardview_perfil"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="181dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="70dp"
+        app:cardElevation="0dp">
+
+        <ImageView
+            android:id="@+id/ajustes_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/azul_comercio"
+            android:contentDescription="foto_perfil"
+            android:padding="0dp"
+            android:src="@drawable/foto_perfil_con_borde" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ajustes_nombre_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/ajustes_nombre"
+            android:layout_width="296dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="Mulish"
+            android:text="@string/ajustes_nombre"
+            android:textColor="@color/label_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/ajustes_nombre_prompt"
+            android:layout_width="347dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="32dp"
+            android:alpha="0.4"
+            android:background="@drawable/estilo_btn_login_registro"
+            android:fontFamily="Mulish"
+            android:hint="@string/ajustes_nombre_prompt"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="15dp"
+            android:textColor="@color/textfield_color"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ajustes_nombre" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ajustes_cambiar_contraseña_form"
+        android:layout_width="match_parent"
+        android:layout_height="104dp">
+
+        <TextView
+            android:id="@+id/ajustes_cambiar_contraseña"
+            android:layout_width="296dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="Mulish"
+            android:text="@string/ajustes_cambiar_contraseña"
+            android:textColor="@color/label_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/ajustes_contraseña_actual_prompt"
+            android:layout_width="347dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="32dp"
+            android:alpha="0.4"
+            android:background="@drawable/estilo_btn_login_registro"
+            android:fontFamily="Mulish"
+            android:hint="@string/ajustes_contraseña_actual_prompt"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:textColor="@color/textfield_color"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ajustes_cambiar_contraseña" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ajustes_nueva_contraseña_form"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="-1dp">
+
+        <EditText
+            android:id="@+id/ajustes_nueva_contraseña_prompt"
+            android:layout_width="347dp"
+            android:layout_height="43dp"
+            android:alpha="0.4"
+            android:background="@drawable/estilo_btn_login_registro"
+            android:fontFamily="Mulish"
+            android:hint="@string/ajustes_nueva_contraseña_prompt"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:textColor="@color/textfield_color"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/ajustes_confirmar_contraseña"
+            android:layout_width="347dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="32dp"
+            android:alpha="0.4"
+            android:background="@drawable/estilo_btn_login_registro"
+            android:fontFamily="Mulish"
+            android:hint="@string/ajustes_confirmar_contraseña"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="15dp"
+            android:textColor="@color/textfield_color"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ajustes_nueva_contraseña_prompt" />
+
+        <TextView
+            android:id="@+id/ajustes_silenciar_notificaciones"
+            android:layout_width="189dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginStart="144dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="78dp"
+            android:fontFamily="Mulish"
+            android:text="@string/ajustes_silenciar_notificaciones"
+            android:textColor="@color/label_color"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ajustes_confirmar_contraseña" />
+
+        <ImageView
+            android:id="@+id/ajustes_icono_notificacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="2dp"
+            android:contentDescription="icono_notificacion"
+            android:src="@drawable/icono_notificacion"
+            app:layout_constraintEnd_toStartOf="@+id/ajustes_silenciar_notificaciones"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ajustes_confirmar_contraseña" />
+
+        <Button
+            android:id="@+id/ajustes_btn_guardar"
+            android:layout_width="192dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginStart="111dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/btn_azul"
+            android:fontFamily="Mulish"
+            android:gravity="center"
+            android:text="@string/ajustes_btn_guardar"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ajustes_silenciar_notificaciones" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

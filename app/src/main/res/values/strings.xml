@@ -25,4 +25,15 @@
     <string name="inicio_historial_ticket">Historial Tickets</string>
     <string name="inicio_cerrar_sesion">Cerrar sesión</string>
 
+    <!-- AJUSTES -->
+    <string name="ajustes_titulo">Editar</string>
+    <string name="ajustes_nombre">NOMBRE</string>
+    <string name="ajustes_nombre_prompt">Nombre de usuario</string>
+    <string name="ajustes_cambiar_contraseña">CAMBIAR CONTRASEÑA</string>
+    <string name="ajustes_contraseña_actual_prompt">Contraseña actual</string>
+    <string name="ajustes_nueva_contraseña_prompt">Nueva contraseña</string>
+    <string name="ajustes_confirmar_contraseña">Confirmar contraseña</string>
+    <string name="ajustes_silenciar_notificaciones">Silenciar Notificaciones</string>
+    <string name="ajustes_btn_guardar">Guardar</string>
+
 </resources>
