@@ -12,6 +12,6 @@ public class loginActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio_tutores_mnt);
+        setContentView(R.layout.activity_inicio_tutores);
     }
 }
