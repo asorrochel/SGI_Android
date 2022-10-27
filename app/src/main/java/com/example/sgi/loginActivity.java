@@ -12,6 +12,6 @@ public class loginActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajustes);
+        setContentView(R.layout.activity_login);
     }
 }
