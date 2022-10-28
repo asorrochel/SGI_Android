@@ -32,7 +32,7 @@
         android:textStyle="bold" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ajustes_nombre_form"
+        android:id="@+id/crear_ticket_aula_img_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -50,31 +50,36 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Spinner
-            android:id="@+id/crear_ticket_aula_spinner"
+        <com.google.android.material.textfield.TextInputLayout
+            app:layout_constraintTop_toBottomOf="@+id/crear_ticket_img_aula"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            app:boxBackgroundMode="outline"
+            android:id="@+id/crear_ticket_aula_dropdown"
             android:layout_width="347dp"
-            android:layout_height="43dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="32dp"
             android:alpha="0.4"
-            android:contentDescription="@string/crear_ticket_aula"
             android:fontFamily="@font/mulish_ergular"
-            android:hint="@string/crear_ticket_aula"
-            android:paddingLeft="15dp"
+            android:hint="@string/crear_ticket_aula_dropdown"
             android:textColor="@color/textfield_color"
-            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/crear_ticket_img_aula" />
-
+            >
+            <AutoCompleteTextView
+                android:id="@+id/autocomplete_aula"
+                android:textSize="12sp"
+                android:layout_width="match_parent"
+                android:inputType="none"
+                android:layout_height="wrap_content"></AutoCompleteTextView>
+        </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/crear_ticket_img_equipo_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <TextView
             android:id="@+id/crear_ticket_img_equipo"
             android:layout_width="296dp"
@@ -88,66 +93,74 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/crear_ticket_aula_spinner2"
-        android:layout_width="347dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="32dp"
-        android:alpha="0.4"
-
-        android:fontFamily="@font/mulish_ergular"
-        android:hint="@string/ajustes_contraseña_actual_prompt"
-        android:paddingLeft="15dp"
-        android:textColor="@color/textfield_color"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/crear_ticket_img_equipo" />
-
+        <!-- TextInputEditText Equipo -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/crear_ticket_img_equipo_TextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="347dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="32dp"
+            android:alpha="0.4"
+            android:fontFamily="@font/mulish_ergular"
+            android:textSize="14sp"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/crear_ticket_img_equipo">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_prompt_correo_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textfield_color"
+                android:textSize="12sp"
+                android:hint="@string/crear_ticket_equipo_TextView"/>
+        </com.google.android.material.textfield.TextInputLayout>
  </androidx.constraintlayout.widget.ConstraintLayout>
 
- <androidx.constraintlayout.widget.ConstraintLayout
-     android:id="@+id/crear_ticket_img_comentario_form"
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/crear_ticket_img_comentario_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-     <TextView
-         android:id="@+id/crear_ticket_img_comentario"
-         android:layout_width="296dp"
-         android:layout_height="16dp"
-         android:layout_marginStart="32dp"
-         android:layout_marginTop="8dp"
-         android:fontFamily="@font/mulish_ergular"
-         android:text="@string/crear_ticket_comentario"
-         android:textColor="@color/label_color"
-         android:textSize="12sp"
-         android:textStyle="bold"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/crear_ticket_img_comentario"
+            android:layout_width="296dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/mulish_ergular"
+            android:text="@string/crear_ticket_comentario"
+            android:textColor="@color/label_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-     <TextView
-         android:id="@+id/crear_ticket_img_comentario_prompt"
-         android:layout_width="347dp"
-         android:layout_height="196dp"
-         android:layout_marginStart="32dp"
-         android:layout_marginTop="4dp"
-         android:layout_marginEnd="32dp"
-         android:alpha="0.4"
-         android:background="@drawable/estilo_btn_login_registro"
-         android:fontFamily="@font/mulish_ergular"
-         android:gravity="top"
-         android:hint="@string/crear_ticket_comentario_prompt"
-         android:inputType="text"
-         android:paddingLeft="15dp"
-         android:textColor="@color/textfield_color"
-         android:textSize="14sp"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/crear_ticket_img_comentario" />
- </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- TextInputEditText Comentario -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/crear_ticket_img_comentario_TextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="347dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:alpha="0.4"
+            android:fontFamily="@font/mulish_ergular"
+            android:textSize="14sp"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/crear_ticket_img_comentario">>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_prompt_comentario_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="239dp"
+                android:gravity="top"
+                android:hint="@string/crear_ticket_comentario_prompt"
+                android:textColor="@color/textfield_color"
+                android:textSize="12sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
  <androidx.constraintlayout.widget.ConstraintLayout
      android:id="@+id/crear_ticket_img_botones"
@@ -156,12 +169,12 @@
      tools:layout_editor_absoluteX="23dp"
      tools:layout_editor_absoluteY="-1dp">
 
-     <Button
+     <androidx.appcompat.widget.AppCompatButton
          android:id="@+id/crear_ticket_img_btn_imagen"
          android:layout_width="135dp"
-         android:layout_height="26dp"
+         android:layout_height="48dp"
          android:layout_gravity="center_horizontal|center"
-         android:layout_marginStart="88dp"
+         android:layout_marginStart="75dp"
          android:layout_marginTop="16dp"
          android:layout_marginEnd="19dp"
          android:background="@drawable/btn_gris"
@@ -177,10 +190,10 @@
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toTopOf="parent" />
 
-     <Button
+     <androidx.appcompat.widget.AppCompatButton
          android:id="@+id/crear_ticket_img_enviar"
          android:layout_width="135dp"
-         android:layout_height="26dp"
+         android:layout_height="48dp"
          android:layout_gravity="center_horizontal|center"
          android:layout_marginTop="16dp"
          android:layout_marginEnd="32dp"
@@ -197,5 +210,4 @@
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toTopOf="parent" />
  </androidx.constraintlayout.widget.ConstraintLayout>
-
 </LinearLayout>

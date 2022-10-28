@@ -55,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/inicio_profesores_mnt_btn_panel"
             android:layout_width="192dp"
             android:layout_height="48dp"
@@ -76,7 +76,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:textAllCaps="false"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/inicio_profesores_mnt_btn_estado_ticket"
             android:layout_width="192dp"
             android:layout_height="48dp"
@@ -118,7 +118,7 @@
             app:layout_constraintTop_toBottomOf="@+id/inicio_profesores_mnt_btn_estado_ticket"
             android:textAllCaps="false"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/inicio_profesores_mnt_btn_crear_ticket"
             android:layout_width="192dp"
             android:layout_height="48dp"
@@ -139,7 +139,7 @@
             app:layout_constraintTop_toBottomOf="@+id/inicio_profesores_mnt_btn_panel"
             android:textAllCaps="false"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/inicio_profesores_mnt_btn_cerrar_sesion"
             android:layout_width="192dp"
             android:layout_height="48dp"

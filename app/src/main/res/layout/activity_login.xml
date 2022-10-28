@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/login_logo_comercio"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="73dp"
         android:layout_marginLeft="75dp"
         android:layout_marginTop="50dp"
         android:layout_marginRight="75dp"
@@ -142,7 +142,7 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- Login Boton Acceder -->
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login_btn_acceder"
         android:layout_width="296dp"
         android:layout_height="48dp"

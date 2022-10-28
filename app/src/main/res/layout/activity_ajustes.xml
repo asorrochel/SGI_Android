@@ -200,7 +200,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ajustes_confirmar_contraseña" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/ajustes_btn_guardar"
             android:layout_width="192dp"
             android:layout_height="48dp"

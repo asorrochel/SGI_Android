@@ -6,36 +6,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class crearTicketImgActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+import com.google.android.material.textfield.TextInputLayout;
 
+public class crearTicketImgActivity extends AppCompatActivity {
 
+    TextInputLayout textInputLayout;
+    AutoCompleteTextView autoCompleteTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_ticket_img);
-        Spinner spinner_aula = findViewById(R.id.crear_ticket_aula_spinner);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.equipos, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_aula.setAdapter(adapter);
+        textInputLayout = findViewById(R.id.crear_ticket_aula_dropdown);
+        autoCompleteTextView = findViewById(R.id.autocomplete_aula);
 
-        spinner_aula.setBackgroundResource(android.R.drawable.btn_dropdown);
+        String [] nombres = new String[]{"C01 Diurno","C01 Vespertino","C02 Diurno","C02 Vespertino","C03 Diurno","C03 Vespertino","C04 Diurno","C04 Vespertino","C05 Diurno","C05 Vespertino","C06 Diurno","C06 Vespertino","C07 Diurno","C07 Vespertino","C08 Diurno","C08 Vespertino","C09 Diurno","C09 Vespertino","C10 Diurno","C10 Vespertino","C11 Diurno","C11 Vespertino","C12 Diurno","C12 Vespertino","C13 Diurno","C13 Vespertino","Taller"};
 
-        spinner_aula.setOnItemSelectedListener(this);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                crearTicketImgActivity.this,R.layout.dropdowm_item,nombres);
 
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        String choice  = adapterView.getItemAtPosition(i).toString();
-        Toast.makeText(getApplicationContext(), choice, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
+        autoCompleteTextView.setAdapter(adapter);
     }
 }

@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/registro_logo_comercio"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="73dp"
         android:layout_marginLeft="75dp"
         android:layout_marginTop="50dp"
         android:layout_marginRight="75dp"
@@ -151,7 +151,7 @@
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- Registro Boton Registrar -->
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registro_btn_registrar"
         android:layout_width="296dp"
         android:layout_height="48dp"

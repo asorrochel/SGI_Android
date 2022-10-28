@@ -57,7 +57,7 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="-9dp">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/inicio_tutores_btn_estado_ticket"
             android:layout_width="192dp"
             android:layout_height="48dp"
@@ -78,7 +78,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/inicio_tutores_mnt_validar_ticket"
             android:layout_width="192dp"
             android:layout_height="48dp"
@@ -99,7 +99,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/inicio_tutores_btn_crear_ticket"
             android:layout_width="192dp"
             android:layout_height="48dp"
@@ -120,7 +120,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/inicio_tutores_btn_cerrar_sesion"
             android:layout_width="192dp"
             android:layout_height="48dp"

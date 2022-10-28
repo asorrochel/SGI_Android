@@ -10,7 +10,7 @@
             android:name=".ajustesActivity"
             android:exported="false" />
         <activity
-            android:name=".crearTicketImgActivity"
+            android:name=".registro"
             android:exported="false" />
         <activity
             android:name=".inicioProfesorAlumno"
@@ -28,7 +28,7 @@
             android:name=".login"
             android:exported="false" />
         <activity
-            android:name=".registro"
+            android:name=".crearTicketImgActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
             android:label="@string/app_name">
