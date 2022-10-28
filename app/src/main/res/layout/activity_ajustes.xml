@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ajustesActivity">
+    tools:context=".ajustes">
 
     <ImageView
         android:id="@+id/logo_comercio"
@@ -54,13 +54,12 @@
         android:id="@+id/ajustes_nombre_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <TextView
             android:id="@+id/ajustes_nombre"
             android:layout_width="296dp"
             android:layout_height="16dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/mulish_ergular"
             android:text="@string/ajustes_nombre"
             android:textColor="@color/label_color"
@@ -68,25 +67,28 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/ajustes_nombre_prompt"
+        <!-- TextInputEditText Nombre -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ajustes_nombre_TextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="347dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="4dp"
+            android:layout_height="55dp"
             android:layout_marginEnd="32dp"
             android:alpha="0.4"
-            android:background="@drawable/estilo_btn_login_registro"
             android:fontFamily="@font/mulish_ergular"
-            android:hint="@string/ajustes_nombre_prompt"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="15dp"
-            android:textColor="@color/textfield_color"
             android:textSize="14sp"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="clear_text"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ajustes_nombre" />
+            app:layout_constraintTop_toBottomOf="@+id/ajustes_nombre">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/crear_ticket_prompt_correo_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textfield_color"
+                android:textSize="12sp"
+                android:hint="@string/ajustes_nombre_prompt"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -108,25 +110,28 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/ajustes_contraseña_actual_prompt"
+        <!-- TextInputEditText Equipo -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ajustes_cambiar_contraseña_TextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="347dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="4dp"
+            android:layout_height="55dp"
             android:layout_marginEnd="32dp"
             android:alpha="0.4"
-            android:background="@drawable/estilo_btn_login_registro"
             android:fontFamily="@font/mulish_ergular"
-            android:hint="@string/ajustes_contraseña_actual_prompt"
-            android:inputType="textPassword"
-            android:paddingLeft="15dp"
-            android:textColor="@color/textfield_color"
             android:textSize="14sp"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ajustes_cambiar_contraseña" />
+            app:layout_constraintTop_toBottomOf="@+id/ajustes_cambiar_contraseña">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ajustes_cambiar_contraseña_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textfield_color"
+                android:textSize="12sp"
+                android:hint="@string/ajustes_contraseña_actual_prompt"/>
+        </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -136,39 +141,51 @@
         tools:layout_editor_absoluteX="23dp"
         tools:layout_editor_absoluteY="-1dp">
 
-        <EditText
-            android:id="@+id/ajustes_nueva_contraseña_prompt"
+        <!-- TextInputEditText Nueva Contraseña -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ajustes_nueva_contraseña_TextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="347dp"
-            android:layout_height="43dp"
-            android:alpha="0.4"
-            android:background="@drawable/estilo_btn_login_registro"
-            android:fontFamily="@font/mulish_ergular"
-            android:hint="@string/ajustes_nueva_contraseña_prompt"
-            android:inputType="textPassword"
-            android:paddingLeft="15dp"
-            android:textColor="@color/textfield_color"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/ajustes_confirmar_contraseña"
-            android:layout_width="347dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="4dp"
+            android:layout_height="55dp"
             android:layout_marginEnd="32dp"
             android:alpha="0.4"
-            android:background="@drawable/estilo_btn_login_registro"
             android:fontFamily="@font/mulish_ergular"
-            android:hint="@string/ajustes_confirmar_contraseña"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="15dp"
-            android:textColor="@color/textfield_color"
             android:textSize="14sp"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ajustes_nueva_contraseña_prompt" />
+            app:layout_constraintTop_toBottomOf="@+id/ajustes_cambiar_contraseña_TextField">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ajustes_nueva_contraseña_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textfield_color"
+                android:textSize="12sp"
+                android:hint="@string/ajustes_nueva_contraseña_prompt"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- TextInputEditText Confirmar Contraseña -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ajustes_confirmar_contraseña_TextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="347dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="32dp"
+            android:alpha="0.4"
+            android:fontFamily="@font/mulish_ergular"
+            android:textSize="14sp"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ajustes_nueva_contraseña_TextField">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ajustes_confirmar_contraseña_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textfield_color"
+                android:textSize="12sp"
+                android:hint="@string/ajustes_confirmar_contraseña"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/ajustes_silenciar_notificaciones"
@@ -185,20 +202,18 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ajustes_confirmar_contraseña" />
+            app:layout_constraintTop_toBottomOf="@+id/ajustes_confirmar_contraseña_TextField" />
 
         <ImageView
             android:id="@+id/ajustes_icono_notificacion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="112dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="2dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="3dp"
             android:contentDescription="icono_notificacion"
             android:src="@drawable/icono_notificacion"
             app:layout_constraintEnd_toStartOf="@+id/ajustes_silenciar_notificaciones"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ajustes_confirmar_contraseña" />
+            app:layout_constraintTop_toBottomOf="@+id/ajustes_confirmar_contraseña_TextField" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/ajustes_btn_guardar"
