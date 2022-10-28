@@ -1,14 +1,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/login"
+    android:id="@+id/registro"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
-
+    <!-- Logo Comercio -->
     <ImageView
-        android:id="@+id/logo_comercio"
+        android:id="@+id/registro_logo_comercio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="75dp"
@@ -16,9 +16,9 @@
         android:layout_marginRight="75dp"
         android:contentDescription="logo_comercio"
         android:src="@drawable/logo_comercio" />
-
+    <!-- REGISTRO Titulo -->
     <TextView
-        android:id="@+id/login_titulo"
+        android:id="@+id/registro_titulo"
         android:layout_width="296dp"
         android:layout_height="60dp"
         android:layout_gravity="center_horizontal|center"
@@ -29,15 +29,14 @@
         android:textColor="@color/titulos"
         android:textSize="24sp"
         android:textStyle="bold" />
-
-
+    <!-- REGISTRO - CORREO -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/login_const_correo"
+        android:id="@+id/registro_const_correo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
+        <!-- Texto CORREO -->
         <TextView
-            android:id="@+id/login_correo"
+            android:id="@+id/registro_correo"
             android:layout_width="296dp"
             android:layout_height="16dp"
             android:layout_marginStart="32dp"
@@ -49,35 +48,37 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/login_prompt_correo"
+        <!-- TextInputEditText Correo -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registro_prompt_correo"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="347dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="4dp"
+            android:layout_height="55dp"
             android:layout_marginEnd="32dp"
             android:alpha="0.4"
-            android:background="@drawable/estilo_btn_login_registro"
             android:fontFamily="@font/mulish_ergular"
-            android:hint="@string/login_prompt_correo"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="15dp"
-            android:textColor="@color/textfield_color"
             android:textSize="14sp"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="clear_text"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_correo" />
-
+            app:layout_constraintTop_toBottomOf="@+id/registro_correo">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textfield_color"
+                android:textSize="14sp"
+                android:hint="@string/login_prompt_correo"/>
+        </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- REGISTRO CONTRASEÑA-->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/login_const_contraseña"
+        android:id="@+id/registro_const_contraseña"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
+        <!-- Texto Contraseña -->
         <TextView
-            android:id="@+id/login_contraseña"
+            android:id="@+id/registro_contraseña"
             android:layout_width="296dp"
             android:layout_height="24dp"
             android:layout_marginStart="32dp"
@@ -89,81 +90,82 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/login_prompt_contraseña"
+        <!-- InputEditText Contraseña -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registro_prompt_contraseña"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="347dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="29dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="32dp"
             android:alpha="0.4"
-            android:background="@drawable/estilo_btn_login_registro"
             android:fontFamily="@font/mulish_ergular"
-            android:hint="@string/login_prompt_contraseña"
-            android:inputType="textPassword"
-            android:paddingLeft="15dp"
-            android:textColor="@color/textfield_color"
             android:textSize="14sp"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_contraseña" />
+            app:layout_constraintTop_toBottomOf="@+id/registro_contraseña">>
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registro_prompt_contraseña_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_prompt_contraseña"
+                android:textColor="@color/textfield_color"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Texto Confirmar Contraseña -->
         <TextView
-            android:id="@+id/login_confirmar_contraseña"
+            android:id="@+id/registro_confirmar_contraseña"
             android:layout_width="296dp"
             android:layout_height="24dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/mulish_ergular"
             android:text="@string/registro_confirmar_contraseña"
             android:textColor="@color/label_color"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_prompt_contraseña" />
-
-        <EditText
-            android:id="@+id/login_prompt_confirmar_contraseña"
+            app:layout_constraintTop_toBottomOf="@+id/registro_prompt_contraseña" />
+        <!-- InputEditText Confirmar Contraseña -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registro_prompt_confirmar_contraseña"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="347dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="29dp"
-            android:alpha="0.4"
-            android:background="@drawable/estilo_btn_login_registro"
-            android:fontFamily="@font/mulish_ergular"
-            android:hint="@string/login_prompt_contraseña"
-            android:inputType="textPassword"
-            android:paddingLeft="15dp"
-            android:textColor="@color/textfield_color"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_confirmar_contraseña" />
-
-        <Button
-            android:id="@+id/inicio_tutores_mnt_btn_panel"
-            android:layout_width="296dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center_horizontal|center"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="132dp"
+            android:layout_height="55dp"
             android:layout_marginEnd="32dp"
-            android:background="@drawable/btn_azul"
+            android:alpha="0.4"
             android:fontFamily="@font/mulish_ergular"
-            android:gravity="center"
-            android:text="@string/registro_btn_registrar"
-            android:textColor="@color/white"
             android:textSize="14sp"
-            android:textStyle="bold"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.686"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_prompt_contraseña" />
-
+            app:layout_constraintTop_toBottomOf="@+id/registro_confirmar_contraseña">>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registro_prompt_confirmar_contraseña_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_prompt_contraseña"
+                android:textColor="@color/textfield_color"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+    <!-- Registro Boton Registrar -->
+    <Button
+        android:id="@+id/registro_btn_registrar"
+        android:layout_width="296dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/btn_azul"
+        android:fontFamily="@font/mulish_ergular"
+        android:gravity="center"
+        android:text="@string/registro_btn_registrar"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.686"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_prompt_contraseña" />
 </LinearLayout>

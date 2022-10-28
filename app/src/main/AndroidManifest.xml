@@ -25,10 +25,10 @@
             android:name=".inicioTutoresMnt"
             android:exported="false" />
         <activity
-            android:name=".registroActivity"
+            android:name=".login"
             android:exported="false" />
         <activity
-            android:name=".login"
+            android:name=".registro"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
             android:label="@string/app_name">

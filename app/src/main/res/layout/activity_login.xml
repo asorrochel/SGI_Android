@@ -6,10 +6,9 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
-
     <!-- Logo Comercio -->
     <ImageView
-        android:id="@+id/logo_comercio"
+        android:id="@+id/login_logo_comercio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="75dp"
@@ -17,7 +16,6 @@
         android:layout_marginRight="75dp"
         android:contentDescription="logo_comercio"
         android:src="@drawable/logo_comercio" />
-
     <!-- Login Titulo -->
     <TextView
         android:id="@+id/login_titulo"
@@ -31,8 +29,7 @@
         android:textColor="@color/titulos"
         android:textSize="24sp"
         android:textStyle="bold" />
-
-    <!-- Login Subitutlo -->
+    <!-- Login Subtitutlo -->
     <TextView
         android:id="@+id/login_intro_datos"
         android:layout_width="219dp"
@@ -45,7 +42,6 @@
         android:text="@string/login_intro_datos"
         android:textColor="@color/textfield_color"
         android:textSize="14sp" />
-
     <!-- LOGIN - CORREO -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_const_correo"
@@ -80,6 +76,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_correo">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_prompt_correo_EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/textfield_color"
@@ -87,7 +84,6 @@
                 android:hint="@string/login_prompt_correo"/>
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
     <!-- Login CONTRASEÑA-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_const_contraseña"
@@ -123,7 +119,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_contraseña">>
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditText"
+                android:id="@+id/login_prompt_contraseña_EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/login_prompt_contraseña"
@@ -147,7 +143,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- Login Boton Acceder -->
     <Button
-        android:id="@+id/inicio_tutores_mnt_btn_panel"
+        android:id="@+id/login_btn_acceder"
         android:layout_width="296dp"
         android:layout_height="48dp"
         android:layout_gravity="center_horizontal|center"
@@ -162,7 +158,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_prompt_contraseña" />
-
     <TextView
         android:id="@+id/login_registrarse"
         android:layout_width="219dp"
