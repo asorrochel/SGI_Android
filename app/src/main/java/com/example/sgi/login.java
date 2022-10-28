@@ -6,12 +6,12 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.ImageView;
 
-public class loginActivity extends Activity {
+public class login extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crear_ticket_img);
+        setContentView(R.layout.activity_login);
     }
 }

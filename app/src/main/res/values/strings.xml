@@ -10,6 +10,7 @@
     <string name="login_contraseña_olvidada">He olvidado la contraseña</string>
     <string name="login_intro_datos">Introduce tus Datos de Acceso:</string>
     <string name="login_titulo">Acceso Sistema Incidencias</string>
+    <string name="login_registrar">Crear Cuenta</string>
 
     <!-- REGISTRO -->
     <string name="registro_titulo">Registro</string>
@@ -44,12 +45,12 @@
     <string name="crear_ticket_comentario_prompt">Describe la incidencia.</string>
     <string name="crear_ticket_imagen">imagen</string>
     <string name="crear_ticket_enviar_ticket">Enviar Ticket</string>
-        <!-- ARRAY SPINNER AULAS-->
+    <!-- ARRAY SPINNER AULAS-->
     <string-array name="aulas">
         <item>C2</item>
         <item>C3</item>
     </string-array>
-        <!-- ARRAY EQUIPOS-->
+    <!-- ARRAY EQUIPOS-->
     <string-array name="equipos">
         <item>01</item>
         <item>02</item>
