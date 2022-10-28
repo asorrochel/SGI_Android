@@ -31,24 +31,17 @@
         android:textSize="14sp"
         android:textStyle="bold" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/inicio_tutores_cardview_perfil"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/inicio_tutores_btn_add_foto_perfil"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="181dp"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="70dp"
-        app:cardElevation="0dp">
-
-        <ImageView
-            android:id="@+id/inicio_tutores_perfil"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="@color/azul_comercio"
-            android:contentDescription="foto_perfil"
-            android:padding="0dp"
-            android:src="@drawable/foto_perfil_con_borde" />
-    </androidx.cardview.widget.CardView>
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center|center_horizontal"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_add_photo"
+        app:civ_border_color="@color/gris_claro"
+        app:civ_border_overlay="true"
+        app:civ_border_width="1dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/inicio_tutores_botones"
