@@ -62,12 +62,14 @@
             app:endIconMode="clear_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/registro_correo">
+
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registro_prompt_correo_EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/login_prompt_correo"
                 android:textColor="@color/textfield_color"
-                android:textSize="14sp"
-                android:hint="@string/login_prompt_correo"/>
+                android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -101,15 +103,15 @@
             android:fontFamily="@font/mulish_ergular"
             android:textSize="14sp"
             app:boxBackgroundMode="outline"
-            app:endIconMode="password_toggle"
+            app:passwordToggleEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/registro_contraseña">>
-
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/registro_prompt_contraseña_EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/login_prompt_contraseña"
+                android:inputType="textPassword"
                 android:textColor="@color/textfield_color"
                 android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -138,7 +140,7 @@
             android:fontFamily="@font/mulish_ergular"
             android:textSize="14sp"
             app:boxBackgroundMode="outline"
-            app:endIconMode="password_toggle"
+            app:passwordToggleEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/registro_confirmar_contraseña">>
             <com.google.android.material.textfield.TextInputEditText
@@ -146,6 +148,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/login_prompt_contraseña"
+                android:inputType="textPassword"
                 android:textColor="@color/textfield_color"
                 android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>

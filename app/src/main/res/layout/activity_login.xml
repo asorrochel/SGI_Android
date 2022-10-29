@@ -138,6 +138,7 @@
             android:text="@string/login_contraseña_olvidada"
             android:textColor="@color/textfield_color"
             android:textSize="12sp"
+            android:clickable="true"
             app:layout_constraintStart_toEndOf="@+id/login_contraseña"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -170,6 +171,7 @@
         android:text="@string/login_registrar"
         android:textColor="@color/textfield_color"
         android:textSize="12sp"
+        android:clickable="true"
         app:layout_constraintStart_toEndOf="@+id/login_contraseña"
         app:layout_constraintTop_toTopOf="parent" />
 </LinearLayout>
