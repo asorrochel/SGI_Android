@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sistema de Gestion Incidencias </string>
+    <string name="app_name">SGI</string>
     <!-- LOGIN -->
     <string name="login_btn_acceder">Iniciar sesión</string>
     <string name="login_prompt_correo">Correo Electrónico</string>
