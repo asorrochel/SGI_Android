@@ -29,7 +29,9 @@
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/drawable-v24/btn_azul.xml" value="0.2005" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/drawable-v24/estilo_btn_login_registro.xml" value="0.316" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/drawable-v24/ic_add_photo.xml" value="0.1" />
+        <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2785" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/drawable/foto_perfil_con_borde.xml" value="0.2005" />
+        <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2785" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/drawable/perfil_borde.xml" value="0.2005" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_ajustes.xml" value="0.4363395225464191" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_crear_ticket.xml" value="0.264945652173913" />
@@ -39,7 +41,9 @@
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_inicio_tutores.xml" value="0.31657608695652173" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_inicio_tutores_mnt.xml" value="0.264945652173913" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_login.xml" value="0.264945652173913" />
-        <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_registro.xml" value="0.264945652173913" />
+        <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_registro.xml" value="0.25" />
+        <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2785" />
+        <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2125" />
       </map>
     </option>
   </component>

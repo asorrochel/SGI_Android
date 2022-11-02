@@ -9,7 +9,7 @@ import android.view.View;
 
 public class inicioTutoresMnt extends AppCompatActivity {
 
-    AppCompatButton btnCerrarSesion;
+    AppCompatButton btnCerrarSesion, btnPanelControl, btnCrearTicket, btnValidarTicket, btnEstadoTicket, btnHistorialTicket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
