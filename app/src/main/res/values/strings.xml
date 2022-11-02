@@ -11,6 +11,7 @@
     <string name="login_intro_datos">Introduce tus Datos de Acceso:</string>
     <string name="login_titulo">Acceso Sistema Incidencias</string>
     <string name="login_registrar">Crear Cuenta</string>
+    <string name="login_resetar_contraseña">Restaurar Contraseña</string>
 
     <!-- REGISTRO -->
     <string name="registro_titulo">Registro</string>
