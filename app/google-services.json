@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "701906130011",
+    "project_id": "sgi-comercio",
+    "storage_bucket": "sgi-comercio.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:701906130011:android:9d9ab4fca8184ca3fd5b7e",
+        "android_client_info": {
+          "package_name": "com.example.sgi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "701906130011-9u5cle5mtjs2kv7cqlfjnp8ai7mttp6t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEu_o9cnSec8BgeXbS6j9tgLH9qXaLD9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "701906130011-9u5cle5mtjs2kv7cqlfjnp8ai7mttp6t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

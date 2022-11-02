@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Sistema de Gestion Incidencias </string>
     <!-- LOGIN -->
-    <string name="login_btn_acceder">Acceder</string>
+    <string name="login_btn_acceder">Iniciar sesión</string>
     <string name="login_prompt_correo">Correo Electrónico</string>
     <string name="login_correo">CORREO</string>
     <string name="login_contraseña">CONTRASEÑA</string>
@@ -16,6 +16,10 @@
     <string name="registro_titulo">Registro</string>
     <string name="registro_btn_registrar">Registrar</string>
     <string name="registro_confirmar_contraseña">CONFIRMAR CONTRASEÑA</string>
+    <string name="registro_login">¿Ya tienes una cuenta? Iniciar sesión</string>
+    <string name="registro_nombre_apellidos_prompt">Nombre y apellidos</string>
+    <string name="registro_nombre">NOMBRE</string>
+
 
     <!-- INICIO TUTORES MNT | PROFESORES MNT -->
     <string name="inicio_titulo">Inicio</string>
