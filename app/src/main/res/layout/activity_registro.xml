@@ -188,8 +188,9 @@
         android:fontFamily="@font/mulish_ergular"
         android:gravity="center_horizontal"
         android:text="@string/registro_login"
-        android:textColor="@color/textfield_color"
-        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/registro_btn_registrar"
         app:layout_constraintTop_toTopOf="parent" />
 </LinearLayout>

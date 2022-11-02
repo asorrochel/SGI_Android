@@ -4,22 +4,16 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.ImageView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
-
-import com.example.sgi.databinding.ActivityLoginBinding;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.AuthResult;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
-import org.w3c.dom.Text;
 
 public class login extends Activity {
 
@@ -28,6 +22,7 @@ public class login extends Activity {
     AppCompatButton btn_Acceder;
     EditText contraseñaET,correoET;
     TextView registrarse;
+    TextInputLayout correoTV, contraseñaTV;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,15 +35,19 @@ public class login extends Activity {
         correoET = findViewById(R.id.login_prompt_correo_EditText);
         contraseñaET = findViewById(R.id.login_prompt_contraseña_EditText);
         registrarse = findViewById(R.id.login_registrarse);
+        correoTV = findViewById(R.id.login_prompt_correo);
+        contraseñaTV = findViewById(R.id.login_prompt_contraseña);
 
         firebaseAuth=FirebaseAuth.getInstance();
+
+        comprobarEstadoBoton(btn_Acceder,false);
 
         btn_Acceder.setOnClickListener((View) -> {
                     progressDialog.show();
                     String correo = correoET.getText().toString();
                     String contraseña = contraseñaET.getText().toString();
                     if (correo.length() == 0 || contraseña.length() == 0) {
-                        Toast.makeText(login.this, "Correo o contraseña no validos", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(login.this, "Correo o contraseña no válidos", Toast.LENGTH_SHORT).show();
                         return;
                     }
                     firebaseAuth.signInWithEmailAndPassword(correo, contraseña).addOnCompleteListener((task) -> {
@@ -57,13 +56,76 @@ public class login extends Activity {
                             if(firebaseAuth.getCurrentUser().isEmailVerified()){
                                 startActivity(new Intent(login.this, inicioTutoresMnt.class));
                             } else {
-                                Toast.makeText(login.this, "Correo o contraseña no validos", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(login.this, "Correo no validado", Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            Toast.makeText(login.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(login.this, "Correo o contraseña no válidos", Toast.LENGTH_SHORT).show();
                         }
                     });
             });
+
+        correoET.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int i, int i1, int i2) {
+                if(s.toString().isEmpty()) {
+                    comprobarEstadoBoton(btn_Acceder,false);
+                } else {
+                    comprobarEstadoBoton(btn_Acceder,true);
+                }
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int i, int i1, int i2) {
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(!editable.toString().isEmpty()) {
+                    if(correoET.getText().toString().isEmpty() || contraseñaET.getText().toString().isEmpty()){
+                        correoTV.setError(null);
+                        comprobarEstadoBoton(btn_Acceder,false);
+                    } else {
+                        correoTV.setError(null);
+                        comprobarEstadoBoton(btn_Acceder,true);
+                    }
+                }else {
+                    correoTV.setError("");
+                    comprobarEstadoBoton(btn_Acceder,false);
+                }
+            }
+        });
+
+        contraseñaET.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int i, int i1, int i2) {
+                if(s.toString().isEmpty()) {
+                    comprobarEstadoBoton(btn_Acceder,false);
+                } else {
+                    comprobarEstadoBoton(btn_Acceder,true);
+                }
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int i, int i1, int i2) {
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(!editable.toString().isEmpty()) {
+                    if(contraseñaET.getText().toString().isEmpty() || correoET.getText().toString().isEmpty()){
+                        contraseñaTV.setError(null);
+                        comprobarEstadoBoton(btn_Acceder,false);
+                    }
+                    else {
+                        contraseñaTV.setError(null);
+                        comprobarEstadoBoton(btn_Acceder,true);
+                    }
+                }else {
+                    contraseñaTV.setError("");
+                    comprobarEstadoBoton(btn_Acceder,false);
+                }
+                if(editable.length() > 15) {
+                    contraseñaTV.setError("Maximo caracteres permitidos");
+                }
+            }
+        });
+
         /*
         binding.loginContraseAOlvidada.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,5 +154,14 @@ public class login extends Activity {
         registrarse.setOnClickListener((View) -> {
                 startActivity(new Intent(login.this,registro.class));
         });
+    }
+
+    private void comprobarEstadoBoton(Button b, boolean estado) {
+        b.setEnabled(estado);
+        if(b.isEnabled() == false) {
+            btn_Acceder.setBackgroundResource(R.drawable.btn_gris);
+        } else {
+            btn_Acceder.setBackgroundResource(R.drawable.btn_azul);
+        }
     }
 }
