@@ -51,7 +51,7 @@
         tools:layout_editor_absoluteY="-9dp">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/inicio_profesor_alumno_estado_ticket"
+            android:id="@+id/inicio_profesor_alumno_btn_estado_ticket"
             android:layout_width="192dp"
             android:layout_height="48dp"
             android:layout_gravity="center_horizontal|center"
@@ -69,10 +69,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inicio_profesor_alumno_crear_ticket" />
+            app:layout_constraintTop_toBottomOf="@+id/inicio_profesor_alumno_btn_crear_ticket" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/inicio_profesor_alumno_crear_ticket"
+            android:id="@+id/inicio_profesor_alumno_btn_crear_ticket"
             android:layout_width="192dp"
             android:layout_height="48dp"
             android:layout_gravity="center_horizontal|center"
@@ -93,7 +93,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/inicio_profesor_alumno_cerrar_sesion"
+            android:id="@+id/inicio_profesor_alumno_btn_cerrar_sesion"
             android:layout_width="192dp"
             android:layout_height="48dp"
             android:layout_gravity="center_horizontal|center"

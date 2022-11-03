@@ -72,7 +72,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/inicio_tutores_mnt_validar_ticket"
+            android:id="@+id/inicio_tutores_btn_validar_ticket"
             android:layout_width="192dp"
             android:layout_height="48dp"
             android:layout_gravity="center_horizontal|center"

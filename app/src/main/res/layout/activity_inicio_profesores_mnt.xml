@@ -90,7 +90,7 @@
             app:layout_constraintTop_toBottomOf="@+id/inicio_profesores_mnt_btn_crear_ticket"
             android:textAllCaps="false"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/inicio_profesores_mnt_btn_historial_ticket"
             android:layout_width="192dp"
             android:layout_height="48dp"
