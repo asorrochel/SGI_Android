@@ -11,8 +11,8 @@ import android.view.View;
 
 public class inicioTutoresMnt extends AppCompatActivity {
 
-    AppCompatButton btnCerrarSesion, btnPanelControl, btnCrearTicket, btnValidarTicket, btnEstadoTicket, btnHistorialTicket;
     Toolbar toolbar;
+    AppCompatButton btnCerrarSesion, btnPanelControl, btnCrearTicket, btnValidarTicket, btnEstadoTicket, btnHistorialTicket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +20,7 @@ public class inicioTutoresMnt extends AppCompatActivity {
         setContentView(R.layout.activity_inicio_tutores_mnt);
 
         toolbar = findViewById(R.id.mainToolBar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        setToolbar(toolbar);
 
         btnPanelControl = findViewById(R.id.inicio_tutores_mnt_btn_panel);
         btnCrearTicket = findViewById(R.id.inicio_tutores_mnt_btn_crear_ticket);
@@ -36,6 +35,11 @@ public class inicioTutoresMnt extends AppCompatActivity {
         clickEstadoTicket();
         clickHistorialTicket();
         clickCerrarSesion();
+    }
+
+    private void setToolbar(Toolbar toolbar) {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     @Override

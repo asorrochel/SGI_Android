@@ -1,8 +1,11 @@
 package com.example.sgi;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
@@ -10,12 +13,17 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class crearTicketImg extends AppCompatActivity {
 
+    Toolbar toolbar;
     TextInputLayout textInputLayout;
     AutoCompleteTextView autoCompleteTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_ticket_img);
+
+        toolbar = findViewById(R.id.mainToolBar);
+        setToolbar(toolbar);
 
         textInputLayout = findViewById(R.id.crear_ticket_aula_img_dropdown);
         autoCompleteTextView = findViewById(R.id.autocomplete_aula_img);
@@ -26,5 +34,17 @@ public class crearTicketImg extends AppCompatActivity {
                 crearTicketImg.this,R.layout.dropdowm_item,aulas);
 
         autoCompleteTextView.setAdapter(adapter);
+    }
+
+    private void setToolbar(Toolbar toolbar) {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
     }
 }
