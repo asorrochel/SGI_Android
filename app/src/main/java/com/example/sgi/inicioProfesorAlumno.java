@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 public class inicioProfesorAlumno extends AppCompatActivity {
@@ -44,6 +45,17 @@ public class inicioProfesorAlumno extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.ajustes) {
+            startActivity(new Intent(inicioProfesorAlumno.this, ajustes.class));
+            return true;
+        } else {
+            Toast.makeText(inicioProfesorAlumno.this, "Error al acceder a Ajustes", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+
     private void clickCrearTicket() {
         btnCrearTicket.setOnClickListener((View) -> {
             if (u.getRolUsuario().equalsIgnoreCase("ROL_PROFESOR")) {
@@ -51,7 +63,7 @@ public class inicioProfesorAlumno extends AppCompatActivity {
             } else if (u.getRolUsuario().equalsIgnoreCase("ROL_ALUMNO")) {
                 startActivity(new Intent(inicioProfesorAlumno.this, crearTicket.class));
             } else {
-                Toast.makeText(inicioProfesorAlumno.this, "Error al acceder a: Crear Ticket", Toast.LENGTH_SHORT).show();
+                Toast.makeText(inicioProfesorAlumno.this, "Error al acceder a Crear Ticket", Toast.LENGTH_SHORT).show();
             }
         });
     }
