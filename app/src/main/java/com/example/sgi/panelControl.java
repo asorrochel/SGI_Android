@@ -13,7 +13,6 @@ public class panelControl extends AppCompatActivity {
 
     AppCompatButton pc_btn_nuevos, pc_btn_espera, pc_btn_proceso, pc_btn_urgentes ;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +26,10 @@ public class panelControl extends AppCompatActivity {
         pc_btn_nuevos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pc_btn_nuevos.setBackgroundResource(R.drawable.btn_verde_borde);
+                pc_btn_nuevos.setBackgroundResource(R.drawable.btn_verde);
+                pc_btn_espera.setBackgroundResource(R.drawable.btn_azul_oscuro_borde);
+                pc_btn_proceso.setBackgroundResource(R.drawable.btn_amarillo_borde);
+                pc_btn_urgentes.setBackgroundResource(R.drawable.btn_rojo_borde);
 
                 replaceFragment(new pc_fragment_nuevos());
             }
@@ -36,18 +38,32 @@ public class panelControl extends AppCompatActivity {
         pc_btn_espera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pc_btn_espera.setBackgroundResource(R.drawable.btn_azul_oscuro);
+                pc_btn_nuevos.setBackgroundResource(R.drawable.btn_verde_borde);
+                pc_btn_proceso.setBackgroundResource(R.drawable.btn_amarillo_borde);
+                pc_btn_urgentes.setBackgroundResource(R.drawable.btn_rojo_borde);
+
                 replaceFragment(new pc_fragment_espera());
             }
         });
         pc_btn_proceso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pc_btn_proceso.setBackgroundResource(R.drawable.btn_amarillo);
+                pc_btn_nuevos.setBackgroundResource(R.drawable.btn_verde_borde);
+                pc_btn_urgentes.setBackgroundResource(R.drawable.btn_rojo_borde);
+                pc_btn_espera.setBackgroundResource(R.drawable.btn_azul_oscuro_borde);
+
                 replaceFragment(new pc_frament_proceso());
             }
         });
         pc_btn_urgentes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pc_btn_urgentes.setBackgroundResource(R.drawable.btn_rojo);
+                pc_btn_nuevos.setBackgroundResource(R.drawable.btn_verde_borde);
+                pc_btn_proceso.setBackgroundResource(R.drawable.btn_amarillo_borde);
+                pc_btn_espera.setBackgroundResource(R.drawable.btn_azul_oscuro_borde);
                 replaceFragment(new pc_fragment_urgentes());
             }
         });

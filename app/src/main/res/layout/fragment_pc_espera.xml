@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".pc_fragment_espera"
-    android:background="@color/gris_claro">
+    android:background="@color/azul">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|center_horizontal"
         android:gravity="center|center_horizontal"
-        android:text="NUEVOS"
+        android:text="Tickets En Espera"
         android:textColor="@color/white"/>
 
 </FrameLayout>

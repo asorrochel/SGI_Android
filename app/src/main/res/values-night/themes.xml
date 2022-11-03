@@ -12,5 +12,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <!-- Alert Dialog Boton -->
+        <item name="materialAlertDialogTheme">@style/MyThemeOverlay.MaterialComponents.MaterialAlertDialog</item>
+        <!--  -->
+        <item name="windowActionBar">false</item>
     </style>
 </resources>

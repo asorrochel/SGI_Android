@@ -25,72 +25,80 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/mulish_ergular"
         android:gravity="center"
-        android:text="@string/crear_ticket_titulo"
+        android:text="@string/pc_titulo"
         android:textColor="@color/titulos"
         android:textSize="16sp"
         android:textStyle="bold" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/marg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/pc_btn_nuevos"
-            android:textSize="12dp"
             android:layout_width="80dp"
             android:layout_height="70dp"
             android:layout_marginStart="36dp"
-            android:fontFamily="@font/mulish_ergular"
             android:background="@drawable/btn_verde_borde"
+            android:fontFamily="@font/mulish_ergular"
+            android:padding="10dp"
             android:text="@string/pc_btn_nuevos"
             android:textColor="@color/verde"
+            android:textSize="12dp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/pc_btn_proceso"
-            android:textSize="12dp"
-            android:padding="1dp"
-            android:fontFamily="@font/mulish_ergular"
             android:layout_width="80dp"
             android:layout_height="70dp"
             android:layout_marginStart="8dp"
             android:background="@drawable/btn_amarillo_borde"
+            android:fontFamily="@font/mulish_ergular"
+            android:padding="3dp"
             android:text="@string/pc_btn_proceso"
             android:textColor="@color/amarillo"
+            android:textSize="12dp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/pc_btn_urgentes"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/pc_btn_espera"
-            android:textSize="12dp"
-            android:fontFamily="@font/mulish_ergular"
             android:layout_width="80dp"
             android:layout_height="70dp"
             android:layout_marginStart="8dp"
             android:background="@drawable/btn_azul_oscuro_borde"
-            android:text="@string/pc_btn_urgentes"
+            android:fontFamily="@font/mulish_ergular"
+            android:padding="10dp"
+            android:text="@string/pc_btn_espera"
             android:textColor="@color/azul"
+            android:textSize="12dp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/pc_btn_proceso"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/pc_btn_urgentes"
-            android:textSize="12dp"
-            android:fontFamily="@font/mulish_ergular"
             android:layout_width="80dp"
             android:layout_height="70dp"
             android:layout_marginStart="8dp"
             android:background="@drawable/btn_rojo_borde"
+            android:fontFamily="@font/mulish_ergular"
             android:text="@string/pc_btn_urgentes"
             android:textColor="@color/rojo"
+            android:textSize="12dp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/pc_btn_nuevos"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <FrameLayout
         android:id="@+id/panel_control_frame"
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </FrameLayout>
