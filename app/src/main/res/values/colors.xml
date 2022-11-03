@@ -19,4 +19,9 @@
     <color name="textfield_color">#4A4F6C</color>
     <color name="label_color">#9FA2B4</color>
     <color name="titulos">#252733</color>
+    <color name="verde">#29CC97</color>
+    <color name="rojo">#F12B2C</color>
+    <color name="amarillo">#FEC400</color>
+    <color name="azul">#3751FF</color>
+
 </resources>

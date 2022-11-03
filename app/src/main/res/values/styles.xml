@@ -22,5 +22,4 @@
         <item name="android:textColor">@color/azul_comercio</item>
         <item name="fontFamily">@font/mulish_ergular</item>
     </style>
-
 </resources>
