@@ -2,18 +2,24 @@ package com.example.sgi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 
 public class inicioProfesoresMnt extends AppCompatActivity {
 
+    Toolbar toolbar;
     AppCompatButton btnCerrarSesion, btnPanelControl, btnCrearTicket, btnEstadoTicket, btnHistorialTicket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_profesores_mnt);
+
+        toolbar = findViewById(R.id.mainToolBar);
+        setToolbar(toolbar);
 
         btnPanelControl = findViewById(R.id.inicio_profesores_mnt_btn_panel);
         btnCrearTicket = findViewById(R.id.inicio_profesores_mnt_btn_crear_ticket);
@@ -26,6 +32,18 @@ public class inicioProfesoresMnt extends AppCompatActivity {
         clickEstadoTicket();
         clickHistorialTicket();
         clickCerrarSesion();
+    }
+
+    private void setToolbar(Toolbar toolbar) {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_toolbar, menu);
+        return true;
     }
 
     private void clickPanelControl() {

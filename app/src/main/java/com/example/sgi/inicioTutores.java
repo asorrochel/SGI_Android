@@ -2,18 +2,24 @@ package com.example.sgi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 public class inicioTutores extends AppCompatActivity {
 
+    Toolbar toolbar;
     AppCompatButton btnCerrarSesion, btnCrearTicket, btnValidarTicket, btnEstadoTicket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_tutores);
+
+        toolbar = findViewById(R.id.mainToolBar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         btnCrearTicket = findViewById(R.id.inicio_tutores_btn_crear_ticket);
         btnValidarTicket = findViewById(R.id.inicio_tutores_btn_validar_ticket);

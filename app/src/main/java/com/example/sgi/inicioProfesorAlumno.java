@@ -2,13 +2,16 @@ package com.example.sgi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.Toast;
 
 public class inicioProfesorAlumno extends AppCompatActivity {
 
+    Toolbar toolbar;
     AppCompatButton btnCerrarSesion, btnCrearTicket, btnEstadoTicket;
     Usuario u = new Usuario();
 
@@ -17,6 +20,9 @@ public class inicioProfesorAlumno extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_profesor_alumno);
 
+        toolbar = findViewById(R.id.mainToolBar);
+        setToolbar(toolbar);
+
         btnCrearTicket = findViewById(R.id.inicio_profesor_alumno_btn_crear_ticket);
         btnEstadoTicket = findViewById(R.id.inicio_profesor_alumno_btn_estado_ticket);
         btnCerrarSesion = findViewById(R.id.inicio_profesor_alumno_btn_cerrar_sesion);
@@ -24,6 +30,18 @@ public class inicioProfesorAlumno extends AppCompatActivity {
         clickCrearTicket();
         clickEstadoTicket();
         clickCerrarSesion();
+    }
+
+    private void setToolbar(Toolbar toolbar) {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_toolbar, menu);
+        return true;
     }
 
     private void clickCrearTicket() {
