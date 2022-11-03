@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".panelControl"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/crear_ticket_logo_comercio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="75dp"
+        android:contentDescription="logo_comercio"
+        android:src="@drawable/logo_comercio_v2" />
+
+    <TextView
+        android:id="@+id/crear_ticket_titulo"
+        android:layout_width="296dp"
+        android:layout_height="18dp"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/mulish_ergular"
+        android:gravity="center"
+        android:text="@string/crear_ticket_titulo"
+        android:textColor="@color/titulos"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/pc_btn_nuevos"
+            android:textSize="12dp"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="36dp"
+            android:fontFamily="@font/mulish_ergular"
+            android:background="@drawable/btn_verde_borde"
+            android:text="@string/pc_btn_nuevos"
+            android:textColor="@color/verde"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/pc_btn_proceso"
+            android:textSize="12dp"
+            android:padding="1dp"
+            android:fontFamily="@font/mulish_ergular"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/btn_amarillo_borde"
+            android:text="@string/pc_btn_proceso"
+            android:textColor="@color/amarillo"
+            app:layout_constraintStart_toEndOf="@+id/pc_btn_urgentes"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/pc_btn_espera"
+            android:textSize="12dp"
+            android:fontFamily="@font/mulish_ergular"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/btn_azul_oscuro_borde"
+            android:text="@string/pc_btn_urgentes"
+            android:textColor="@color/azul"
+            app:layout_constraintStart_toEndOf="@+id/pc_btn_proceso"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/pc_btn_urgentes"
+            android:textSize="12dp"
+            android:fontFamily="@font/mulish_ergular"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/btn_rojo_borde"
+            android:text="@string/pc_btn_urgentes"
+            android:textColor="@color/rojo"
+            app:layout_constraintStart_toEndOf="@+id/pc_btn_nuevos"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/panel_control_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+</LinearLayout>
