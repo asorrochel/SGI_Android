@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.sgi" >
+    package="com.example.sgi">
 
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
-        android:theme="@style/Theme.SGI" >
+        android:theme="@style/Theme.SGI">
+        <activity
+            android:name=".AlertaRecordarPassword"
+            android:exported="false" />
         <activity
             android:name=".crearTicketImg"
             android:exported="false" />
@@ -34,7 +37,7 @@
             android:name=".login"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

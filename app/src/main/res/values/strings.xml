@@ -12,6 +12,8 @@
     <string name="login_titulo">Acceso Sistema Incidencias</string>
     <string name="login_registrar">Crear Cuenta</string>
     <string name="login_resetar_contraseña">Restaurar Contraseña</string>
+        <!-- Activity Recordar Contraseña -->
+    <string name="recordar_contraseña_">Restaurar Contraseña</string>
 
     <!-- REGISTRO -->
     <string name="registro_titulo">Registro</string>

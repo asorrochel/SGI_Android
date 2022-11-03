@@ -7,13 +7,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -135,24 +140,36 @@ public class login extends Activity {
                 startActivity(new Intent(login.this,registro.class));
         });
 
-        contraseña_olvidada.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(login.this,R.style.MyAlertDialogTheme);
-                builder.setTitle("Resetear Contraseña");
-                final EditText et = new EditText(login.this);
-                et.setHint("Correo electrónico");
-                builder.setView(et);
-                builder.setPositiveButton("Resetear", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+        contraseña_olvidada.setOnClickListener((View) -> {
+            View v = LayoutInflater.from(login.this).inflate(R.layout.activity_recordar_password,null);
+            EditText correoRecovery = (EditText) v.findViewById(R.id.alert_rp_prompt_correo_EditText);
+            new MaterialAlertDialogBuilder(login.this,R.style.MyThemeOverlay_MaterialComponents_MaterialAlertDialog)
+                    .setTitle("Recuperar Contraseña")
+                    .setView(v)
+                    .setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            progressDialog.show();
+                            String correoRecuperacion = correoRecovery.getText().toString();
 
-                    }
-                });
-                builder.show();
-            }
+                            firebaseAuth.sendPasswordResetEmail(correoRecuperacion).addOnCompleteListener((task) -> {
+                                progressDialog.hide();
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(login.this, "Correo de recuperación enviado", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(login.this, "Cuenta no registrada", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    })
+                    .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
+                        }
+                    })
+                    .show();
         });
-
     }
 
     private void comprobarEstadoBoton(Button b, boolean estado) {
