@@ -5,18 +5,46 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class inicioProfesorAlumno extends AppCompatActivity {
 
-    AppCompatButton btnCerrarSesion;
+    AppCompatButton btnCerrarSesion, btnCrearTicket, btnEstadoTicket;
+    Usuario u = new Usuario();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_profesor_alumno);
 
-        btnCerrarSesion = findViewById(R.id.inicio_profesor_alumno_cerrar_sesion);
+        btnCrearTicket = findViewById(R.id.inicio_profesor_alumno_btn_crear_ticket);
+        btnEstadoTicket = findViewById(R.id.inicio_profesor_alumno_btn_estado_ticket);
+        btnCerrarSesion = findViewById(R.id.inicio_profesor_alumno_btn_cerrar_sesion);
 
+        clickCrearTicket();
+        clickEstadoTicket();
+        clickCerrarSesion();
+    }
+
+    private void clickCrearTicket() {
+        btnCrearTicket.setOnClickListener((View) -> {
+            if (u.getRolUsuario().equalsIgnoreCase("ROL_PROFESOR")) {
+                startActivity(new Intent(inicioProfesorAlumno.this, crearTicketImg.class));
+            } else if (u.getRolUsuario().equalsIgnoreCase("ROL_ALUMNO")) {
+                startActivity(new Intent(inicioProfesorAlumno.this, crearTicket.class));
+            } else {
+                Toast.makeText(inicioProfesorAlumno.this, "Error al acceder a: Crear Ticket", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void clickEstadoTicket() {
+        btnEstadoTicket.setOnClickListener((View) -> {
+            //startActivity(new Intent(inicioProfesorAlumno.this, estadoTicket.class));
+        });
+    }
+
+    private void clickCerrarSesion() {
         btnCerrarSesion.setOnClickListener((View) -> {
             startActivity(new Intent(inicioProfesorAlumno.this, login.class));
         });

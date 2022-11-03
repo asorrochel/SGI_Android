@@ -1,7 +1,7 @@
 package com.example.sgi;
 
 public class Usuario {
-    private String nombre, apellidos, correo, contraseña;
+    private String nombre, apellidos, correo, contraseña, rolUsuario;
 
     public Usuario() {
     }
@@ -42,4 +42,8 @@ public class Usuario {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
+
+    public String getRolUsuario() {return rolUsuario;}
+
+    public void setRolUsuario(String rolUsuario) {this.rolUsuario = rolUsuario;}
 }
