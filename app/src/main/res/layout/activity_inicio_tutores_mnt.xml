@@ -8,6 +8,9 @@
     android:orientation="vertical"
     tools:context=".inicioTutoresMnt">
 
+    <include android:id="@+id/mainToolBar"
+        layout="@layout/toolbar" />
+
     <ImageView
         android:id="@+id/logo_comercio"
         android:layout_width="match_parent"

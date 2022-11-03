@@ -54,4 +54,7 @@
     <string name="crear_ticket_imagen">imagen</string>
     <string name="crear_ticket_enviar_ticket">Enviar Ticket</string>
     <string name="crear_ticket_equipo_TextView">Equipo afectado</string>
+
+    <!-- APP BAR -->
+    <string name="ajustes">Ajustes</string>
 </resources>
