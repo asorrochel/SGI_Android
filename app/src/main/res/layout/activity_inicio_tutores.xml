@@ -55,9 +55,7 @@
             android:layout_width="192dp"
             android:layout_height="48dp"
             android:layout_gravity="center_horizontal|center"
-            android:layout_marginStart="109dp"
-            android:layout_marginTop="184dp"
-            android:layout_marginEnd="109dp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/btn_azul"
             android:fontFamily="@font/mulish_ergular"
             android:gravity="center"
@@ -67,18 +65,15 @@
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/inicio_tutores_btn_validar_ticket" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/inicio_tutores_btn_validar_ticket"
             android:layout_width="192dp"
             android:layout_height="48dp"
             android:layout_gravity="center_horizontal|center"
-            android:layout_marginStart="109dp"
-            android:layout_marginTop="116dp"
-            android:layout_marginEnd="109dp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/btn_azul"
             android:fontFamily="@font/mulish_ergular"
             android:gravity="center"
@@ -88,18 +83,15 @@
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/inicio_tutores_btn_crear_ticket" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/inicio_tutores_btn_crear_ticket"
             android:layout_width="192dp"
             android:layout_height="48dp"
             android:layout_gravity="center_horizontal|center"
-            android:layout_marginStart="109dp"
             android:layout_marginTop="48dp"
-            android:layout_marginEnd="109dp"
             android:background="@drawable/btn_azul"
             android:fontFamily="@font/mulish_ergular"
             android:gravity="center"
@@ -109,7 +101,6 @@
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -118,9 +109,7 @@
             android:layout_width="192dp"
             android:layout_height="48dp"
             android:layout_gravity="center_horizontal|center"
-            android:layout_marginStart="109dp"
             android:layout_marginTop="376dp"
-            android:layout_marginEnd="109dp"
             android:background="@drawable/btn_gris"
             android:fontFamily="@font/mulish_ergular"
             android:gravity="center"
@@ -130,7 +119,6 @@
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
