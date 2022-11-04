@@ -57,7 +57,7 @@
             android:id="@+id/crear_ticket_aula_dropdown"
             android:layout_width="347dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="13dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="32dp"
             android:alpha="0.4"
