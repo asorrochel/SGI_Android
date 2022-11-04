@@ -26,23 +26,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="75dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="75dp"
         android:contentDescription="logo_comercio"
         android:src="@drawable/logo_comercio_v2" />
-
-    <TextView
-        android:id="@+id/ajustes_titulo"
-        android:layout_width="296dp"
-        android:layout_height="18dp"
-        android:layout_gravity="center_horizontal|center"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/mulish_ergular"
-        android:gravity="center"
-        android:text="@string/ajustes_titulo"
-        android:textColor="@color/titulos"
-        android:textSize="16sp"
-        android:textStyle="bold" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ajustes_btn_add_foto_perfil"
