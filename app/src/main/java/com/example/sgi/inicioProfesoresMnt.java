@@ -7,6 +7,8 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 public class inicioProfesoresMnt extends AppCompatActivity {
 
@@ -44,6 +46,17 @@ public class inicioProfesoresMnt extends AppCompatActivity {
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.menu_toolbar, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.ajustes) {
+            startActivity(new Intent(inicioProfesoresMnt.this, ajustes.class));
+            return true;
+        } else {
+            Toast.makeText(inicioProfesoresMnt.this, "Error al acceder a Ajustes", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
     private void clickPanelControl() {

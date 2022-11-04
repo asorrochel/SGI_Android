@@ -6,6 +6,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 public class inicioTutores extends AppCompatActivity {
 
@@ -18,8 +21,7 @@ public class inicioTutores extends AppCompatActivity {
         setContentView(R.layout.activity_inicio_tutores);
 
         toolbar = findViewById(R.id.mainToolBar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        setToolbar(toolbar);
 
         btnCrearTicket = findViewById(R.id.inicio_tutores_btn_crear_ticket);
         btnValidarTicket = findViewById(R.id.inicio_tutores_btn_validar_ticket);
@@ -30,6 +32,29 @@ public class inicioTutores extends AppCompatActivity {
         clickValidarTicket();
         clickEstadoTicket();
         clickCerrarSesion();
+    }
+
+    private void setToolbar(Toolbar toolbar) {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_toolbar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.ajustes) {
+            startActivity(new Intent(inicioTutores.this, ajustes.class));
+            return true;
+        } else {
+            Toast.makeText(inicioTutores.this, "Error al acceder a Ajustes", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
     private void clickCrearTicket() {

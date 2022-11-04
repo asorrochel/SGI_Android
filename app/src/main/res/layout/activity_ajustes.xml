@@ -8,6 +8,19 @@
     android:orientation="vertical"
     tools:context=".ajustes">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:outlineAmbientShadowColor="@color/white"
+        android:outlineSpotShadowColor="@color/white">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/mainToolBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
     <ImageView
         android:id="@+id/logo_comercio"
         android:layout_width="match_parent"
@@ -147,14 +160,15 @@
             app:boxBackgroundMode="outline"
             app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ajustes_cambiar_contraseña_TextField">
+            app:layout_constraintTop_toTopOf="parent">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/ajustes_nueva_contraseña_EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/ajustes_nueva_contraseña_prompt"
                 android:textColor="@color/textfield_color"
-                android:textSize="12sp"
-                android:hint="@string/ajustes_nueva_contraseña_prompt"/>
+                android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- TextInputEditText Confirmar Contraseña -->

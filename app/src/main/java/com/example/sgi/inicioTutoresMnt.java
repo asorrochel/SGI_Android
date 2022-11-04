@@ -3,11 +3,12 @@ package com.example.sgi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.View;
+import android.view.MenuItem;
+import android.widget.Toast;
+
 
 public class inicioTutoresMnt extends AppCompatActivity {
 
@@ -47,6 +48,17 @@ public class inicioTutoresMnt extends AppCompatActivity {
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.menu_toolbar, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.ajustes) {
+            startActivity(new Intent(inicioTutoresMnt.this, ajustes.class));
+            return true;
+        } else {
+            Toast.makeText(inicioTutoresMnt.this, "Error al acceder a Ajustes", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
     private void clickPanelControl() {
