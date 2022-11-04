@@ -2,6 +2,7 @@ package com.example.sgi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -11,12 +12,16 @@ import android.view.View;
 
 public class panelControl extends AppCompatActivity {
 
+    Toolbar toolbar;
     AppCompatButton pc_btn_nuevos, pc_btn_espera, pc_btn_proceso, pc_btn_urgentes ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_panel_control);
+
+        toolbar = findViewById(R.id.mainToolBar);
+        setToolbar(toolbar);
 
         pc_btn_nuevos = findViewById(R.id.pc_btn_nuevos);
         pc_btn_espera = findViewById(R.id.pc_btn_espera);
@@ -75,5 +80,18 @@ public class panelControl extends AppCompatActivity {
         fragmentTransaction.replace(R.id.panel_control_frame, fragment);
         fragmentTransaction.commit();
 
+    }
+
+    private void setToolbar(Toolbar toolbar) {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Panel de Control");
+        //getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
     }
 }

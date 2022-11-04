@@ -37,7 +37,8 @@ public class crearTicket extends AppCompatActivity {
 
     private void setToolbar(Toolbar toolbar) {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setTitle("Crear Ticket");
+        //getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

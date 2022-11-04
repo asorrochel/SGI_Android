@@ -41,7 +41,8 @@ public class ajustes extends AppCompatActivity {
 
     private void setToolbar(Toolbar toolbar) {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setTitle("Ajustes");
+        //getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

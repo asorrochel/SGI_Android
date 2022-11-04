@@ -7,40 +7,41 @@
     tools:context=".panelControl"
     android:orientation="vertical">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:outlineAmbientShadowColor="@color/white"
+        android:outlineSpotShadowColor="@color/white">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/mainToolBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
     <ImageView
         android:id="@+id/crear_ticket_logo_comercio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="75dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="75dp"
         android:contentDescription="logo_comercio"
         android:src="@drawable/logo_comercio_v2" />
-
-    <TextView
-        android:id="@+id/crear_ticket_titulo"
-        android:layout_width="296dp"
-        android:layout_height="18dp"
-        android:layout_gravity="center_horizontal|center"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/mulish_ergular"
-        android:gravity="center"
-        android:text="@string/pc_titulo"
-        android:textColor="@color/titulos"
-        android:textSize="16sp"
-        android:textStyle="bold" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/marg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/pc_btn_nuevos"
             android:layout_width="80dp"
             android:layout_height="70dp"
-            android:layout_marginStart="36dp"
+            android:layout_marginStart="24dp"
             android:background="@drawable/btn_verde_borde"
             android:fontFamily="@font/mulish_ergular"
             android:padding="10dp"

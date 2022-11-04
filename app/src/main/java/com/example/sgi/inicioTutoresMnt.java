@@ -40,7 +40,8 @@ public class inicioTutoresMnt extends AppCompatActivity {
 
     private void setToolbar(Toolbar toolbar) {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setTitle("Inicio");
+        //getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     @Override
@@ -63,7 +64,7 @@ public class inicioTutoresMnt extends AppCompatActivity {
 
     private void clickPanelControl() {
         btnPanelControl.setOnClickListener((View) -> {
-            //startActivity(new Intent(inicioTutoresMnt.this, panelControl.class));
+            startActivity(new Intent(inicioTutoresMnt.this, panelControl.class));
         });
     }
 
