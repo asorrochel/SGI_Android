@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -179,6 +183,20 @@ public class registro extends AppCompatActivity{
             }
         });
     }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        View view = this.getCurrentFocus();
+
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private void comprobarEstadoBoton(Button b,boolean estado) {
         b.setEnabled(estado);
         if(b.isEnabled() == false) {
@@ -187,6 +205,4 @@ public class registro extends AppCompatActivity{
             btnRegistrar.setBackgroundResource(R.drawable.btn_azul);
         }
     }
-
-
 }
