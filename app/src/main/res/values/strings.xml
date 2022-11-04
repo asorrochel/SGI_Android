@@ -12,7 +12,7 @@
     <string name="login_titulo">Acceso Sistema Incidencias</string>
     <string name="login_registrar">Crear Cuenta</string>
     <string name="login_resetar_contraseña">Restaurar Contraseña</string>
-        <!-- Activity Recordar Contraseña -->
+    <!-- Activity Recordar Contraseña -->
     <string name="recordar_contraseña_">Restaurar Contraseña</string>
 
     <!-- REGISTRO -->
@@ -55,6 +55,14 @@
     <string name="crear_ticket_enviar_ticket">Enviar Ticket</string>
     <string name="crear_ticket_equipo_TextView">Equipo afectado</string>
 
+    <!-- PANEL CONTROL-->
+    <string name="pc_btn_nuevos">Nuevos 10</string>
+    <string name="pc_btn_urgentes">Urgentes 20</string>
+    <string name="pc_btn_espera">En Espera 30</string>
+    <string name="pc_btn_proceso">En Proceso 40</string>
+    <string name="pc_titulo">Panel de Control</string>
+
     <!-- APP BAR -->
     <string name="ajustes">Ajustes</string>
+
 </resources>
