@@ -1,7 +1,10 @@
 package com.example.sgi;
 
+import android.net.Uri;
+
 public class Usuario {
     private String nombre, apellidos, correo, contraseña, rolUsuario;
+    private Uri imagen;
 
     public Usuario() {
     }
@@ -46,4 +49,8 @@ public class Usuario {
     public String getRolUsuario() {return rolUsuario;}
 
     public void setRolUsuario(String rolUsuario) {this.rolUsuario = rolUsuario;}
+
+    public Uri getImagen() {return imagen;}
+
+    public void setImagen(Uri imagen) {this.imagen = imagen;}
 }
