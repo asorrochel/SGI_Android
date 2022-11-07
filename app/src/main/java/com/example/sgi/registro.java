@@ -164,12 +164,19 @@ public class registro extends AppCompatActivity{
             }
             @Override
             public void afterTextChanged(Editable editable) {
+                boolean condEmail = correoET.getText().toString().matches("^[A-Za-z0-9]+@larioja\\.edu\\.es$"),
+                        condContraseña = contraseñaET.getText().toString().matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,15}$");
+
                 if(!editable.toString().isEmpty() && editable.toString().matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,15}$")) {
                     if(nombreET.getText().toString().isEmpty() || correoET.getText().toString().isEmpty()){
                         contraseñaTV.setError(null);
                         comprobarEstadoBoton(btnRegistrar,false);
                     }
-                    else {
+                    else if (!condEmail && condContraseña){
+                        correoTV.setError("Debe pertenecer al dominio @larioja.edu.es");
+                        contraseñaTV.setError(null);
+                        comprobarEstadoBoton(btnRegistrar,false);
+                    } else {
                         contraseñaTV.setError(null);
                         comprobarEstadoBoton(btnRegistrar,true);
                     }
