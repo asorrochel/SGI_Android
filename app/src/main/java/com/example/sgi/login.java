@@ -30,7 +30,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class login extends Activity {
 
     FirebaseAuth firebaseAuth;
-
+    boolean btnEnabled;
     AppCompatButton btn_Acceder;
     EditText contraseñaET,correoET;
     TextView registrarse, contraseña_olvidada;
@@ -52,6 +52,7 @@ public class login extends Activity {
         contraseña_olvidada = findViewById(R.id.login_contraseña_olvidada);
 
         firebaseAuth=FirebaseAuth.getInstance();
+        btnEnabled = false;
 
         comprobarEstadoBoton(btn_Acceder,false);
 
@@ -146,23 +147,42 @@ public class login extends Activity {
         contraseña_olvidada.setOnClickListener((View) -> {
             View v = LayoutInflater.from(login.this).inflate(R.layout.activity_recordar_password,null);
             EditText correoRecovery = (EditText) v.findViewById(R.id.alert_rp_prompt_correo_EditText);
+
             new MaterialAlertDialogBuilder(login.this,R.style.MyThemeOverlay_MaterialComponents_MaterialAlertDialog)
                     .setTitle("Recuperar Contraseña")
                     .setView(v)
                     .setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
+                        String correoRecuperacion = correoRecovery.getText().toString();
+
+                        public boolean pulsarBoton() {
+                            return correoRecuperacion.matches("^[A-Za-z0-9]+@larioja\\.edu\\.es$");
+                        }
+
+                        public boolean emailVerificado() {
+                            return firebaseAuth.getCurrentUser().isEmailVerified();
+                        }
+
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             progressDialog.show();
-                            String correoRecuperacion = correoRecovery.getText().toString();
 
-                            firebaseAuth.sendPasswordResetEmail(correoRecuperacion).addOnCompleteListener((task) -> {
-                                progressDialog.hide();
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(login.this, "Correo de recuperación enviado", Toast.LENGTH_SHORT).show();
+                            if (pulsarBoton()) {
+                                btnEnabled = true;
+                                if (emailVerificado()) {
+                                    firebaseAuth.sendPasswordResetEmail(correoRecuperacion).addOnCompleteListener((task) -> {
+                                        progressDialog.hide();
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(login.this, "Correo de recuperación enviado", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(login.this, "Cuenta no registrada", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
                                 } else {
-                                    Toast.makeText(login.this, "Cuenta no registrada", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(login.this, "Correo no verificado", Toast.LENGTH_SHORT).show();
                                 }
-                            });
+                            } else {
+                                Toast.makeText(login.this, "Error al enviar petición, no pertenecer al dominio @larioja.edu.es", Toast.LENGTH_LONG).show();
+                            }
                         }
                     })
                     .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -171,7 +191,7 @@ public class login extends Activity {
                             dialogInterface.cancel();
                         }
                     })
-                    .show();
+                    .show().getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(btnEnabled);
         });
     }
 
