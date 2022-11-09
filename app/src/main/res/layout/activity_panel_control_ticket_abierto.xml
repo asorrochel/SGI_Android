@@ -50,6 +50,7 @@
 
         <TextView
             android:id="@+id/textView"
+            android:textSize="12dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -67,6 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="15dp"
+            android:textSize="12dp"
             android:fontFamily="@font/mulish_ergular"
             android:text="AULA Y EQUIPO"
             android:textColor="@color/azul_comercio"
@@ -115,7 +117,7 @@
                     android:fontFamily="@font/mulish_ergular"
                     android:text="Adrián Sorroche López"
                     android:textColor="@color/titulos"
-                    android:textSize="16dp"
+                    android:textSize="12dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/ilt_foto"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -129,7 +131,7 @@
                     android:fontFamily="@font/mulish_ergular"
                     android:text="Aula"
                     android:textColor="@color/titulos"
-                    android:textSize="16dp"
+                    android:textSize="12dp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -144,7 +146,7 @@
                     android:fontFamily="@font/mulish_ergular"
                     android:text="Equipo"
                     android:textColor="@color/gris_claro"
-                    android:textSize="16dp"
+                    android:textSize="12dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/pc_ta_aula" />
@@ -158,6 +160,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:fontFamily="@font/mulish_ergular"
+            android:textSize="12dp"
             android:text="INCIDENCIA"
             android:textColor="@color/azul_comercio"
             android:textStyle="bold"
@@ -171,6 +174,7 @@
             android:layout_marginEnd="15dp"
             android:fontFamily="@font/mulish_ergular"
             android:text="FECHA"
+            android:textSize="12dp"
             android:textColor="@color/azul_comercio"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -187,12 +191,12 @@
             app:cardUseCompatPadding="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
-            app:strokeWidth="1.5dp"
-            app:strokeColor="@color/azul_comercio">
+            app:strokeColor="@color/azul_comercio"
+            app:strokeWidth="1.5dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:layout_height="65dp"
                 android:padding="5dp">
 
                 <TextView
@@ -206,7 +210,7 @@
                     android:paddingBottom="10dp"
                     android:text="Titulo"
                     android:textColor="@color/titulos"
-                    android:textSize="16dp"
+                    android:textSize="12dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:layout_editor_absoluteY="-1dp" />
@@ -220,7 +224,7 @@
                     android:fontFamily="@font/mulish_ergular"
                     android:text="26, Mayo, 2022"
                     android:textColor="@color/titulos"
-                    android:textSize="16dp"
+                    android:textSize="12dp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -234,12 +238,131 @@
                     android:fontFamily="@font/mulish_ergular"
                     android:text="Notificado hace 1 día"
                     android:textColor="@color/gris_claro"
-                    android:textSize="16dp"
+                    android:textSize="12dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/pc_ta_titulo" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/crear_ticket_comentario"
+            android:layout_width="296dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/mulish_ergular"
+            android:text="@string/crear_ticket_comentario"
+            android:textColor="@color/azul_comercio"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ilt_ta_cv2" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/ilt_ta_cv3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/crear_ticket_comentario"
+            app:strokeColor="@color/azul_comercio"
+            app:strokeWidth="1.5dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:padding="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/crear_ticket_comentario">
+
+                <TextView
+                    android:id="@+id/pc_ta_comentario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/mulish_ergular"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="Comentario muestra informacion de ticket"
+                    android:textColor="@color/titulos"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/pc_ta_btn_cerrarTicket"
+            android:layout_width="159dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/btn_verde"
+            android:fontFamily="@font/mulish_ergular"
+            android:padding="10dp"
+            android:text="Cerrar Ticket"
+            android:textColor="@color/verde"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ilt_ta_cv3" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/pc_ta_btn_AsignarTecnico"
+            android:layout_width="159dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/btn_amarillo"
+            android:fontFamily="@font/mulish_ergular"
+            android:padding="10dp"
+            android:text="@string/pc_ta_btn_asignarTecnico"
+            android:textColor="@color/amarillo"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/pc_ta_btn_EnEspera"
+            app:layout_constraintTop_toBottomOf="@+id/pc_ta_btn_Urgentes" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/pc_ta_btn_EnEspera"
+            android:layout_width="159dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/btn_azul_oscuro"
+            android:fontFamily="@font/mulish_ergular"
+            android:padding="10dp"
+            android:text="@string/pc_ta_btn_ponerEnEspera"
+            android:textColor="@color/azul"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pc_ta_btn_cerrarTicket" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/pc_ta_btn_Urgentes"
+            android:layout_width="159dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/btn_rojo"
+            android:fontFamily="@font/mulish_ergular"
+            android:padding="10dp"
+            android:text="@string/pc_ta_btn_Mover_Urgentes"
+            android:textColor="@color/rojo"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/pc_ta_btn_cerrarTicket"
+            app:layout_constraintTop_toBottomOf="@+id/ilt_ta_cv3" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

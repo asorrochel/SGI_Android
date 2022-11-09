@@ -16,7 +16,7 @@
             android:name=".panel.fragments.panelControlTicketAbierto"
             android:exported="false" />
         <activity
-            android:name=".login"
+            android:name="login"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

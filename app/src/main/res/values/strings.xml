@@ -61,6 +61,11 @@
     <string name="pc_btn_espera">En Espera 30</string>
     <string name="pc_btn_proceso">En Proceso 40</string>
     <string name="pc_titulo">Panel de Control</string>
+        <!-- PANEL CONTROL - TICKET ABIERTO-->
+    <string name="pc_ta_btn_cerrarTicket">Cerrar Ticket</string>
+    <string name="pc_ta_btn_asignarTecnico">Asignar Tecnico</string>
+    <string name="pc_ta_btn_ponerEnEspera">Poner en Espera</string>
+    <string name="pc_ta_btn_Mover_Urgentes">Mover a Urgentes</string>
 
     <!-- APP BAR -->
     <string name="ajustes">Ajustes</string>
