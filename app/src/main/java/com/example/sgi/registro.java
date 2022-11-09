@@ -66,11 +66,11 @@ public class registro extends AppCompatActivity{
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(registro.this, "Registro Completado, Verifique su Correo", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(registro.this, "Registro Completado, Verifique su Correo", Toast.LENGTH_LONG).show();
                                     correoET.setText("");
                                     contraseñaET.setText("");
                                 } else {
-                                    Toast.makeText(registro.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(registro.this, "Error al realizar el registro", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

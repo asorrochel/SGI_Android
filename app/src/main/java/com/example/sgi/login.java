@@ -6,7 +6,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcel;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -18,20 +20,32 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
 import com.example.sgi.inicio.inicioTutoresMnt;
+import com.google.android.gms.internal.firebase_auth.zzff;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.FirebaseUserMetadata;
+import com.google.firebase.auth.UserInfo;
+import com.google.firebase.auth.zzy;
+import com.google.firebase.auth.zzz;
+
+import java.util.List;
 
 
 public class login extends Activity {
 
     FirebaseAuth firebaseAuth;
     AppCompatButton btn_Acceder;
-    EditText contraseñaET,correoET;
+    EditText contraseñaET,correoET, contraseñaOlvidadaET;
     TextView registrarse, contraseña_olvidada;
-    TextInputLayout correoTV, contraseñaTV;
+    TextInputLayout correoTV, contraseñaTV, recuperarContraseñaTV;
+    boolean enviarRecovery;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,6 +61,7 @@ public class login extends Activity {
         correoTV = findViewById(R.id.login_prompt_correo);
         contraseñaTV = findViewById(R.id.login_prompt_contraseña);
         contraseña_olvidada = findViewById(R.id.login_contraseña_olvidada);
+        recuperarContraseñaTV = findViewById(R.id.alert_rp_prompt_correo);
 
         firebaseAuth=FirebaseAuth.getInstance();
 
@@ -54,6 +69,8 @@ public class login extends Activity {
 
         setCorreo();
         setContraseña();
+
+        enviarRecovery = true;
 
         crearCuenta();
         restaurarContraseña(progressDialog);
@@ -144,99 +161,45 @@ public class login extends Activity {
 
     private void restaurarContraseña(ProgressDialog progressDialog) {
         contraseña_olvidada.setOnClickListener((View) -> {
-            View v = LayoutInflater.from(login.this).inflate(R.layout.activity_recordar_password,null);
-            EditText correoRecovery = (EditText) v.findViewById(R.id.alert_rp_prompt_correo_EditText);
-            String correoRecuperacion = correoRecovery.getText().toString();
+            View v = LayoutInflater.from(login.this).inflate(R.layout.activity_recordar_password, null);
 
-            if (correoRecuperacion.isEmpty() || !correoRecuperacion.matches("^[A-Za-z0-9]+@larioja\\.edu\\.es$")) {
-                botonRecoveryDisabled(v, progressDialog, correoRecuperacion);
-            } else if(!firebaseAuth.getCurrentUser().isEmailVerified()) {
-                botonRecoveryEnabledSinVerificar(v, progressDialog, correoRecuperacion);
-            } else {
-                botonRecoveryEnabled(v, progressDialog, correoRecuperacion);
-            }
-        });
-    }
+            new MaterialAlertDialogBuilder(login.this, R.style.MyThemeOverlay_MaterialComponents_MaterialAlertDialog)
+                    .setTitle("Recuperar Contraseña")
+                    .setView(v)
+                    .setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            progressDialog.show();
 
-    private void botonRecoveryEnabled(View v, ProgressDialog progressDialog, String correoRecuperacion) {
-        new MaterialAlertDialogBuilder(login.this, R.style.MyThemeOverlay_MaterialComponents_MaterialAlertDialog)
-                .setTitle("Recuperar Contraseña")
-                .setView(v)
-                .setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        progressDialog.show();
-                        firebaseAuth.sendPasswordResetEmail(correoRecuperacion).addOnCompleteListener((task) -> {
-                            progressDialog.hide();
-                            if (task.isSuccessful()) {
-                                Toast.makeText(login.this, "Correo de recuperación enviado", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(login.this, "Cuenta no registrada", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-                })
-                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel();
-                    }
-                })
-                .show();
-    }
+                            EditText correoRecovery = v.findViewById(R.id.alert_rp_prompt_correo_EditText);
+                            String correoRecuperacion = correoRecovery.getText().toString();
 
-    private void botonRecoveryEnabledSinVerificar(View v, ProgressDialog progressDialog, String correoRecuperacion) {
-        new MaterialAlertDialogBuilder(login.this, R.style.MyThemeOverlay_MaterialComponents_MaterialAlertDialog)
-                .setTitle("Recuperar Contraseña")
-                .setView(v)
-                .setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        progressDialog.show();
-                        firebaseAuth.sendPasswordResetEmail(correoRecuperacion).addOnCompleteListener((task) -> {
-                            progressDialog.hide();
-                            if (task.isSuccessful()) {
+                            if (correoRecuperacion.isEmpty() || !correoRecuperacion.matches("^[A-Za-z0-9]+@larioja\\.edu\\.es$")) {
+                                progressDialog.hide();
+                                Toast.makeText(login.this, "El correo debe pertenecer al dominio @larioja.edu.es", Toast.LENGTH_LONG).show();
+                            } /*else if () {
+                                progressDialog.hide();
                                 Toast.makeText(login.this, "Correo no validado", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(login.this, "Cuenta no registrada", Toast.LENGTH_SHORT).show();
+                            }*/ else {
+                                firebaseAuth.sendPasswordResetEmail(correoRecuperacion).addOnCompleteListener((task) -> {
+                                    progressDialog.hide();
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(login.this, "Correo de recuperación enviado", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(login.this, "Cuenta no registrada", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
                             }
-                        });
-                    }
-                })
-                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel();
-                    }
-                })
-                .show();
-    }
-
-    private void botonRecoveryDisabled(View v, ProgressDialog progressDialog, String correoRecuperacion) {
-        new MaterialAlertDialogBuilder(login.this, R.style.MyThemeOverlay_MaterialComponents_MaterialAlertDialog)
-                .setTitle("Recuperar Contraseña")
-                .setView(v)
-                .setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        progressDialog.show();
-                        firebaseAuth.sendPasswordResetEmail(correoRecuperacion).addOnCompleteListener((task) -> {
-                            progressDialog.hide();
-                            if (task.isSuccessful()) {
-                                Toast.makeText(login.this, "Correo de recuperación enviado", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(login.this, "Cuenta no registrada", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-                })
-                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel();
-                    }
-                })
-                .show().getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+                        }
+                    })
+                    .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
+                        }
+                    })
+                    .show();
+        });
     }
 
     private void btnAcceder(ProgressDialog progressDialog) {
