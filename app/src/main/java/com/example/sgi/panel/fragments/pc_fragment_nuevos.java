@@ -1,5 +1,6 @@
 package com.example.sgi.panel.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,29 +27,32 @@ public class pc_fragment_nuevos extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         elements = new ArrayList<>();
-        elements.add(new Ticket("Pato","1","Gallo"));
-        elements.add(new Ticket("Casa","2","Gallo"));
-        elements.add(new Ticket("Perro","3","Gallo"));
-        elements.add(new Ticket("Gallina","4","Gallo"));
-        elements.add(new Ticket("Alacran","5","Gallo"));
-        elements.add(new Ticket("Leon","6","Gallo"));
-        elements.add(new Ticket("Gato","7","Gallo"));
-        elements.add(new Ticket("Trucha","8","Gallo"));
-        elements.add(new Ticket("Jaguar","9","Gallo"));
-        elements.add(new Ticket("Dinosaurio","10","Gallo"));
-        elements.add(new Ticket("Gonzalo","11","Gallo"));
-        elements.add(new Ticket("Pato","12","Gallo"));
-        elements.add(new Ticket("Pato","13","Gallo"));
-        elements.add(new Ticket("Pato","14","Gallo"));
-        elements.add(new Ticket("Pato","15","Gallo"));
-        elements.add(new Ticket("Pato","16","Gallo"));
+        elements.add(new Ticket("Veyon no funciona","C.12 Vesp","PC 01"));
+        elements.add(new Ticket("Cable HDMI roto","C.02 Vesp","PC 05"));
+        elements.add(new Ticket("Proyector no da señal","Taller","Proyector"));
+        elements.add(new Ticket("Patilla derecha teclado rota","C07 Diurno","PC 08"));
+        elements.add(new Ticket("Excell no abre","C.05 Vesp","PC 18"));
+        elements.add(new Ticket("VDI no inicia sesion","Biblioteca","PC 01"));
+        elements.add(new Ticket("Veyon Desinstalado","C.07 Diurno","PC 27"));
+        elements.add(new Ticket("SSD borrado","C.09 Diurno","PC 03"));
+        elements.add(new Ticket("Equipo no arranca","C.06 Vesp","PC 11"));
 
-        ListAdapterTicketsNuevos listAdapter = new ListAdapterTicketsNuevos(elements,this.getContext());
+        ListAdapterTicketsNuevos listAdapter = new ListAdapterTicketsNuevos(elements, this.getContext(), new ListAdapterTicketsNuevos.OnItemClickListener() {
+            @Override
+            public void onItemClick(Ticket item) {
+                entrarEnTicket(item);
+            }
+        });
         View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_pc_nuevos,container,false);
-
         RecyclerView recyclerView=view.findViewById(R.id.fr_pc_nuevos_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerView.setAdapter(listAdapter);
         return view;
+    }
+
+    public void entrarEnTicket(Ticket item) {
+        Intent intent = new Intent(getActivity(), panelControlTicketAbierto.class);
+        intent.putExtra("Ticket",item);
+        startActivity(intent);
     }
 }
