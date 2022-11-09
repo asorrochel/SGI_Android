@@ -93,6 +93,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <!-- Texto Contraseña -->
+
+        <CheckBox
+            android:id="@+id/checkBoxLoginAuto"
+            android:layout_width="212dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/mulish_ergular"
+            android:text="@string/login_inicioSesion"
+            android:textColor="@color/label_color"
+            android:textSize="14sp"
+            android:theme="@style/MyCheckBox"
+            app:layout_constraintStart_toStartOf="@+id/login_prompt_contraseña"
+            app:layout_constraintTop_toBottomOf="@+id/login_prompt_contraseña" />
+
         <TextView
             android:id="@+id/login_contraseña"
             android:layout_width="296dp"
@@ -132,6 +146,7 @@
                 android:inputType="textPassword"
                 android:textColor="@color/textfield_color"
                 android:textSize="14sp" />
+
         </com.google.android.material.textfield.TextInputLayout>
         <!-- Texto Contraseña Olvidada-->
         <TextView
@@ -183,4 +198,5 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/login_contraseña"
         app:layout_constraintTop_toTopOf="parent" />
+
 </LinearLayout>

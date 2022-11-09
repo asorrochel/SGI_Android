@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcel;
@@ -16,6 +17,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,10 +44,11 @@ public class login extends Activity {
 
     FirebaseAuth firebaseAuth;
     AppCompatButton btn_Acceder;
-    EditText contraseñaET,correoET, contraseñaOlvidadaET;
+    EditText contraseñaET,correoET;
     TextView registrarse, contraseña_olvidada;
     TextInputLayout correoTV, contraseñaTV, recuperarContraseñaTV;
-    boolean enviarRecovery;
+    CheckBox checkBoxLogin;
+    boolean estaActivado;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,20 +65,58 @@ public class login extends Activity {
         contraseñaTV = findViewById(R.id.login_prompt_contraseña);
         contraseña_olvidada = findViewById(R.id.login_contraseña_olvidada);
         recuperarContraseñaTV = findViewById(R.id.alert_rp_prompt_correo);
+        checkBoxLogin = findViewById(R.id.checkBoxLoginAuto);
 
         firebaseAuth=FirebaseAuth.getInstance();
 
         comprobarEstadoBoton(btn_Acceder,false);
 
+        estaActivado = checkBoxLogin.isChecked();
+
         setCorreo();
         setContraseña();
-
-        enviarRecovery = true;
 
         crearCuenta();
         restaurarContraseña(progressDialog);
 
+        inicioAuto();
+
+        botonLogin();
         btnAcceder(progressDialog);
+    }
+
+    public static void cambiarEstadoCambiarCheckbox(Context c, boolean b) {
+        SharedPreferences sharedPreferences = c.getSharedPreferences("Correo", MODE_PRIVATE);
+        sharedPreferences.edit().putBoolean("BotonChecked", b).apply();
+    }
+
+    private void inicioAuto() {
+        if (obtenerEstadoBoton()) {
+            startActivity(new Intent(login.this, inicioTutoresMnt.class));
+        }
+    }
+
+    private void botonLogin() {
+        checkBoxLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (estaActivado) {
+                    checkBoxLogin.setChecked(false);
+                }
+                estaActivado = checkBoxLogin.isChecked();
+                guardarEstadoBoton();
+            }
+        });
+    }
+
+    public void guardarEstadoBoton() {
+        SharedPreferences sharedPreferences = getSharedPreferences("Correo", MODE_PRIVATE);
+        sharedPreferences.edit().putBoolean("BotonChecked", checkBoxLogin.isChecked()).apply();
+    }
+
+    public boolean obtenerEstadoBoton() {
+        SharedPreferences sharedPreferences = getSharedPreferences("Correo", MODE_PRIVATE);
+        return sharedPreferences.getBoolean("BotonChecked", false);
     }
 
     private void comprobarEstadoBoton(Button b, boolean estado) {
@@ -203,6 +244,7 @@ public class login extends Activity {
     }
 
     private void btnAcceder(ProgressDialog progressDialog) {
+
         btn_Acceder.setOnClickListener((View) -> {
             progressDialog.show();
             String correo = correoET.getText().toString();
@@ -217,9 +259,11 @@ public class login extends Activity {
                     if(firebaseAuth.getCurrentUser().isEmailVerified()){
                         startActivity(new Intent(login.this, inicioTutoresMnt.class));
                     } else {
+                        cambiarEstadoCambiarCheckbox(this, false);
                         Toast.makeText(login.this, "Correo no validado", Toast.LENGTH_SHORT).show();
                     }
                 } else {
+                    cambiarEstadoCambiarCheckbox(this, false);
                     Toast.makeText(login.this, "Correo o contraseña no válidos", Toast.LENGTH_SHORT).show();
                 }
             });

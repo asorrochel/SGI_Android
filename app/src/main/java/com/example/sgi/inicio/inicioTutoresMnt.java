@@ -61,8 +61,6 @@ public class inicioTutoresMnt extends AppCompatActivity {
         toolbar = findViewById(R.id.mainToolBar);
         setToolbar(toolbar);
 
-
-        //Inicializamos los arrays de permisos
         cameraPermissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
@@ -256,7 +254,8 @@ public class inicioTutoresMnt extends AppCompatActivity {
 
     private void clickCerrarSesion() {
         btnCerrarSesion.setOnClickListener((View) -> {
-            startActivity(new Intent(inicioTutoresMnt.this, login.class));
+            login.cambiarEstadoCambiarCheckbox(inicioTutoresMnt.this, false);
+            finish();
         });
     }
 }

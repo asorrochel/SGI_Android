@@ -245,7 +245,8 @@ public class inicioProfesoresMnt extends AppCompatActivity {
 
     private void clickCerrarSesion() {
         btnCerrarSesion.setOnClickListener((View) -> {
-            startActivity(new Intent(inicioProfesoresMnt.this, login.class));
+            login.cambiarEstadoCambiarCheckbox(inicioProfesoresMnt.this, false);
+            finish();
         });
     }
 }
