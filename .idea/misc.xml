@@ -13,7 +13,6 @@
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable/btn_gris.xml" value="0.3995" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable/foto_perfil_con_borde.xml" value="0.404" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable/foto_perfil_definitiva.xml" value="0.404" />
-        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable/framelayout_nuevos_borde.xml" value="0.393" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable/img_perfil.xml" value="0.5465" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/drawable/perfil_borde.xml" value="0.5465" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_ajustes.xml" value="0.33" />
@@ -24,15 +23,9 @@
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_inicio_tutores.xml" value="0.4510474561778538" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_inicio_tutores_mnt.xml" value="0.5" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_login.xml" value="0.33" />
-        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_panel_control.xml" value="0.2712765957446808" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_registro.xml" value="0.33" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_test.xml" value="0.22" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/dropdowm_item.xml" value="0.1" />
-        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/fragment_pc_espera.xml" value="0.36730072463768115" />
-        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/fragment_pc_nuevos.xml" value="0.5" />
-        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/fragment_pc_urgentes.xml" value="0.36730072463768115" />
-        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/item_list_tickets.xml" value="0.5" />
-        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/pc_frament_proceso.xml" value="0.36730072463768115" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/drawable-v24/btn_azul.xml" value="0.2005" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/drawable-v24/estilo_btn_login_registro.xml" value="0.316" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/drawable-v24/ic_add_photo.xml" value="0.1" />
@@ -47,7 +40,7 @@
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_inicio_profesores_mnt.xml" value="0.264945652173913" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_inicio_tutores.xml" value="0.31657608695652173" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_inicio_tutores_mnt.xml" value="0.25" />
-        <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_login.xml" value="0.264945652173913" />
+        <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_panel_control.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_recordar_password.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_registro.xml" value="0.25" />

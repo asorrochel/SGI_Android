@@ -233,7 +233,8 @@ public class inicioTutores extends AppCompatActivity {
 
     private void clickCerrarSesion() {
         btnCerrarSesion.setOnClickListener((View) -> {
-            startActivity(new Intent(inicioTutores.this, login.class));
+            login.cambiarEstadoCambiarCheckbox(inicioTutores.this, false);
+            finish();
         });
     }
 }
