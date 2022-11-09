@@ -1,4 +1,4 @@
-package com.example.sgi;
+package com.example.sgi.utils;
 
 import android.net.Uri;
 

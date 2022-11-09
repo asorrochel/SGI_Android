@@ -1,4 +1,4 @@
-package com.example.sgi;
+package com.example.sgi.inicio;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,7 +11,6 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -24,15 +23,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.sgi.R;
+import com.example.sgi.ajustes;
+import com.example.sgi.crearTicket.crearTicket;
+import com.example.sgi.crearTicket.crearTicketImg;
+import com.example.sgi.login;
+import com.example.sgi.utils.Usuario;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class inicioProfesoresMnt extends AppCompatActivity {
+public class inicioProfesorAlumno extends AppCompatActivity {
 
-    Usuario u = new Usuario();
-    CircleImageView imagenUsuario;
     Toolbar toolbar;
-    AppCompatButton btnCerrarSesion, btnPanelControl, btnCrearTicket, btnEstadoTicket, btnHistorialTicket;
+    AppCompatButton btnCerrarSesion, btnCrearTicket, btnEstadoTicket;
+    Usuario u = new Usuario();
     Bitmap bmp;
+    CircleImageView imagenUsuario;
 
     //Códigos de Permisos de Cámara y Almacenamiento
     private static final int REQUEST_CAMERA_CODE = 1;
@@ -49,26 +55,18 @@ public class inicioProfesoresMnt extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio_profesores_mnt);
+        setContentView(R.layout.activity_inicio_profesor_alumno);
 
         toolbar = findViewById(R.id.mainToolBar);
         setToolbar(toolbar);
 
-        //Inicializamos los arrays de permisos
-        cameraPermissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        storagePermissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        btnCrearTicket = findViewById(R.id.inicio_profesor_alumno_btn_crear_ticket);
+        btnEstadoTicket = findViewById(R.id.inicio_profesor_alumno_btn_estado_ticket);
+        btnCerrarSesion = findViewById(R.id.inicio_profesor_alumno_btn_cerrar_sesion);
+        imagenUsuario = findViewById(R.id.inicio_profesores_btn_add_foto_perfil);
 
-        btnPanelControl = findViewById(R.id.inicio_profesores_mnt_btn_panel);
-        btnCrearTicket = findViewById(R.id.inicio_profesores_mnt_btn_crear_ticket);
-        btnEstadoTicket = findViewById(R.id.inicio_profesores_mnt_btn_estado_ticket);
-        btnHistorialTicket = findViewById(R.id.inicio_profesores_mnt_btn_historial_ticket);
-        btnCerrarSesion = findViewById(R.id.inicio_profesores_mnt_btn_cerrar_sesion);
-        imagenUsuario = findViewById(R.id.inicio_profesores_mnt_btn_add_foto_perfil);
-
-        clickPanelControl();
         clickCrearTicket();
         clickEstadoTicket();
-        clickHistorialTicket();
         clickCerrarSesion();
 
         añadirImagen();
@@ -206,40 +204,35 @@ public class inicioProfesoresMnt extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.ajustes) {
-            startActivity(new Intent(inicioProfesoresMnt.this, ajustes.class));
+            startActivity(new Intent(inicioProfesorAlumno.this, ajustes.class));
             return true;
         } else {
-            Toast.makeText(inicioProfesoresMnt.this, "Error al acceder a Ajustes", Toast.LENGTH_SHORT).show();
+            Toast.makeText(inicioProfesorAlumno.this, "Error al acceder a Ajustes", Toast.LENGTH_SHORT).show();
             return false;
         }
     }
 
-    private void clickPanelControl() {
-        btnPanelControl.setOnClickListener((View) -> {
-            startActivity(new Intent(inicioProfesoresMnt.this, panelControl.class));
-        });
-    }
-
     private void clickCrearTicket() {
         btnCrearTicket.setOnClickListener((View) -> {
-            startActivity(new Intent(inicioProfesoresMnt.this, crearTicketImg.class));
-        });
-    }
-    private void clickEstadoTicket() {
-        btnEstadoTicket.setOnClickListener((View) -> {
-            //startActivity(new Intent(inicioProfesoresMnt.this, estadoTicket.class));
+            if (u.getRolUsuario().equalsIgnoreCase("ROL_PROFESOR")) {
+                startActivity(new Intent(inicioProfesorAlumno.this, crearTicketImg.class));
+            } else if (u.getRolUsuario().equalsIgnoreCase("ROL_ALUMNO")) {
+                startActivity(new Intent(inicioProfesorAlumno.this, crearTicket.class));
+            } else {
+                Toast.makeText(inicioProfesorAlumno.this, "Error al acceder a Crear Ticket", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
-    private void clickHistorialTicket() {
-        btnHistorialTicket.setOnClickListener((View) -> {
-            //startActivity(new Intent(inicioProfesoresMnt.this, historialTicket.class));
+    private void clickEstadoTicket() {
+        btnEstadoTicket.setOnClickListener((View) -> {
+            //startActivity(new Intent(inicioProfesorAlumno.this, estadoTicket.class));
         });
     }
 
     private void clickCerrarSesion() {
         btnCerrarSesion.setOnClickListener((View) -> {
-            startActivity(new Intent(inicioProfesoresMnt.this, login.class));
+            startActivity(new Intent(inicioProfesorAlumno.this, login.class));
         });
     }
 }

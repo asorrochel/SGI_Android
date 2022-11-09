@@ -1,4 +1,4 @@
-package com.example.sgi;
+package com.example.sgi.panel.fragments;
 
 import android.os.Bundle;
 
@@ -8,15 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class pc_fragment_espera extends Fragment {
+import com.example.sgi.R;
+
+
+public class pc_fragment_urgentes extends Fragment {
 
     View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_pc_espera, container, false);
+        view = inflater.inflate(R.layout.fragment_pc_urgentes, container, false);
         return view;
     }
 }
