@@ -9,6 +9,7 @@
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true"
+    app:strokeColor="@color/verde"
     app:strokeWidth="1dp"
     >
     <LinearLayout

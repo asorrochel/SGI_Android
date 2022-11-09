@@ -20,11 +20,17 @@ public class ListAdapterTicketsNuevos extends RecyclerView.Adapter<ListAdapterTi
     private List<Ticket> mData;
     private LayoutInflater mInflater;
     private Context context;
+    final ListAdapterTicketsNuevos.OnItemClickListener listener;
 
-    public ListAdapterTicketsNuevos(List<Ticket> itemList,Context context){
+    public interface OnItemClickListener {
+        void onItemClick(Ticket item);
+    }
+
+    public ListAdapterTicketsNuevos(List<Ticket> itemList,Context context, ListAdapterTicketsNuevos.OnItemClickListener listener){
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -60,6 +66,12 @@ public class ListAdapterTicketsNuevos extends RecyclerView.Adapter<ListAdapterTi
             titulo.setText((item.getTitulo()));
             equipo.setText(item.getEquipo());
             aula.setText(item.getAula());
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemClick(item);
+                }
+            });
         }
     }
 }
