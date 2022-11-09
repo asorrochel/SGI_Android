@@ -1,4 +1,4 @@
-package com.example.sgi;
+package com.example.sgi.panel;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -9,6 +9,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.sgi.R;
+import com.example.sgi.panel.fragments.pc_fragment_espera;
+import com.example.sgi.panel.fragments.pc_fragment_nuevos;
+import com.example.sgi.panel.fragments.pc_fragment_urgentes;
+import com.example.sgi.panel.fragments.pc_frament_proceso;
 
 public class panelControl extends AppCompatActivity {
 
@@ -22,7 +28,6 @@ public class panelControl extends AppCompatActivity {
 
         toolbar = findViewById(R.id.mainToolBar);
         setToolbar(toolbar);
-
         pc_btn_nuevos = findViewById(R.id.pc_btn_nuevos);
         pc_btn_espera = findViewById(R.id.pc_btn_espera);
         pc_btn_proceso = findViewById(R.id.pc_btn_proceso);

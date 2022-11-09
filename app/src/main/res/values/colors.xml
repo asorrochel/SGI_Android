@@ -23,5 +23,6 @@
     <color name="rojo">#F12B2C</color>
     <color name="amarillo">#FEC400</color>
     <color name="azul">#3751FF</color>
+    <color name="gris_mas_claro">#D8D6D6</color>
 
 </resources>
