@@ -3,9 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pc_fragment_espera"
+    tools:context=".panel.fragments.pc_fragment_espera"
     android:background="@color/azul">
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_list_tickets"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

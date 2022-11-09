@@ -3,9 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pc_frament_proceso"
+    tools:context=".panel.fragments.pc_frament_proceso"
     android:background="@color/amarillo">
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_list_tickets"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

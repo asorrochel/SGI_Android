@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fr_pc_nuevos_fl"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".pc_fragment_nuevos"
-    android:background="@color/verde">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|center_horizontal"
-        android:gravity="center|center_horizontal"
-        android:text="Tickets Nuevos"
-        android:textColor="@color/white"/>
-
+    android:layout_height="wrap_content"
+    tools:context=".panel.fragments.pc_fragment_nuevos">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fr_pc_nuevos_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_list_tickets" />
 </FrameLayout>
