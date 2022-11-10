@@ -209,5 +209,18 @@
          app:layout_constraintHorizontal_bias="0.893"
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toTopOf="parent" />
+
+     <TextView
+         android:id="@+id/mensajeImagen"
+         android:layout_width="222dp"
+         android:layout_height="20dp"
+         android:layout_marginTop="15dp"
+         android:fontFamily="@font/mulish_ergular"
+         android:textColor="@color/verde"
+         android:textSize="12sp"
+         android:textStyle="bold"
+         app:layout_constraintStart_toStartOf="@+id/crear_ticket_img_btn_imagen"
+         app:layout_constraintTop_toBottomOf="@+id/crear_ticket_img_btn_imagen" />
+
  </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

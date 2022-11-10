@@ -1,5 +1,7 @@
 package com.example.sgi.utils;
 
+import android.net.Uri;
+
 import java.io.Serializable;
 
 public class Ticket implements Serializable {
@@ -7,6 +9,7 @@ public class Ticket implements Serializable {
     private String aula;
     private String fecha;
     private String equipo;
+    private Uri imagen;
 
     public Ticket(String titulo, String aula, String equipo) {
         this.titulo = titulo;
@@ -45,4 +48,8 @@ public class Ticket implements Serializable {
     public void setEquipo(String equipo) {
         this.equipo = equipo;
     }
+
+    public Uri getImagen() {return imagen;}
+
+    public void setImagen(Uri imagen) {this.imagen = imagen;}
 }
