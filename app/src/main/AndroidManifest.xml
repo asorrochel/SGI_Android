@@ -13,10 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.SGI">
         <activity
+            android:name=".panel.asignarTecnico"
+            android:exported="false" />
+        <activity
             android:name=".panel.fragments.panelControlTicketAbierto"
             android:exported="false" />
         <activity
-            android:name="login"
+            android:name=".login"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

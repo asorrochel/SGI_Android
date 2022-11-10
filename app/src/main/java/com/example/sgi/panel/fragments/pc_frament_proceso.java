@@ -18,7 +18,7 @@ public class pc_frament_proceso extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view =  inflater.inflate(R.layout.pc_frament_proceso, container, false);
+        view =  inflater.inflate(R.layout.frament_pc_proceso, container, false);
         return view;
 
 
