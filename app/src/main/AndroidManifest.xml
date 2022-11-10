@@ -14,17 +14,20 @@
         android:theme="@style/Theme.SGI">
         <activity
             android:name=".panel.asignarTecnico"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".panel.fragments.panelControlTicketAbierto"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".panel.panelControl"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AlertaRecordarPassword"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".crearTicket.crearTicketImg"
             android:exported="false"
