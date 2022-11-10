@@ -29,7 +29,6 @@
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_recordar_password.xml" value="0.22962962962962963" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_registro.xml" value="0.33" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/activity_test.xml" value="0.22" />
-        <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/dropdowm_item.xml" value="0.1" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/dropdowm_item.xml" value="0.5" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/fragment_pc_espera.xml" value="0.36730072463768115" />
         <entry key="..\:/Users/Adrian/Desktop/SGI_Android/app/src/main/res/layout/fragment_pc_nuevos.xml" value="0.5" />
@@ -44,6 +43,7 @@
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2785" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/drawable/perfil_borde.xml" value="0.2005" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_ajustes.xml" value="0.25" />
+        <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_asignar_tecnico.xml" value="0.2875905797101449" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_crear_ticket.xml" value="0.264945652173913" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_crear_ticket_img.xml" value="0.25" />
         <entry key="..\:/Users/Vespertino/Desktop/SGI_Android/app/src/main/res/layout/activity_inicio_profesor_alumno.xml" value="0.25" />

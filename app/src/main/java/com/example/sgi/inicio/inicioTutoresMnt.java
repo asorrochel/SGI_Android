@@ -2,6 +2,7 @@ package com.example.sgi.inicio;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -39,7 +40,8 @@ public class inicioTutoresMnt extends AppCompatActivity {
     CircleImageView imagenUsuario;
     Toolbar toolbar;
     AppCompatButton btnCerrarSesion, btnPanelControl, btnCrearTicket, btnValidarTicket, btnEstadoTicket, btnHistorialTicket;
-    Bitmap bmp;
+    //Bitmap bmp;
+    Uri uri;
 
     //Códigos de Permisos de Cámara y Almacenamiento
     private static final int REQUEST_CAMERA_CODE = 1;
@@ -137,7 +139,14 @@ public class inicioTutoresMnt extends AppCompatActivity {
     }
 
     private void irCamara() {
+        ContentValues valores = new ContentValues();
+        valores.put(MediaStore.Images.Media.TITLE, "Título de la imagen");
+        valores.put(MediaStore.Images.Media.DESCRIPTION, "Descripción de la imagen");
+
+        //En la uri correpsondiente a la imagen escogida insertamos los valores de título y descripción
+        uri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, valores);
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
         startActivityForResult(intent, PICK_CAMERA_CODE);
     }
 
@@ -182,12 +191,12 @@ public class inicioTutoresMnt extends AppCompatActivity {
         if (u.getImagen() == null) {
             if(resultCode == Activity.RESULT_OK) {
                 if (requestCode == PICK_CAMERA_CODE) {
-                    Bundle ext = data.getExtras();
-                    bmp = (Bitmap) ext.get("data");
-                    imagenUsuario.setImageBitmap(bmp);
+                    //Bundle ext = data.getExtras();
+                    //bmp = (Bitmap) ext.get("data");
+                    imagenUsuario.setImageURI(uri);
                 } else if (requestCode == PICK_GALLERY_CODE) {
-                    Uri path = data.getData();
-                    imagenUsuario.setImageURI(path);
+                    uri = data.getData();
+                    imagenUsuario.setImageURI(uri);
                 }
                 Toast.makeText(this, "Imagen actualizada correctamente", Toast.LENGTH_SHORT).show();
             } else {
