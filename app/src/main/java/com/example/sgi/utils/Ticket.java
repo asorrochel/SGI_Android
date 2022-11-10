@@ -1,6 +1,8 @@
 package com.example.sgi.utils;
 
-public class Ticket {
+import java.io.Serializable;
+
+public class Ticket implements Serializable {
     private String titulo;
     private String aula;
     private String fecha;
