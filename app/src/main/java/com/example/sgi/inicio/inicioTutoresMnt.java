@@ -40,7 +40,6 @@ public class inicioTutoresMnt extends AppCompatActivity {
     CircleImageView imagenUsuario;
     Toolbar toolbar;
     AppCompatButton btnCerrarSesion, btnPanelControl, btnCrearTicket, btnValidarTicket, btnEstadoTicket, btnHistorialTicket;
-    //Bitmap bmp;
     Uri uri;
 
     //Códigos de Permisos de Cámara y Almacenamiento
@@ -191,8 +190,6 @@ public class inicioTutoresMnt extends AppCompatActivity {
         if (u.getImagen() == null) {
             if(resultCode == Activity.RESULT_OK) {
                 if (requestCode == PICK_CAMERA_CODE) {
-                    //Bundle ext = data.getExtras();
-                    //bmp = (Bitmap) ext.get("data");
                     imagenUsuario.setImageURI(uri);
                 } else if (requestCode == PICK_GALLERY_CODE) {
                     uri = data.getData();
