@@ -9,6 +9,7 @@
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true"
+    app:strokeColor="@color/verde"
     app:strokeWidth="1dp"
     >
     <LinearLayout
@@ -30,7 +31,7 @@
                 android:layout_marginBottom="4dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/logo_comercio"
+                android:src="@drawable/perfil_bob_esponja"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
