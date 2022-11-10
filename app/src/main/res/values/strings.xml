@@ -52,7 +52,7 @@
     <string name="crear_ticket_equipo">EQUIPO</string>
     <string name="crear_ticket_comentario">COMENTARIO</string>
     <string name="crear_ticket_comentario_prompt">Describe la incidencia.</string>
-    <string name="crear_ticket_imagen">imagen</string>
+    <string name="crear_ticket_imagen">Imagen</string>
     <string name="crear_ticket_enviar_ticket">Enviar Ticket</string>
     <string name="crear_ticket_equipo_TextView">Equipo afectado</string>
 
