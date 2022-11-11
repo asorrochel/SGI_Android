@@ -161,31 +161,9 @@ public class panelControlTicketAbierto extends AppCompatActivity {
 
     private void asignarTecnico() {
         pc_ta_btn_AsignarTecnico.setOnClickListener((View) -> {
-            View v = LayoutInflater.from(panelControlTicketAbierto.this).inflate(R.layout.activity_asignar_tecnico,null);
-            new MaterialAlertDialogBuilder(this)
-                    .setTitle("Asignar Tecnico")
-                    .setView(v)
-                    .setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            if (u.getRolUsuario().equalsIgnoreCase("ROL_TUTOR")) {
-                                startActivity(new Intent(panelControlTicketAbierto.this, inicioTutores.class));
-                                Toast.makeText(panelControlTicketAbierto.this, "Ticket Cerrado Correctamente", Toast.LENGTH_SHORT).show();
-                            } else if (u.getRolUsuario().equalsIgnoreCase("ROL_PROFESOR") || u.getRolUsuario().equalsIgnoreCase("ROL_ALUMNO")) {
-                                startActivity(new Intent(panelControlTicketAbierto.this, inicioProfesorAlumno.class));
-                                Toast.makeText(panelControlTicketAbierto.this, "Ticket Cerrado Correctamente", Toast.LENGTH_SHORT).show();
-                            } else if (u.getRolUsuario().equalsIgnoreCase("ROL_TUT_MANT")) {
-                                startActivity(new Intent(panelControlTicketAbierto.this, inicioTutoresMnt.class));
-                                Toast.makeText(panelControlTicketAbierto.this, "Ticket Cerrado Correctamente", Toast.LENGTH_SHORT).show();
-                            } else if (u.getRolUsuario().equalsIgnoreCase("ROL_PROF_MANT")) {
-                                startActivity(new Intent(panelControlTicketAbierto.this, inicioProfesoresMnt.class));
-                                Toast.makeText(panelControlTicketAbierto.this, "Ticket Cerrado Correctamente", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    })
-                    .setNegativeButton("Cancelar", null)
-                    .show();
+            startActivity(new Intent(this, asignarTecnico.class));
         });
+
     }
 
 

@@ -14,6 +14,12 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
+    public Usuario(String nombre, String apellidos, String rolUsuario){
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.rolUsuario = rolUsuario;
+    }
+
     public String getNombre() {
         return nombre;
     }

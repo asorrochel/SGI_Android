@@ -1,31 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/asignarTecnico"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="15dp">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".panel.fragments.asignarTecnico">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/asignar_tecnico_tecnico_dropdown"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="285dp"
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:alpha="0.4"
-        android:fontFamily="@font/mulish_ergular"
-        android:hint="@string/asignar_tecnico_tecnico"
-        android:textColor="@color/textfield_color"
-        app:boxBackgroundMode="outline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:background="@color/white"
+        android:outlineAmbientShadowColor="@color/white"
+        android:outlineSpotShadowColor="@color/white">
 
-        <AutoCompleteTextView
-            android:id="@+id/autocomplete_tecnico"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/atToolBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"
-            android:textSize="12sp"></AutoCompleteTextView>
-    </com.google.android.material.textfield.TextInputLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="?attr/actionBarSize"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/at_foto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="75dp"
+        android:contentDescription="logo_comercio"
+        android:src="@drawable/logo_comercio_v2" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/at_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/at_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="15dp"
+            tools:listitem="@layout/item_list_mnt" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
