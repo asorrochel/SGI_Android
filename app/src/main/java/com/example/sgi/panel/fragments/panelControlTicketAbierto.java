@@ -3,21 +3,16 @@ package com.example.sgi.panel.fragments;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.sgi.R;
 import com.example.sgi.inicio.inicioProfesorAlumno;
 import com.example.sgi.inicio.inicioProfesoresMnt;
 import com.example.sgi.inicio.inicioTutores;
 import com.example.sgi.inicio.inicioTutoresMnt;
-import com.example.sgi.login;
 import com.example.sgi.utils.Ticket;
 import com.example.sgi.utils.Usuario;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
