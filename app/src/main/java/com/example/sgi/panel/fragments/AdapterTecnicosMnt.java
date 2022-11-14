@@ -15,13 +15,13 @@ import com.example.sgi.utils.Usuario;
 
 import java.util.List;
 
-    public class ListAdapterMnt extends RecyclerView.Adapter<ListAdapterMnt.MyViewHolder>{
+    public class AdapterTecnicosMnt extends RecyclerView.Adapter<AdapterTecnicosMnt.MyViewHolder>{
 
         //private View.OnClickListener listener;
         private List<Usuario> userList;
         private Context context;
 
-        public ListAdapterMnt(List<Usuario> userList, Context context){
+        public AdapterTecnicosMnt(List<Usuario> userList, Context context){
             this.userList = userList;
             this.context = context;
         }
@@ -35,7 +35,7 @@ import java.util.List;
 */
         @NonNull
         @Override
-        public ListAdapterMnt.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View itemView = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_list_mnt,parent,false);
             //itemView.setOnClickListener(this);
@@ -43,7 +43,7 @@ import java.util.List;
         }
 
         @Override
-        public void onBindViewHolder(@NonNull ListAdapterMnt.MyViewHolder holder, int position) {
+        public void onBindViewHolder(MyViewHolder holder, int position) {
             holder.nombre.setText(userList.get(position).getNombre());
         }
 

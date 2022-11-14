@@ -16,45 +16,49 @@ import com.google.android.material.card.MaterialCardView;
 
 import java.util.List;
 
-public class ListAdapterTicketsNuevos extends RecyclerView.Adapter<ListAdapterTicketsNuevos.ViewHolder> {
-    private List<Ticket> mData;
+public class AdapterTicketsNuevos extends RecyclerView.Adapter<AdapterTicketsNuevos.MyViewHolder> {
+
     private LayoutInflater mInflater;
+    final AdapterTicketsNuevos.OnItemClickListener listener;
+
+    private List<Ticket> ticketNuevoList;
     private Context context;
-    final ListAdapterTicketsNuevos.OnItemClickListener listener;
 
     public interface OnItemClickListener {
         void onItemClick(Ticket item);
     }
 
-    public ListAdapterTicketsNuevos(List<Ticket> itemList,Context context, ListAdapterTicketsNuevos.OnItemClickListener listener){
+    public AdapterTicketsNuevos(List<Ticket> itemList, Context context, AdapterTicketsNuevos.OnItemClickListener listener){
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
-        this.mData = itemList;
+        this.ticketNuevoList = itemList;
         this.listener = listener;
     }
 
     @NonNull
     @Override
-    public ListAdapterTicketsNuevos.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.from(parent.getContext()).inflate(R.layout.item_list_tickets,parent,false);
-        return new ListAdapterTicketsNuevos.ViewHolder(view);
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = mInflater.from(parent.getContext())
+                .inflate(R.layout.item_list_tickets,parent,false);
+        return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final ListAdapterTicketsNuevos.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
         holder.cv.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition));
-        holder.bindData(mData.get(position));
+        holder.bindData(ticketNuevoList.get(position));
     }
 
     @Override
-    public int getItemCount(){return mData.size();}
+    public int getItemCount(){return ticketNuevoList.size();}
 
-    public void setItems(List<Ticket> items) {mData = items;}
+    public void setItems(List<Ticket> items) {
+        ticketNuevoList = items;}
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder{
         TextView titulo, aula, equipo;
         MaterialCardView cv;
-        ViewHolder(View itemView) {
+        MyViewHolder(View itemView) {
             super(itemView);
             titulo = itemView.findViewById(R.id.ilt_titulo);
             equipo = itemView.findViewById(R.id.ilt_equipo);
