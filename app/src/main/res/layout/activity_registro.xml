@@ -51,23 +51,67 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <!-- TextInputEditText Nombre -->
+
+        <TextView
+            android:id="@+id/registro_apellido"
+            android:layout_width="296dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="228dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/mulish_ergular"
+            android:text="@string/registro_apellido"
+            android:textColor="@color/label_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:helperTextEnabled="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/registro_prompt_nombre"
+            android:id="@+id/registro_prompt_apellido"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="347dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
             android:alpha="0.4"
             android:fontFamily="@font/mulish_ergular"
             android:textSize="14sp"
             app:boxBackgroundMode="outline"
+            app:counterMaxLength="35"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
             app:helperTextEnabled="true"
             app:helperTextTextColor="@color/azul_comercio"
             app:layout_constraintEnd_toEndOf="parent"
-            app:counterMaxLength="35"
             app:layout_constraintTop_toBottomOf="@+id/registro_nombre">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registro_prompt_apellido_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/registro_apellidos_prompt"
+                android:textColor="@color/textfield_color"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registro_prompt_nombre"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:alpha="0.4"
+            android:fontFamily="@font/mulish_ergular"
+            android:textSize="14sp"
+            app:boxBackgroundMode="outline"
+            app:counterMaxLength="35"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/azul_comercio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registro_nombre">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/registro_prompt_nombre_EditText"
                 android:layout_width="match_parent"

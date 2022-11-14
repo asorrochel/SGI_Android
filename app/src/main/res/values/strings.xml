@@ -21,8 +21,10 @@
     <string name="registro_btn_registrar">Registrar</string>
     <string name="registro_confirmar_contraseña">CONFIRMAR CONTRASEÑA</string>
     <string name="registro_login">¿Ya tienes una cuenta? Iniciar sesión</string>
-    <string name="registro_nombre_apellidos_prompt">Nombre y apellidos</string>
+    <string name="registro_nombre_apellidos_prompt">Nombre</string>
     <string name="registro_nombre">NOMBRE</string>
+    <string name="registro_apellido">APELLIDOS</string>
+    <string name="registro_apellidos_prompt">Apellidos</string>
 
 
     <!-- INICIO TUTORES MNT | PROFESORES MNT -->
@@ -55,6 +57,9 @@
     <string name="crear_ticket_imagen">Imagen</string>
     <string name="crear_ticket_enviar_ticket">Enviar Ticket</string>
     <string name="crear_ticket_equipo_TextView">Equipo afectado</string>
+    <string name="crear_ticket_titulo2">TITULO</string>
+    <string name="crear_ticket_titulo_prompt">Especifica un titulo</string>
+
 
     <!-- PANEL CONTROL-->
     <string name="pc_btn_nuevos">Nuevos 10</string>
