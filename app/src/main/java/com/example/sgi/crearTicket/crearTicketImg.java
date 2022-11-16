@@ -23,6 +23,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.sgi.R;
@@ -30,13 +31,36 @@ import com.example.sgi.inicio.inicioProfesorAlumno;
 import com.example.sgi.inicio.inicioProfesoresMnt;
 import com.example.sgi.inicio.inicioTutores;
 import com.example.sgi.inicio.inicioTutoresMnt;
+import com.example.sgi.network.ApiAula;
+import com.example.sgi.network.ApiClient;
+import com.example.sgi.network.ApiTicket;
+import com.example.sgi.utils.Aula;
+import com.example.sgi.utils.Ticket;
 import com.example.sgi.utils.Usuario;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.zip.DataFormatException;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class crearTicketImg extends AppCompatActivity {
 
     // Declaración de Variables.
+    EditText titulo,equipo, comentario;
+    List<Aula> aulaList;
+    AdapterAulas adapter;
+    Map<Integer ,String> aulas = new HashMap<Integer, String>();
+    String[] aulaValor;
+    List<Pair> parejas = new ArrayList<>();
+
     Toolbar toolbar;
     TextInputLayout textInputLayout;
     AutoCompleteTextView autoCompleteTextView;
@@ -69,9 +93,11 @@ public class crearTicketImg extends AppCompatActivity {
         cameraPermissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
         textViewMensajeImagen.setText("");
-        String [] aulas = new String[]{"C01 Diurno","C01 Vespertino","C02 Diurno","C02 Vespertino","C03 Diurno","C03 Vespertino","C04 Diurno","C04 Vespertino","C05 Diurno","C05 Vespertino","C06 Diurno","C06 Vespertino","C07 Diurno","C07 Vespertino","C08 Diurno","C08 Vespertino","C09 Diurno","C09 Vespertino","C10 Diurno","C10 Vespertino","C11 Diurno","C11 Vespertino","C12 Diurno","C12 Vespertino","C13 Diurno","C13 Vespertino","Taller"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(crearTicketImg.this,R.layout.dropdowm_item,aulas);
-        autoCompleteTextView.setAdapter(adapter);
+        titulo = findViewById(R.id.crear_ticket_img_prompt_titulo_EditText);
+        equipo = findViewById(R.id.crear_ticket_img_prompt_equipo_EditText);
+        comentario = findViewById(R.id.crear_ticket_img_prompt_comentario_EditText);
+        //String [] aulas = new String[]{"C01 Diurno","C01 Vespertino","C02 Diurno","C02 Vespertino","C03 Diurno","C03 Vespertino","C04 Diurno","C04 Vespertino","C05 Diurno","C05 Vespertino","C06 Diurno","C06 Vespertino","C07 Diurno","C07 Vespertino","C08 Diurno","C08 Vespertino","C09 Diurno","C09 Vespertino","C10 Diurno","C10 Vespertino","C11 Diurno","C11 Vespertino","C12 Diurno","C12 Vespertino","C13 Diurno","C13 Vespertino","Taller"};
+        rellenarAulasAPI();
 
         //CAMBIARLO (SÓLO PRUEBAS)
         u.setRolUsuario("ROL_TUT_MANT");
@@ -236,6 +262,17 @@ public class crearTicketImg extends AppCompatActivity {
      */
     private void clickBotonEnviar() {
         botonEnviar.setOnClickListener((View) -> {
+            int idAula;
+            String valorAula = autoCompleteTextView.getText().toString();
+            for (Pair pair: parejas) {
+                if (pair.getValor().equals(valorAula)) {
+                    idAula = pair.getClave();
+                }
+            }
+            guardarTicket(crearTicket());
+
+
+
             new MaterialAlertDialogBuilder(this)
                     .setTitle("Crear Ticket")
                     .setMessage("¿Desea crear el Ticket?")
@@ -302,5 +339,96 @@ public class crearTicketImg extends AppCompatActivity {
         } else {
             return false;
         }
+    }
+
+    private void rellenarAulasAPI(){
+        Call<List<Aula>> call = ApiClient.getClient().create(ApiAula.class).getAulas();
+        call.enqueue(new Callback<List<Aula>>() {
+            @Override
+            public void onResponse(Call<List<Aula>> call, Response<List<Aula>> response) {
+                if(response.isSuccessful()){
+                    aulaList = response.body();
+                    aulaValor = new String[aulaList.size()];
+                    int indice = 0;
+
+                    for (Aula a : aulaList) {
+                        parejas.add(new Pair(a.getIdAula(), a.getAula()));
+                        //aulas.put((Integer) a.getIdAula(), a.getAula());
+                        aulaValor[indice] = a.getAula();
+                        indice++;
+                    }
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(crearTicketImg.this,R.layout.dropdowm_item, aulaValor);
+                    autoCompleteTextView.setAdapter(adapter);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Aula>> call, Throwable t) {
+                Toast.makeText(crearTicketImg.this,"ERROR DE CONEXION",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    class Pair<Integer, String>{
+        int clave;
+        String valor;
+
+        public Pair(){
+        }
+
+        public Pair(Integer x, String z){
+            clave = (int) x;
+            valor = z;
+        }
+
+        public int getClave() {
+            return clave;
+        }
+
+        public void setIdAula(int idAula) {
+            this.clave = idAula;
+        }
+
+        public String getValor() {
+            return valor;
+        }
+
+        public void setAula(String valor) {
+            this.valor = valor;
+        }
+
+    }
+
+    public Ticket crearTicket(){
+        Ticket ticket = new Ticket();
+        ticket.setTitulo(titulo.getText().toString());
+        ticket.setAula(1);
+        ticket.setEquipo(equipo.getText().toString());
+        ticket.setComentario(comentario.getText().toString());
+        ticket.setFechaEmision(new Date(2022,11,21));
+        ticket.setFoto(null);
+        ticket.setIdEstado(1);
+        ticket.setIdProfesor(1);
+        ticket.setIdAlumno(1);
+
+        return ticket;
+    }
+
+    public void guardarTicket(Ticket ticket){
+        Call<Ticket> guardarTicket = ApiClient.getClient().create(ApiTicket.class).addUser(ticket);
+        guardarTicket.enqueue(new Callback<Ticket>() {
+            @Override
+            public void onResponse(Call<Ticket> call, Response<Ticket> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(crearTicketImg.this,"Creado correctamente", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(crearTicketImg.this,"Creado correctamente", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Ticket> call, Throwable t) {
+                Toast.makeText(crearTicketImg.this,"Creado correctamente", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

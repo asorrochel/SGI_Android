@@ -32,7 +32,7 @@ public class pc_fragment_nuevos extends Fragment {
 
     // Declaración de Variables.
     List<Ticket> ticketNuevosList;
-    private RecyclerView recyclerView;
+    RecyclerView recyclerView;
     AdapterTicketsNuevos adapter;
 
     @Nullable
@@ -67,7 +67,7 @@ public class pc_fragment_nuevos extends Fragment {
         recyclerView.setAdapter(listAdapter);
         return view;
          */
-        mostrarUsuariosMnt();
+        mostrarUsuariosMnt(recyclerView);
         return view;
     }
 
@@ -81,7 +81,7 @@ public class pc_fragment_nuevos extends Fragment {
         startActivity(intent);
     }
 
-    private void mostrarUsuariosMnt(){
+    private void mostrarUsuariosMnt(RecyclerView recyclerView2){
         Call<List<Ticket>> call = ApiClient.getClient().create(ApiTicket.class).getTicketsNuevos();
         call.enqueue(new Callback<List<Ticket>>() {
 
@@ -95,7 +95,7 @@ public class pc_fragment_nuevos extends Fragment {
                             entrarEnTicket(item);
                         }
                     });
-                    recyclerView.setAdapter(adapter);
+                    recyclerView2.setAdapter(adapter);
                 }
             }
 

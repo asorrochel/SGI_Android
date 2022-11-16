@@ -65,7 +65,7 @@
             app:layout_constraintTop_toBottomOf="@+id/crear_ticket_titulo">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/crear_ticket_prompt_titulo_EditText"
+                android:id="@+id/crear_ticket_img_prompt_titulo_EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/crear_ticket_titulo_prompt"
@@ -149,7 +149,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/crear_ticket_img_equipo">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/crear_ticket_img_prompt_correo_EditText"
+                android:id="@+id/crear_ticket_img_prompt_equipo_EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/textfield_color"
