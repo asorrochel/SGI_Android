@@ -5,21 +5,37 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sgi.R;
+import com.example.sgi.crearTicket.AdapterAulas;
+import com.example.sgi.crearTicket.crearTicketImg;
+import com.example.sgi.network.ApiAula;
+import com.example.sgi.network.ApiClient;
+import com.example.sgi.utils.Aula;
+import com.example.sgi.utils.Pair;
 import com.example.sgi.utils.Ticket;
 import com.google.android.material.card.MaterialCardView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AdapterTicketsNuevos extends RecyclerView.Adapter<AdapterTicketsNuevos.MyViewHolder> {
 
     private LayoutInflater mInflater;
     final AdapterTicketsNuevos.OnItemClickListener listener;
+    TextView titulo, aula, equipo;
 
     private List<Ticket> ticketNuevoList;
     private Context context;
@@ -56,7 +72,6 @@ public class AdapterTicketsNuevos extends RecyclerView.Adapter<AdapterTicketsNue
         ticketNuevoList = items;}
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView titulo, aula, equipo;
         MaterialCardView cv;
         MyViewHolder(View itemView) {
             super(itemView);
@@ -69,7 +84,7 @@ public class AdapterTicketsNuevos extends RecyclerView.Adapter<AdapterTicketsNue
         void bindData(final Ticket item) {
             titulo.setText((item.getTitulo()));
             equipo.setText(item.getEquipo());
-            aula.setText(Integer.toString(item.getAula()));
+            aula.setText(item.getAula().getAula());
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

@@ -44,7 +44,7 @@ public class panelControlTicketAbierto extends AppCompatActivity {
         pc_ta_btn_AsignarTecnico = findViewById(R.id.pc_ta_btn_AsignarTecnico);
 
         titulo.setText(element.getTitulo());
-        aula.setText(Integer.toString(element.getAula()));
+        aula.setText(element.getAula().getAula());
         equipo.setText(element.getEquipo());
         setToolbar(toolbar);
 

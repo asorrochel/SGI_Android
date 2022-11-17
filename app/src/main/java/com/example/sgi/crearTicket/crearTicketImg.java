@@ -35,6 +35,7 @@ import com.example.sgi.network.ApiAula;
 import com.example.sgi.network.ApiClient;
 import com.example.sgi.network.ApiTicket;
 import com.example.sgi.utils.Aula;
+import com.example.sgi.utils.Pair;
 import com.example.sgi.utils.Ticket;
 import com.example.sgi.utils.Usuario;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -342,14 +343,16 @@ public class crearTicketImg extends AppCompatActivity {
     public Ticket crearTicket(){
         Ticket ticket = new Ticket();
         ticket.setTitulo(titulo.getText().toString());
-        ticket.setAula(idAula);
+        ticket.setAula(null);
+        ticket.setIdAula(idAula);
         ticket.setDetalles(comentario.getText().toString());
         ticket.setFechaEmision("2013-03-12T00:00:00");
-        ticket.setFechaResolucion("2013-03-12T00:00:00");
+        ticket.setFechaResolucion(null);
         ticket.setFoto(null);
+        ticket.setProfesor(null);
+        ticket.setAlumno(null);
         ticket.setIdEstado(1);
-        ticket.setIdProfesor(1);
-        ticket.setIdAlumno(1);
+        ticket.setEquipo(equipo.getText().toString());
         return ticket;
     }
 
@@ -384,7 +387,6 @@ public class crearTicketImg extends AppCompatActivity {
 
                     for (Aula a : aulaList) {
                         parejas.add(new Pair(a.getIdAula(), a.getAula()));
-                        //aulas.put((Integer) a.getIdAula(), a.getAula());
                         aulaValor[indice] = a.getAula();
                         indice++;
                     }
@@ -398,35 +400,4 @@ public class crearTicketImg extends AppCompatActivity {
             }
         });
     }
-
-    class Pair<Integer, String>{
-        int clave;
-        String valor;
-
-        public Pair(){
-        }
-
-        public Pair(Integer x, String z){
-            clave = (int) x;
-            valor = z;
-        }
-
-        public int getClave() {
-            return clave;
-        }
-
-        public void setIdAula(int idAula) {
-            this.clave = idAula;
-        }
-
-        public String getValor() {
-            return valor;
-        }
-
-        public void setAula(String valor) {
-            this.valor = valor;
-        }
-
-    }
-
 }

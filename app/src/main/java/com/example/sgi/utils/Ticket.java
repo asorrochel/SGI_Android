@@ -9,16 +9,17 @@ public class Ticket implements Serializable {
     private int idTicket;
     private String titulo;
     private String detalles;
-    private int aula;
+    private Aula aula;
+    private int idAula;
     private String equipo;
     private String fechaEmision;
     private String fechaResolucion;
     private Uri foto;
-    private int idProfesor;
-    private int idAlumno;
+    private Profesor profesor;
+    private Alumno alumno;
     private int idEstado;
 
-    public Ticket(String titulo, int aula, String equipo) {
+    public Ticket(String titulo, Aula aula, String equipo) {
         this.titulo = titulo;
         this.aula = aula;
         this.equipo = equipo;
@@ -36,11 +37,11 @@ public class Ticket implements Serializable {
         this.titulo = titulo;
     }
 
-    public int getAula() {
+    public Aula getAula() {
         return aula;
     }
 
-    public void setAula(int aula) {
+    public void setAula(Aula aula) {
         this.aula = aula;
     }
 
@@ -56,6 +57,12 @@ public class Ticket implements Serializable {
         return idTicket;
     }
 
+    public int getIdAula() {
+        return idAula;
+    }
+    public void setIdAula(int idAula) {
+        this.idAula = idAula;
+    }
     public void setIdTicket(int idTicket) {
         this.idTicket = idTicket;
     }
@@ -92,20 +99,20 @@ public class Ticket implements Serializable {
         this.foto = foto;
     }
 
-    public int getIdProfesor() {
-        return idProfesor;
+    public Profesor getProfesor() {
+        return profesor;
     }
 
-    public void setIdProfesor(int idProfesor) {
-        this.idProfesor = idProfesor;
+    public void setProfesor(Profesor profesor) {
+        this.profesor = profesor;
     }
 
-    public int getIdAlumno() {
-        return idAlumno;
+    public Alumno getAlumno() {
+        return alumno;
     }
 
-    public void setIdAlumno(int idAlumno) {
-        this.idAlumno = idAlumno;
+    public void setAlumno(Alumno alumno) {
+        this.alumno = alumno;
     }
 
     public int getIdEstado() {
