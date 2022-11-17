@@ -95,7 +95,6 @@
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/pc_btn_nuevos"
             app:layout_constraintTop_toTopOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
     <FrameLayout
         android:id="@+id/panel_control_frame"

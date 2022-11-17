@@ -26,9 +26,9 @@ public class registro extends AppCompatActivity{
     // Declaración de Variables.
     FirebaseAuth firebaseAuth;
     AppCompatButton btnRegistrar;
-    EditText contraseñaET,correoET, nombreET;
+    EditText contraseñaET,correoET, nombreET, apellidoET;
     TextView loginTengo;
-    TextInputLayout correoTV, nombreTV, contraseñaTV;
+    TextInputLayout correoTV, nombreTV, contraseñaTV, apellidoTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,8 @@ public class registro extends AppCompatActivity{
         btnRegistrar = findViewById(R.id.registro_btn_registrar);
         correoET = findViewById(R.id.registro_prompt_correo_EditText);
         nombreET = findViewById(R.id.registro_prompt_nombre_EditText);
+        apellidoET = findViewById(R.id.registro_prompt_apellido_EditText);
+        apellidoTV = findViewById(R.id.registro_prompt_apellido);
         contraseñaET = findViewById(R.id.registro_prompt_contraseña_EditText);
         loginTengo = findViewById(R.id.registro_login);
         firebaseAuth=FirebaseAuth.getInstance();
@@ -57,6 +59,7 @@ public class registro extends AppCompatActivity{
 
     private void validarCampos() {
         validarNombre();
+        validarApellido();
         validarCorreo();
         validarContraseña();
     }
@@ -103,6 +106,53 @@ public class registro extends AppCompatActivity{
                 // - Si el campo excede el número máximo de caracteres, mostramos el error al usuario.
                 if(editable.length() > 35) {
                     nombreTV.setError("Maximo caracteres");
+                }
+            }
+        });
+    }
+
+    /**
+     * Método que comprueba que el apellido introducido por el usuario cumple con las restricciones impuestas.
+     */
+    private void validarApellido() {
+        apellidoET.addTextChangedListener(new TextWatcher() {
+            // Este método comprueba el EditText antes de que cambie su valor.
+            @Override
+            public void beforeTextChanged(CharSequence s, int i, int i1, int i2) {
+                // - Si el campo está vacío, desactiva el botón de registro y, si no lo está, activa el botón.
+                if(s.toString().isEmpty()) {
+                    cambiarEstadoBoton(btnRegistrar,false);
+                } else {
+                    cambiarEstadoBoton(btnRegistrar,true);
+                }
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int i, int i1, int i2) {
+            }
+
+            // Este método comprueba el EditText después de que cambie su valor.
+            @Override
+            public void afterTextChanged(Editable editable) {
+                /*
+                 * - Si el campo no está vacío y cumple con la expersión regular (Sólo caracteres alfanuméricos), comprobamos el estado de los otros campos,
+                 * si no cumple la condición, mostramos el error y desactivamos el botón.
+                 */
+                if(!editable.toString().isEmpty() && editable.toString().matches("[a-zA-ZáéíóúÁÉÍÓÚS\\s]{1,35}")) {
+                    if(apellidoET.getText().toString().isEmpty() || contraseñaET.getText().toString().isEmpty()){
+                        apellidoTV.setError(null);
+                        cambiarEstadoBoton(btnRegistrar,false);
+                    } else {
+                        apellidoTV.setError(null);
+                        cambiarEstadoBoton(btnRegistrar,true);
+                    }
+                }else {
+                    apellidoTV.setError("Solo Caracteres Alfanuméricos");
+                    cambiarEstadoBoton(btnRegistrar,false);
+                }
+                // - Si el campo excede el número máximo de caracteres, mostramos el error al usuario.
+                if(editable.length() > 35) {
+                    apellidoTV.setError("Maximo caracteres");
                 }
             }
         });

@@ -32,6 +32,49 @@
         android:src="@drawable/logo_comercio_v2" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/crear_ticket_titulo_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/crear_ticket_titulo"
+            android:layout_width="296dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/mulish_ergular"
+            android:text="@string/crear_ticket_titulo2"
+            android:textColor="@color/label_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!-- TextInputEditText Equipo -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/crear_ticket_titulo_TextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="347dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="32dp"
+            android:alpha="0.4"
+            android:fontFamily="@font/mulish_ergular"
+            android:textSize="14sp"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/crear_ticket_titulo">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/crear_ticket_prompt_titulo_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/crear_ticket_titulo_prompt"
+                android:textColor="@color/textfield_color"
+                android:textSize="12sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/crear_ticket_aula_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -81,6 +124,7 @@
         android:id="@+id/crear_ticket_equipo_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/crear_ticket_equipo"
             android:layout_width="296dp"
