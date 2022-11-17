@@ -69,7 +69,7 @@ public class AdapterTicketsNuevos extends RecyclerView.Adapter<AdapterTicketsNue
         void bindData(final Ticket item) {
             titulo.setText((item.getTitulo()));
             equipo.setText(item.getEquipo());
-            aula.setText(item.getAula());
+            aula.setText(Integer.toString(item.getAula()));
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

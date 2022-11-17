@@ -43,30 +43,6 @@ public class pc_fragment_nuevos extends Fragment {
         recyclerView=view.findViewById(R.id.fr_pc_nuevos_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
-        /*
-        // Inicializamos Variables.
-        ticketNuevosList = new ArrayList<>();
-        ticketNuevosList.add(new Ticket("Veyon no funciona","C.12 Vesp","PC 01"));
-        ticketNuevosList.add(new Ticket("Cable HDMI roto","C.02 Vesp","PC 05"));
-        ticketNuevosList.add(new Ticket("Proyector no da señal","Taller","Proyector"));
-        ticketNuevosList.add(new Ticket("Patilla derecha teclado rota","C07 Diurno","PC 08"));
-        ticketNuevosList.add(new Ticket("Excell no abre","C.05 Vesp","PC 18"));
-        ticketNuevosList.add(new Ticket("VDI no inicia sesion","Biblioteca","PC 01"));
-        ticketNuevosList.add(new Ticket("Veyon Desinstalado","C.07 Diurno","PC 27"));
-        ticketNuevosList.add(new Ticket("SSD borrado","C.09 Diurno","PC 03"));
-        ticketNuevosList.add(new Ticket("Equipo no arranca","C.06 Vesp","PC 11"));
-        AdapterTicketsNuevos listAdapter = new AdapterTicketsNuevos(ticketNuevosList, this.getContext(), new AdapterTicketsNuevos.OnItemClickListener() {
-            @Override
-            public void onItemClick(Ticket item) {
-                entrarEnTicket(item);
-            }
-        });
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_pc_nuevos,container,false);
-        RecyclerView recyclerView=view.findViewById(R.id.fr_pc_nuevos_rv);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        recyclerView.setAdapter(listAdapter);
-        return view;
-         */
         mostrarUsuariosMnt();
         return view;
     }
