@@ -19,12 +19,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.widget.AppCompatButton;
-import com.example.sgi.inicio.inicioTutoresMnt;
+import com.example.sgi.inicio.InicioTutoresMnt;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class login extends Activity {
+public class Login extends Activity {
 
     // Declaración de Variables.
     FirebaseAuth firebaseAuth;
@@ -156,7 +156,7 @@ public class login extends Activity {
      */
     private void inicioAuto() {
         if (obtenerEstadoCheckBox()) {
-            startActivity(new Intent(login.this, inicioTutoresMnt.class));
+            startActivity(new Intent(Login.this, InicioTutoresMnt.class));
         }
     }
 
@@ -221,7 +221,7 @@ public class login extends Activity {
      */
     private void crearCuenta() {
         registrarse.setOnClickListener((View) -> {
-            startActivity(new Intent(login.this,registro.class));
+            startActivity(new Intent(Login.this, Registro.class));
         });
     }
 
@@ -232,10 +232,10 @@ public class login extends Activity {
     private void restaurarContraseña(ProgressDialog progressDialog) {
         contraseña_olvidada.setOnClickListener((View) -> {
             // Mostramos co Inflate la actvidad de Recordar Password.
-            View v = LayoutInflater.from(login.this).inflate(R.layout.activity_recordar_password, null);
+            View v = LayoutInflater.from(Login.this).inflate(R.layout.activity_recordar_password, null);
 
             // Creamos un AlertDialog, con título, los botones de enviar y cancelar y la vista de la activity recordar password.
-            new MaterialAlertDialogBuilder(login.this, R.style.MyThemeOverlay_MaterialComponents_MaterialAlertDialog)
+            new MaterialAlertDialogBuilder(Login.this, R.style.MyThemeOverlay_MaterialComponents_MaterialAlertDialog)
                     .setTitle("Recuperar Contraseña")
                     .setView(v)
                     .setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
@@ -250,7 +250,7 @@ public class login extends Activity {
                             // Si cumple alguna de las condicione, cierra el Alert muestra un mensaje de error, si no las cumple, envía el correo de recuperación.
                             if (correoRecuperacion.isEmpty() || !correoRecuperacion.matches("^[A-Za-z0-9]+@larioja\\.edu\\.es$")) {
                                 progressDialog.hide();
-                                Toast.makeText(login.this, "El correo debe pertenecer al dominio @larioja.edu.es", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Login.this, "El correo debe pertenecer al dominio @larioja.edu.es", Toast.LENGTH_LONG).show();
                             } /*else if () {
                                 progressDialog.hide();
                                 Toast.makeText(login.this, "Correo no validado", Toast.LENGTH_SHORT).show();
@@ -259,9 +259,9 @@ public class login extends Activity {
                                 firebaseAuth.sendPasswordResetEmail(correoRecuperacion).addOnCompleteListener((task) -> {
                                     progressDialog.hide();
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(login.this, "Correo de recuperación enviado", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Login.this, "Correo de recuperación enviado", Toast.LENGTH_SHORT).show();
                                     } else {
-                                        Toast.makeText(login.this, "Cuenta no registrada", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Login.this, "Cuenta no registrada", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                             }
@@ -289,7 +289,7 @@ public class login extends Activity {
             String contraseña = contraseñaET.getText().toString();
             // Si lgunos de los campos está acío nos salta un Toast mensaje de error.
             if (correo.length() == 0 || contraseña.length() == 0) {
-                Toast.makeText(login.this, "Correo o contraseña no válidos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, "Correo o contraseña no válidos", Toast.LENGTH_SHORT).show();
                 return;
             }
             // Iniciamos sesión con correo y contraseña a través de firebase.
@@ -298,14 +298,14 @@ public class login extends Activity {
                 if (task.isSuccessful()) {
                     // Comprobamos que el usuario ha verificado su correo electrónico.
                     if(firebaseAuth.getCurrentUser().isEmailVerified()){
-                        startActivity(new Intent(login.this, inicioTutoresMnt.class));
+                        startActivity(new Intent(Login.this, InicioTutoresMnt.class));
                     } else {
                         cambiarEstadoCheckbox(this, false);
-                        Toast.makeText(login.this, "Correo no validado", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this, "Correo no validado", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     cambiarEstadoCheckbox(this, false);
-                    Toast.makeText(login.this, "Correo o contraseña no válidos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Correo o contraseña no válidos", Toast.LENGTH_SHORT).show();
                 }
             });
         });

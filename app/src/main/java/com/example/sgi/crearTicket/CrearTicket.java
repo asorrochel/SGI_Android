@@ -14,12 +14,12 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 import com.example.sgi.R;
-import com.example.sgi.inicio.inicioProfesorAlumno;
+import com.example.sgi.inicio.InicioProfesorAlumno;
 import com.example.sgi.utils.Usuario;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class crearTicket extends AppCompatActivity {
+public class CrearTicket extends AppCompatActivity {
 
     // Declaración de Variables.
     Toolbar toolbar;
@@ -38,7 +38,7 @@ public class crearTicket extends AppCompatActivity {
         textInputLayout = findViewById(R.id.crear_ticket_aula_dropdown);
         autoCompleteTextView = findViewById(R.id.autocomplete_aula);
         String [] aulas = new String[]{"C01 Diurno","C01 Vespertino","C02 Diurno","C02 Vespertino","C03 Diurno","C03 Vespertino","C04 Diurno","C04 Vespertino","C05 Diurno","C05 Vespertino","C06 Diurno","C06 Vespertino","C07 Diurno","C07 Vespertino","C08 Diurno","C08 Vespertino","C09 Diurno","C09 Vespertino","C10 Diurno","C10 Vespertino","C11 Diurno","C11 Vespertino","C12 Diurno","C12 Vespertino","C13 Diurno","C13 Vespertino","Taller"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(crearTicket.this,R.layout.dropdowm_item,aulas);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(CrearTicket.this,R.layout.dropdowm_item,aulas);
         autoCompleteTextView.setAdapter(adapter);
 
         // Método para añadir el Toolbar a la activity.
@@ -63,8 +63,8 @@ public class crearTicket extends AppCompatActivity {
                         // Dependiendo del ROL que tenga el usuario nos mandará al Activity que corresponda.
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            startActivity(new Intent(crearTicket.this, inicioProfesorAlumno.class));
-                            Toast.makeText(crearTicket.this, "Ticket creado correctamente", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(CrearTicket.this, InicioProfesorAlumno.class));
+                            Toast.makeText(CrearTicket.this, "Ticket creado correctamente", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .setNegativeButton("Cancelar", null)

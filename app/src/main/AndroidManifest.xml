@@ -14,15 +14,15 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.SGI">
         <activity
-            android:name=".panel.fragments.asignarTecnico"
+            android:name=".panel.fragments.AsignarTecnico"
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".login"
+            android:name=".Login"
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".panel.fragments.panelControlTicketAbierto"
+            android:name=".panel.fragments.PanelControlTicketAbierto"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -30,39 +30,39 @@
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".crearTicket.crearTicketImg"
+            android:name=".crearTicket.CrearTicketImg"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".crearTicket.crearTicket"
+            android:name=".crearTicket.CrearTicket"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".registro"
+            android:name=".Registro"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".inicio.inicioProfesorAlumno"
+            android:name=".inicio.InicioProfesorAlumno"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".inicio.inicioTutores"
+            android:name=".inicio.InicioTutores"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".inicio.inicioProfesoresMnt"
+            android:name=".inicio.InicioProfesoresMnt"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".panel.panelControl"
+            android:name=".panel.PanelControl"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ajustes"
+            android:name=".Ajustes"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".inicio.inicioTutoresMnt"
+            android:name=".inicio.InicioTutoresMnt"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
             android:label="@string/app_name"

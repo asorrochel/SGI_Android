@@ -5,36 +5,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sgi.R;
-import com.example.sgi.crearTicket.AdapterAulas;
-import com.example.sgi.crearTicket.crearTicketImg;
-import com.example.sgi.network.ApiAula;
-import com.example.sgi.network.ApiClient;
-import com.example.sgi.utils.Aula;
-import com.example.sgi.utils.Pair;
 import com.example.sgi.utils.Ticket;
 import com.google.android.material.card.MaterialCardView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-public class AdapterTicketsNuevos extends RecyclerView.Adapter<AdapterTicketsNuevos.MyViewHolder> {
+public class AdapterTickets extends RecyclerView.Adapter<AdapterTickets.MyViewHolder> {
 
     private LayoutInflater mInflater;
-    final AdapterTicketsNuevos.OnItemClickListener listener;
+    final AdapterTickets.OnItemClickListener listener;
     TextView titulo, aula, equipo;
 
     private List<Ticket> ticketNuevoList;
@@ -44,7 +29,7 @@ public class AdapterTicketsNuevos extends RecyclerView.Adapter<AdapterTicketsNue
         void onItemClick(Ticket item);
     }
 
-    public AdapterTicketsNuevos(List<Ticket> itemList, Context context, AdapterTicketsNuevos.OnItemClickListener listener){
+    public AdapterTickets(List<Ticket> itemList, Context context, AdapterTickets.OnItemClickListener listener){
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
         this.ticketNuevoList = itemList;

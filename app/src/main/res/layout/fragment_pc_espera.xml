@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".panel.fragments.pc_fragment_espera"
-    android:background="@color/azul">
+    tools:context=".panel.fragments.Pc_fragment_espera">
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

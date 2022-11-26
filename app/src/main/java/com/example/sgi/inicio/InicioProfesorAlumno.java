@@ -1,4 +1,4 @@
-package com.example.sgi;
+package com.example.sgi.inicio;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,37 +11,36 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.app.Activity;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.MotionEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
-import com.example.sgi.inicio.inicioProfesorAlumno;
-import com.example.sgi.inicio.inicioProfesoresMnt;
-import com.example.sgi.inicio.inicioTutores;
-import com.example.sgi.inicio.inicioTutoresMnt;
+import com.example.sgi.R;
+import com.example.sgi.Ajustes;
+import com.example.sgi.crearTicket.CrearTicket;
+import com.example.sgi.crearTicket.CrearTicketImg;
+import com.example.sgi.Login;
 import com.example.sgi.utils.Usuario;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ajustes extends AppCompatActivity {
+public class InicioProfesorAlumno extends AppCompatActivity {
 
     // Declaración de Variables.
-    Usuario u = new Usuario();
     Toolbar toolbar;
-    AppCompatButton btnConfirmar;
+    AppCompatButton btnCerrarSesion, btnCrearTicket, btnEstadoTicket;
+    Usuario u = new Usuario();
     CircleImageView imagenUsuario;
     Uri uri;
         // Códigos de Permisos de Cámara y Almacenamiento.
     private static final int REQUEST_CAMERA_CODE = 1;
     private static final int REQUEST_STORAGE_CODE = 2;
-        // Códifos de Comprobación, si la imagen viene de cámara o almacenamiento.
+        // Códigos de Comprobación, si la imagen viene de cámara o almacenamiento.
     private static final int PICK_CAMERA_CODE = 3;
     private static final int PICK_GALLERY_CODE = 4;
         // Arrays de permisos (el primero para cámara y almacenamiento y el segundo sólo para almacenamiento).
@@ -51,26 +50,27 @@ public class ajustes extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajustes);
+        setContentView(R.layout.activity_inicio_profesor_alumno);
 
         // Inicializamos las Variables.
         toolbar = findViewById(R.id.mainToolBar);
-        btnConfirmar = findViewById(R.id.ajustes_btn_guardar);
-        imagenUsuario = findViewById(R.id.ajustes_btn_add_foto_perfil);
+        btnCrearTicket = findViewById(R.id.inicio_profesor_alumno_btn_crear_ticket);
+        btnEstadoTicket = findViewById(R.id.inicio_profesor_alumno_btn_estado_ticket);
+        btnCerrarSesion = findViewById(R.id.inicio_profesor_alumno_btn_cerrar_sesion);
+        imagenUsuario = findViewById(R.id.inicio_profesores_btn_add_foto_perfil);
         cameraPermissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
         // Método para añadir el Toolabr a la activity.
         setToolbar(toolbar);
 
-        //CAMBIARLO (SÓLO PRUEBAS)
-        u.setRolUsuario("ROL_TUT_MANT");
-
         // Método para añadir la Imagen.
         añadirImagen();
 
-        // Funcionalidad del botón de guardar cambios.
-        confirmarCambios();
+        // Funcionalidad de los botones del menú.
+        clickCrearTicket();
+        clickEstadoTicket();
+        clickCerrarSesion();
     }
 
     /**
@@ -79,9 +79,7 @@ public class ajustes extends AppCompatActivity {
     private void añadirImagen() {
         imagenUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                mostrarOpcionesImagen();
-            }
+            public void onClick(View v) {mostrarOpcionesImagen();}
         });
     }
 
@@ -152,7 +150,7 @@ public class ajustes extends AppCompatActivity {
         valores.put(MediaStore.Images.Media.TITLE, "Título de la imagen");
         valores.put(MediaStore.Images.Media.DESCRIPTION, "Descripción de la imagen");
 
-        // En la uri correspondiente a la imagen escogida insertamos los valores de título y descripción
+        // En la uri correspondiente a la imagen escogida insertamos los valores de título y descripción.
         uri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, valores);
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
@@ -232,70 +230,71 @@ public class ajustes extends AppCompatActivity {
      */
     private void setToolbar(Toolbar toolbar) {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Ajustes");
-        // Añadimos la flecha de retroceso.
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Inicio");
     }
 
     /**
-     * Método que le da funcionalidad a la flecha de retroceso del Toolbar.
+     * Método en el que añadimos al Toolbar el Menú de ajustes.
+     * @param menu - Menú que vamos a crear.
      * @return - True.
      */
     @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_toolbar, menu);
         return true;
     }
 
     /**
-     * Método que nos muestra un AlertDialog al pulsar el botón de confirmar.
+     * Método que le da la funcionalidad a los items que están dentro del menú.
+     * @param item -  Item del menú que queremos seleccionar.
+     * @return - True, si se ejecuta sin fallos, False si salta algún error
      */
-    private void confirmarCambios() {
-        btnConfirmar.setOnClickListener((View) -> {
-            new MaterialAlertDialogBuilder(this)
-                    .setTitle("Guardar Cambios")
-                    .setMessage("¿Desea Confirmar los cambios?")
-                    .setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
-                        // Hacemos unas comprobaciones, ya que dependiendo del rol que tenga el usuario, le mandaremos al inicio que corresponda.
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            if (u.getRolUsuario().equalsIgnoreCase("ROL_TUTOR")) {
-                                startActivity(new Intent(ajustes.this, inicioTutores.class));
-                                Toast.makeText(ajustes.this, "Cambios guardados correctamente", Toast.LENGTH_SHORT).show();
-                            } else if (u.getRolUsuario().equalsIgnoreCase("ROL_PROFESOR") || u.getRolUsuario().equalsIgnoreCase("ROL_ALUMNO")) {
-                                startActivity(new Intent(ajustes.this, inicioProfesorAlumno.class));
-                                Toast.makeText(ajustes.this, "Cambios guardados correctamente", Toast.LENGTH_SHORT).show();
-                            } else if (u.getRolUsuario().equalsIgnoreCase("ROL_TUT_MANT")) {
-                                startActivity(new Intent(ajustes.this, inicioTutoresMnt.class));
-                                Toast.makeText(ajustes.this, "Cambios guardados correctamente", Toast.LENGTH_SHORT).show();
-                            } else if (u.getRolUsuario().equalsIgnoreCase("ROL_PROF_MANT")) {
-                                startActivity(new Intent(ajustes.this, inicioProfesoresMnt.class));
-                                Toast.makeText(ajustes.this, "Cambios guardados correctamente", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    })
-                    .setNegativeButton("Cancelar", null)
-                    .show();
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Si la opción seleccionada es Ajustes, iniciamos la actividad de ajustes.
+        if (item.getItemId() == R.id.ajustes) {
+            startActivity(new Intent(InicioProfesorAlumno.this, Ajustes.class));
+            return true;
+        } else {
+            Toast.makeText(InicioProfesorAlumno.this, "Error al acceder a Ajustes", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+
+    /**
+     * Método que le añade la funcionalidad OnClick al botón de Crear Ticket.
+     */
+    private void clickCrearTicket() {
+        btnCrearTicket.setOnClickListener((View) -> {
+            // Comprobamos el rol de usuario para enviarle a la Interfaz correspondiente.
+            if (u.getRolUsuario().equalsIgnoreCase("ROL_PROFESOR")) {
+                startActivity(new Intent(InicioProfesorAlumno.this, CrearTicketImg.class));
+            } else if (u.getRolUsuario().equalsIgnoreCase("ROL_ALUMNO")) {
+                startActivity(new Intent(InicioProfesorAlumno.this, CrearTicket.class));
+            } else {
+                Toast.makeText(InicioProfesorAlumno.this, "Error al acceder a Crear Ticket", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
     /**
-     * Método usado para cerrar el teclado al pulsar sobre otro lado de la pantalla.
-     * @param event - Objeto utilizado para informar eventos de movimiento.
-     * @return - True, si la vista es distinta de null, False si la View es null.
+     * Método que le añade la funcionalidad OnClick al botón de Estado Ticket.
      */
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        // Guardamos la vista seleccionada.
-        View view = this.getCurrentFocus();
+    private void clickEstadoTicket() {
+        btnEstadoTicket.setOnClickListener((View) -> {
+            //startActivity(new Intent(inicioProfesorAlumno.this, estadoTicket.class));
+        });
+    }
 
-        // Si no es null (Tenemos una vista seleccionada), cerramos el teclado.
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-            return true;
-        } else {
-            return false;
-        }
+    /**
+     * Método que le añade la funcionalidad OnClick al botón de Cerrar Sesión.
+     */
+    private void clickCerrarSesion() {
+        btnCerrarSesion.setOnClickListener((View) -> {
+            // Cambiamos el valor del Checkbox de inicio sesión automático.
+            Login.cambiarEstadoCheckbox(InicioProfesorAlumno.this, false);
+            startActivity(new Intent(InicioProfesorAlumno.this, Login.class));
+        });
     }
 }

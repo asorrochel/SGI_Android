@@ -9,12 +9,12 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 import com.example.sgi.R;
-import com.example.sgi.panel.fragments.pc_fragment_espera;
-import com.example.sgi.panel.fragments.pc_fragment_nuevos;
-import com.example.sgi.panel.fragments.pc_fragment_urgentes;
-import com.example.sgi.panel.fragments.pc_frament_proceso;
+import com.example.sgi.panel.fragments.Pc_fragment_espera;
+import com.example.sgi.panel.fragments.Pc_fragment_nuevos;
+import com.example.sgi.panel.fragments.Pc_fragment_urgentes;
+import com.example.sgi.panel.fragments.Pc_frament_proceso;
 
-public class panelControl extends AppCompatActivity {
+public class PanelControl extends AppCompatActivity {
 
     // Declaración de Variables.
     Toolbar toolbar;
@@ -56,7 +56,7 @@ public class panelControl extends AppCompatActivity {
                 pc_btn_urgentes.setBackgroundResource(R.drawable.btn_rojo_borde);
 
                 // Llamamos al método para reemplazar el fragment.
-                replaceFragment(new pc_fragment_nuevos());
+                replaceFragment(new Pc_fragment_nuevos());
             }
         });
     }
@@ -75,7 +75,7 @@ public class panelControl extends AppCompatActivity {
                 pc_btn_urgentes.setBackgroundResource(R.drawable.btn_rojo_borde);
 
                 // Llamamos al método para reemplazar el fragment.
-                replaceFragment(new pc_fragment_espera());
+                replaceFragment(new Pc_fragment_espera());
             }
         });
     }
@@ -94,7 +94,7 @@ public class panelControl extends AppCompatActivity {
                 pc_btn_espera.setBackgroundResource(R.drawable.btn_azul_oscuro_borde);
 
                 // Llamamos al método para reemplazar el fragment.
-                replaceFragment(new pc_frament_proceso());
+                replaceFragment(new Pc_frament_proceso());
             }
         });
     }
@@ -113,7 +113,7 @@ public class panelControl extends AppCompatActivity {
                 pc_btn_espera.setBackgroundResource(R.drawable.btn_azul_oscuro_borde);
 
                 // Llamamos al método para reemplazar el fragment.
-                replaceFragment(new pc_fragment_urgentes());
+                replaceFragment(new Pc_fragment_urgentes());
             }
         });
     }

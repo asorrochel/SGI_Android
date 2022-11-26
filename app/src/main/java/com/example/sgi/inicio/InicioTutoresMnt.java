@@ -1,13 +1,5 @@
 package com.example.sgi.inicio;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.app.Activity;
 import android.content.ContentValues;
@@ -21,21 +13,29 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import com.example.sgi.R;
-import com.example.sgi.ajustes;
-import com.example.sgi.crearTicket.crearTicket;
-import com.example.sgi.crearTicket.crearTicketImg;
-import com.example.sgi.login;
+import com.example.sgi.Ajustes;
+import com.example.sgi.crearTicket.CrearTicketImg;
+import com.example.sgi.Login;
+import com.example.sgi.panel.PanelControl;
 import com.example.sgi.utils.Usuario;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class inicioProfesorAlumno extends AppCompatActivity {
+public class InicioTutoresMnt extends AppCompatActivity {
 
     // Declaración de Variables.
-    Toolbar toolbar;
-    AppCompatButton btnCerrarSesion, btnCrearTicket, btnEstadoTicket;
     Usuario u = new Usuario();
     CircleImageView imagenUsuario;
+    Toolbar toolbar;
+    AppCompatButton btnCerrarSesion, btnPanelControl, btnCrearTicket, btnValidarTicket, btnEstadoTicket, btnHistorialTicket;
     Uri uri;
         // Códigos de Permisos de Cámara y Almacenamiento.
     private static final int REQUEST_CAMERA_CODE = 1;
@@ -50,16 +50,19 @@ public class inicioProfesorAlumno extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio_profesor_alumno);
+        setContentView(R.layout.activity_inicio_tutores_mnt);
 
         // Inicializamos las Variables.
         toolbar = findViewById(R.id.mainToolBar);
-        btnCrearTicket = findViewById(R.id.inicio_profesor_alumno_btn_crear_ticket);
-        btnEstadoTicket = findViewById(R.id.inicio_profesor_alumno_btn_estado_ticket);
-        btnCerrarSesion = findViewById(R.id.inicio_profesor_alumno_btn_cerrar_sesion);
-        imagenUsuario = findViewById(R.id.inicio_profesores_btn_add_foto_perfil);
         cameraPermissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        btnPanelControl = findViewById(R.id.inicio_tutores_mnt_btn_panel);
+        btnCrearTicket = findViewById(R.id.inicio_tutores_mnt_btn_crear_ticket);
+        btnValidarTicket = findViewById(R.id.inicio_tutores_mnt_btn_validar_ticket);
+        btnEstadoTicket = findViewById(R.id.inicio_tutores_mnt_btn_estado_ticket);
+        btnHistorialTicket = findViewById(R.id.inicio_tutores_mnt_btn_historial_ticket);
+        btnCerrarSesion = findViewById(R.id.inicio_tutores_mnt_btn_cerrar_sesion);
+        imagenUsuario = findViewById(R.id.inicio_tutores_mnt_btn_add_foto_perfil);
 
         // Método para añadir el Toolabr a la activity.
         setToolbar(toolbar);
@@ -68,8 +71,11 @@ public class inicioProfesorAlumno extends AppCompatActivity {
         añadirImagen();
 
         // Funcionalidad de los botones del menú.
+        clickPanelControl();
         clickCrearTicket();
+        clickValidarTicket();
         clickEstadoTicket();
+        clickHistorialTicket();
         clickCerrarSesion();
     }
 
@@ -211,8 +217,8 @@ public class inicioProfesorAlumno extends AppCompatActivity {
                 if (requestCode == PICK_CAMERA_CODE) {
                     imagenUsuario.setImageURI(uri);
                 } else if (requestCode == PICK_GALLERY_CODE) {
-                    Uri path = data.getData();
-                    imagenUsuario.setImageURI(path);
+                    uri = data.getData();
+                    imagenUsuario.setImageURI(uri);
                 }
                 Toast.makeText(this, "Imagen actualizada correctamente", Toast.LENGTH_SHORT).show();
             } else {
@@ -254,12 +260,21 @@ public class inicioProfesorAlumno extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Si la opción seleccionada es Ajustes, iniciamos la actividad de ajustes.
         if (item.getItemId() == R.id.ajustes) {
-            startActivity(new Intent(inicioProfesorAlumno.this, ajustes.class));
+            startActivity(new Intent(InicioTutoresMnt.this, Ajustes.class));
             return true;
         } else {
-            Toast.makeText(inicioProfesorAlumno.this, "Error al acceder a Ajustes", Toast.LENGTH_SHORT).show();
+            Toast.makeText(InicioTutoresMnt.this, "Error al acceder a Ajustes", Toast.LENGTH_SHORT).show();
             return false;
         }
+    }
+
+    /**
+     * Método que le añade la funcionalidad OnClick al botón de Panel de Control.
+     */
+    private void clickPanelControl() {
+        btnPanelControl.setOnClickListener((View) -> {
+            startActivity(new Intent(InicioTutoresMnt.this, PanelControl.class));
+        });
     }
 
     /**
@@ -267,14 +282,16 @@ public class inicioProfesorAlumno extends AppCompatActivity {
      */
     private void clickCrearTicket() {
         btnCrearTicket.setOnClickListener((View) -> {
-            // Comprobamos el rol de usuario para enviarle a la Interfaz correspondiente.
-            if (u.getRolUsuario().equalsIgnoreCase("ROL_PROFESOR")) {
-                startActivity(new Intent(inicioProfesorAlumno.this, crearTicketImg.class));
-            } else if (u.getRolUsuario().equalsIgnoreCase("ROL_ALUMNO")) {
-                startActivity(new Intent(inicioProfesorAlumno.this, crearTicket.class));
-            } else {
-                Toast.makeText(inicioProfesorAlumno.this, "Error al acceder a Crear Ticket", Toast.LENGTH_SHORT).show();
-            }
+            startActivity(new Intent(InicioTutoresMnt.this, CrearTicketImg.class));
+        });
+    }
+
+    /**
+     * Método que le añade la funcionalidad OnClick al botón de Validar Ticket.
+     */
+    private void clickValidarTicket() {
+        btnValidarTicket.setOnClickListener((View) -> {
+            //startActivity(new Intent(inicioTutoresMnt.this, validarTicket.class));
         });
     }
 
@@ -283,7 +300,16 @@ public class inicioProfesorAlumno extends AppCompatActivity {
      */
     private void clickEstadoTicket() {
         btnEstadoTicket.setOnClickListener((View) -> {
-            //startActivity(new Intent(inicioProfesorAlumno.this, estadoTicket.class));
+            //startActivity(new Intent(inicioTutoresMnt.this, estadoTicket.class));
+        });
+    }
+
+    /**
+     * Método que le añade la funcionalidad OnClick al botón de Historial Ticket.
+     */
+    private void clickHistorialTicket() {
+        btnHistorialTicket.setOnClickListener((View) -> {
+            //startActivity(new Intent(inicioTutoresMnt.this, historialTicket.class));
         });
     }
 
@@ -292,9 +318,8 @@ public class inicioProfesorAlumno extends AppCompatActivity {
      */
     private void clickCerrarSesion() {
         btnCerrarSesion.setOnClickListener((View) -> {
-            // Cambiamos el valor del Checkbox de inicio sesión automático.
-            login.cambiarEstadoCheckbox(inicioProfesorAlumno.this, false);
-            startActivity(new Intent(inicioProfesorAlumno.this, login.class));
+            Login.cambiarEstadoCheckbox(InicioTutoresMnt.this, false);
+            startActivity(new Intent(InicioTutoresMnt.this, Login.class));
         });
     }
 }

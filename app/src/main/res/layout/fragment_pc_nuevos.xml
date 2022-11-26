@@ -4,7 +4,7 @@
     android:id="@+id/fr_pc_nuevos_fl"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".panel.fragments.pc_fragment_nuevos">
+    tools:context=".panel.fragments.Pc_fragment_nuevos">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fr_pc_nuevos_rv"
         android:layout_width="match_parent"

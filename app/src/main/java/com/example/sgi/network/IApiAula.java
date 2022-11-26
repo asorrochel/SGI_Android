@@ -7,7 +7,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface ApiAula {
+public interface IApiAula {
     @GET("api/Aulas/Listar")
     Call<List<Aula>> getAulas();
 }

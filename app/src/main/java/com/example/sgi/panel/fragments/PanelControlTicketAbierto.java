@@ -9,15 +9,15 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.sgi.R;
-import com.example.sgi.inicio.inicioProfesorAlumno;
-import com.example.sgi.inicio.inicioProfesoresMnt;
-import com.example.sgi.inicio.inicioTutores;
-import com.example.sgi.inicio.inicioTutoresMnt;
+import com.example.sgi.inicio.InicioProfesorAlumno;
+import com.example.sgi.inicio.InicioProfesoresMnt;
+import com.example.sgi.inicio.InicioTutores;
+import com.example.sgi.inicio.InicioTutoresMnt;
 import com.example.sgi.utils.Ticket;
 import com.example.sgi.utils.Usuario;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-public class panelControlTicketAbierto extends AppCompatActivity {
+public class PanelControlTicketAbierto extends AppCompatActivity {
     Toolbar toolbar;
     Usuario u;
     TextView titulo, aula, equipo;
@@ -75,17 +75,17 @@ public class panelControlTicketAbierto extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             if (u.getRolUsuario().equalsIgnoreCase("ROL_TUTOR")) {
-                                startActivity(new Intent(panelControlTicketAbierto.this, inicioTutores.class));
-                                Toast.makeText(panelControlTicketAbierto.this, "Ticket Cerrado Correctamente", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(PanelControlTicketAbierto.this, InicioTutores.class));
+                                Toast.makeText(PanelControlTicketAbierto.this, "Ticket Cerrado Correctamente", Toast.LENGTH_SHORT).show();
                             } else if (u.getRolUsuario().equalsIgnoreCase("ROL_PROFESOR") || u.getRolUsuario().equalsIgnoreCase("ROL_ALUMNO")) {
-                                startActivity(new Intent(panelControlTicketAbierto.this, inicioProfesorAlumno.class));
-                                Toast.makeText(panelControlTicketAbierto.this, "Ticket Cerrado Correctamente", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(PanelControlTicketAbierto.this, InicioProfesorAlumno.class));
+                                Toast.makeText(PanelControlTicketAbierto.this, "Ticket Cerrado Correctamente", Toast.LENGTH_SHORT).show();
                             } else if (u.getRolUsuario().equalsIgnoreCase("ROL_TUT_MANT")) {
-                                startActivity(new Intent(panelControlTicketAbierto.this, inicioTutoresMnt.class));
-                                Toast.makeText(panelControlTicketAbierto.this, "Ticket Cerrado Correctamente", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(PanelControlTicketAbierto.this, InicioTutoresMnt.class));
+                                Toast.makeText(PanelControlTicketAbierto.this, "Ticket Cerrado Correctamente", Toast.LENGTH_SHORT).show();
                             } else if (u.getRolUsuario().equalsIgnoreCase("ROL_PROF_MANT")) {
-                                startActivity(new Intent(panelControlTicketAbierto.this, inicioProfesoresMnt.class));
-                                Toast.makeText(panelControlTicketAbierto.this, "Ticket Cerrado Correctamente", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(PanelControlTicketAbierto.this, InicioProfesoresMnt.class));
+                                Toast.makeText(PanelControlTicketAbierto.this, "Ticket Cerrado Correctamente", Toast.LENGTH_SHORT).show();
                             }
                         }
                     })
@@ -105,17 +105,17 @@ public class panelControlTicketAbierto extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             if (u.getRolUsuario().equalsIgnoreCase("ROL_TUTOR")) {
-                                startActivity(new Intent(panelControlTicketAbierto.this, inicioTutores.class));
-                                Toast.makeText(panelControlTicketAbierto.this, "Ticket movido a Espera", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(PanelControlTicketAbierto.this, InicioTutores.class));
+                                Toast.makeText(PanelControlTicketAbierto.this, "Ticket movido a Espera", Toast.LENGTH_SHORT).show();
                             } else if (u.getRolUsuario().equalsIgnoreCase("ROL_PROFESOR") || u.getRolUsuario().equalsIgnoreCase("ROL_ALUMNO")) {
-                                startActivity(new Intent(panelControlTicketAbierto.this, inicioProfesorAlumno.class));
-                                Toast.makeText(panelControlTicketAbierto.this, "Ticket movido a Espera", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(PanelControlTicketAbierto.this, InicioProfesorAlumno.class));
+                                Toast.makeText(PanelControlTicketAbierto.this, "Ticket movido a Espera", Toast.LENGTH_SHORT).show();
                             } else if (u.getRolUsuario().equalsIgnoreCase("ROL_TUT_MANT")) {
-                                startActivity(new Intent(panelControlTicketAbierto.this, inicioTutoresMnt.class));
-                                Toast.makeText(panelControlTicketAbierto.this, "Ticket movido a Espera", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(PanelControlTicketAbierto.this, InicioTutoresMnt.class));
+                                Toast.makeText(PanelControlTicketAbierto.this, "Ticket movido a Espera", Toast.LENGTH_SHORT).show();
                             } else if (u.getRolUsuario().equalsIgnoreCase("ROL_PROF_MANT")) {
-                                startActivity(new Intent(panelControlTicketAbierto.this, inicioProfesoresMnt.class));
-                                Toast.makeText(panelControlTicketAbierto.this, "Ticket movido a Espera", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(PanelControlTicketAbierto.this, InicioProfesoresMnt.class));
+                                Toast.makeText(PanelControlTicketAbierto.this, "Ticket movido a Espera", Toast.LENGTH_SHORT).show();
                             }
                         }
                     })
@@ -135,17 +135,17 @@ public class panelControlTicketAbierto extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             if (u.getRolUsuario().equalsIgnoreCase("ROL_TUTOR")) {
-                                startActivity(new Intent(panelControlTicketAbierto.this, inicioTutores.class));
-                                Toast.makeText(panelControlTicketAbierto.this, "Ticket movido a Urgentes", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(PanelControlTicketAbierto.this, InicioTutores.class));
+                                Toast.makeText(PanelControlTicketAbierto.this, "Ticket movido a Urgentes", Toast.LENGTH_SHORT).show();
                             } else if (u.getRolUsuario().equalsIgnoreCase("ROL_PROFESOR") || u.getRolUsuario().equalsIgnoreCase("ROL_ALUMNO")) {
-                                startActivity(new Intent(panelControlTicketAbierto.this, inicioProfesorAlumno.class));
-                                Toast.makeText(panelControlTicketAbierto.this, "Ticket movido a Urgentes", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(PanelControlTicketAbierto.this, InicioProfesorAlumno.class));
+                                Toast.makeText(PanelControlTicketAbierto.this, "Ticket movido a Urgentes", Toast.LENGTH_SHORT).show();
                             } else if (u.getRolUsuario().equalsIgnoreCase("ROL_TUT_MANT")) {
-                                startActivity(new Intent(panelControlTicketAbierto.this, inicioTutoresMnt.class));
-                                Toast.makeText(panelControlTicketAbierto.this, "Ticket movido a Urgentes", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(PanelControlTicketAbierto.this, InicioTutoresMnt.class));
+                                Toast.makeText(PanelControlTicketAbierto.this, "Ticket movido a Urgentes", Toast.LENGTH_SHORT).show();
                             } else if (u.getRolUsuario().equalsIgnoreCase("ROL_PROF_MANT")) {
-                                startActivity(new Intent(panelControlTicketAbierto.this, inicioProfesoresMnt.class));
-                                Toast.makeText(panelControlTicketAbierto.this, "Ticket movido a Urgentes", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(PanelControlTicketAbierto.this, InicioProfesoresMnt.class));
+                                Toast.makeText(PanelControlTicketAbierto.this, "Ticket movido a Urgentes", Toast.LENGTH_SHORT).show();
                             }
                         }
                     })
@@ -156,7 +156,7 @@ public class panelControlTicketAbierto extends AppCompatActivity {
 
     private void asignarTecnico() {
         pc_ta_btn_AsignarTecnico.setOnClickListener((View) -> {
-            startActivity(new Intent(this, asignarTecnico.class));
+            startActivity(new Intent(this, AsignarTecnico.class));
         });
 
     }

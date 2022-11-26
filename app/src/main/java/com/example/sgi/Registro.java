@@ -21,7 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class registro extends AppCompatActivity{
+public class Registro extends AppCompatActivity{
 
     // Declaración de Variables.
     FirebaseAuth firebaseAuth;
@@ -262,7 +262,7 @@ public class registro extends AppCompatActivity{
      */
     private void clcikTengoSesion() {
         loginTengo.setOnClickListener((View) -> {
-            startActivity(new Intent(registro.this,login.class));
+            startActivity(new Intent(Registro.this, Login.class));
         });
     }
 
@@ -286,20 +286,20 @@ public class registro extends AppCompatActivity{
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(registro.this, "Registro Completado, Verifique su Correo", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Registro.this, "Registro Completado, Verifique su Correo", Toast.LENGTH_LONG).show();
                                 correoET.setText("");
                                 contraseñaET.setText("");
                             } else {
-                                Toast.makeText(registro.this, "Error al realizar el registro", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Registro.this, "Error al realizar el registro", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
                     correoET.setText("");
                     contraseñaET.setText("");
                     // Le mandamos a la pantalla de Login.
-                    startActivity(new Intent(registro.this, login.class));
+                    startActivity(new Intent(Registro.this, Login.class));
                 } else {
-                    Toast.makeText(registro.this, "Error al realizar el registro", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Registro.this, "Error al realizar el registro", Toast.LENGTH_SHORT).show();
                 }
             });
         });

@@ -22,14 +22,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import com.example.sgi.R;
-import com.example.sgi.ajustes;
-import com.example.sgi.crearTicket.crearTicketImg;
-import com.example.sgi.login;
-import com.example.sgi.panel.panelControl;
+import com.example.sgi.Ajustes;
+import com.example.sgi.crearTicket.CrearTicketImg;
+import com.example.sgi.Login;
+import com.example.sgi.panel.PanelControl;
 import com.example.sgi.utils.Usuario;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class inicioProfesoresMnt extends AppCompatActivity {
+public class InicioProfesoresMnt extends AppCompatActivity {
 
     // Declaración de Variables.
     Usuario u = new Usuario();
@@ -258,10 +258,10 @@ public class inicioProfesoresMnt extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Si la opción seleccionada es Ajustes, iniciamos la actividad de ajustes.
         if (item.getItemId() == R.id.ajustes) {
-            startActivity(new Intent(inicioProfesoresMnt.this, ajustes.class));
+            startActivity(new Intent(InicioProfesoresMnt.this, Ajustes.class));
             return true;
         } else {
-            Toast.makeText(inicioProfesoresMnt.this, "Error al acceder a Ajustes", Toast.LENGTH_SHORT).show();
+            Toast.makeText(InicioProfesoresMnt.this, "Error al acceder a Ajustes", Toast.LENGTH_SHORT).show();
             return false;
         }
     }
@@ -271,7 +271,7 @@ public class inicioProfesoresMnt extends AppCompatActivity {
      */
     private void clickPanelControl() {
         btnPanelControl.setOnClickListener((View) -> {
-            startActivity(new Intent(inicioProfesoresMnt.this, panelControl.class));
+            startActivity(new Intent(InicioProfesoresMnt.this, PanelControl.class));
         });
     }
 
@@ -280,7 +280,7 @@ public class inicioProfesoresMnt extends AppCompatActivity {
      */
     private void clickCrearTicket() {
         btnCrearTicket.setOnClickListener((View) -> {
-            startActivity(new Intent(inicioProfesoresMnt.this, crearTicketImg.class));
+            startActivity(new Intent(InicioProfesoresMnt.this, CrearTicketImg.class));
         });
     }
 
@@ -307,8 +307,8 @@ public class inicioProfesoresMnt extends AppCompatActivity {
      */
     private void clickCerrarSesion() {
         btnCerrarSesion.setOnClickListener((View) -> {
-            login.cambiarEstadoCheckbox(inicioProfesoresMnt.this, false);
-            startActivity(new Intent(inicioProfesoresMnt.this, login.class));
+            Login.cambiarEstadoCheckbox(InicioProfesoresMnt.this, false);
+            startActivity(new Intent(InicioProfesoresMnt.this, Login.class));
         });
     }
 }

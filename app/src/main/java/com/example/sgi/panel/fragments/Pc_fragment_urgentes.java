@@ -2,44 +2,43 @@ package com.example.sgi.panel.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.Toast;
 
 import com.example.sgi.R;
 import com.example.sgi.network.ApiClient;
-import com.example.sgi.network.ApiTicket;
-import com.example.sgi.network.ApiUsuario;
-import com.example.sgi.panel.AdapterTicketsNuevos;
+import com.example.sgi.network.IApiTicket;
+import com.example.sgi.panel.AdapterTickets;
 import com.example.sgi.utils.Ticket;
-import com.example.sgi.utils.Usuario;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class pc_fragment_nuevos extends Fragment {
+public class Pc_fragment_urgentes extends Fragment {
+
 
     // Declaración de Variables.
-    List<Ticket> ticketNuevosList;
+    List<Ticket> ticketUrgentesList;
     private RecyclerView recyclerView;
-    AdapterTicketsNuevos adapter;
+    AdapterTickets adapter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_pc_nuevos,container,false);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_pc_urgentes,container,false);
         recyclerView=view.findViewById(R.id.fr_pc_nuevos_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
@@ -52,20 +51,20 @@ public class pc_fragment_nuevos extends Fragment {
      * @param item - Ticket que hemos pulsado.
      */
     public void entrarEnTicket(Ticket item) {
-        Intent intent = new Intent(getActivity(), panelControlTicketAbierto.class);
+        Intent intent = new Intent(getActivity(), PanelControlTicketAbierto.class);
         intent.putExtra("Ticket",item);
         startActivity(intent);
     }
 
     private void mostrarUsuariosMnt(){
-        Call<List<Ticket>> call = ApiClient.getClient().create(ApiTicket.class).getTicketsNuevos();
+        Call<List<Ticket>> call = ApiClient.getClient().create(IApiTicket.class).getTicketsUrgentes();
         call.enqueue(new Callback<List<Ticket>>() {
 
             @Override
             public void onResponse(Call<List<Ticket>> call, Response<List<Ticket>> response) {
                 if(response.isSuccessful()){
-                    ticketNuevosList = response.body();
-                    adapter = new AdapterTicketsNuevos(ticketNuevosList, pc_fragment_nuevos.this.getContext(), new AdapterTicketsNuevos.OnItemClickListener() {
+                    ticketUrgentesList = response.body();
+                    adapter = new AdapterTickets(ticketUrgentesList, Pc_fragment_urgentes.this.getContext(), new AdapterTickets.OnItemClickListener() {
                         @Override
                         public void onItemClick(Ticket item) {
                             entrarEnTicket(item);
@@ -77,7 +76,7 @@ public class pc_fragment_nuevos extends Fragment {
 
             @Override
             public void onFailure(Call<List<Ticket>> call, Throwable t) {
-                Toast.makeText(pc_fragment_nuevos.this.getContext(),"ERROR DE CONEXION",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Pc_fragment_urgentes.this.getContext(),"ERROR DE CONEXION",Toast.LENGTH_SHORT).show();
             }
         });
     }

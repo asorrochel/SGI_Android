@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.example.sgi.R;
 import com.example.sgi.network.ApiClient;
-import com.example.sgi.network.ApiUsuario;
+import com.example.sgi.network.IApiUsuario;
 import com.example.sgi.utils.Usuario;
 
 import java.util.List;
@@ -19,7 +19,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class asignarTecnico extends AppCompatActivity {
+public class AsignarTecnico extends AppCompatActivity {
 
     private List<Usuario> userList;
     private RecyclerView recyclerView;
@@ -43,7 +43,7 @@ public class asignarTecnico extends AppCompatActivity {
     }
 
     private void mostrarUsuariosMnt(){
-        Call<List<Usuario>> call = ApiClient.getClient().create(ApiUsuario.class).getUsuariosMnt();
+        Call<List<Usuario>> call = ApiClient.getClient().create(IApiUsuario.class).getUsuariosMnt();
         call.enqueue(new Callback<List<Usuario>>() {
             @Override
             public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
@@ -55,7 +55,7 @@ public class asignarTecnico extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<List<Usuario>> call, Throwable t) {
-                Toast.makeText(asignarTecnico.this,"ERROR DE CONEXION",Toast.LENGTH_SHORT).show();
+                Toast.makeText(AsignarTecnico.this,"ERROR DE CONEXION",Toast.LENGTH_SHORT).show();
             }
         });
     }

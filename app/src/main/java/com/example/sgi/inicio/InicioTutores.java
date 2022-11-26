@@ -1,5 +1,13 @@
 package com.example.sgi.inicio;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.app.Activity;
 import android.content.ContentValues;
@@ -13,29 +21,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import com.example.sgi.R;
-import com.example.sgi.ajustes;
-import com.example.sgi.crearTicket.crearTicketImg;
-import com.example.sgi.login;
-import com.example.sgi.panel.panelControl;
+import com.example.sgi.Ajustes;
+import com.example.sgi.crearTicket.CrearTicketImg;
+import com.example.sgi.Login;
 import com.example.sgi.utils.Usuario;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class inicioTutoresMnt extends AppCompatActivity {
+public class InicioTutores extends AppCompatActivity {
 
     // Declaración de Variables.
     Usuario u = new Usuario();
-    CircleImageView imagenUsuario;
     Toolbar toolbar;
-    AppCompatButton btnCerrarSesion, btnPanelControl, btnCrearTicket, btnValidarTicket, btnEstadoTicket, btnHistorialTicket;
+    AppCompatButton btnCerrarSesion, btnCrearTicket, btnValidarTicket, btnEstadoTicket;
+    CircleImageView imagenUsuario;
     Uri uri;
         // Códigos de Permisos de Cámara y Almacenamiento.
     private static final int REQUEST_CAMERA_CODE = 1;
@@ -50,19 +49,17 @@ public class inicioTutoresMnt extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio_tutores_mnt);
+        setContentView(R.layout.activity_inicio_tutores);
 
         // Inicializamos las Variables.
         toolbar = findViewById(R.id.mainToolBar);
+        btnCrearTicket = findViewById(R.id.inicio_tutores_btn_crear_ticket);
+        btnValidarTicket = findViewById(R.id.inicio_tutores_btn_validar_ticket);
+        btnEstadoTicket = findViewById(R.id.inicio_tutores_btn_estado_ticket);
+        btnCerrarSesion = findViewById(R.id.inicio_tutores_btn_cerrar_sesion);
+        imagenUsuario = findViewById(R.id.inicio_tutores_btn_add_foto_perfil);
         cameraPermissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        btnPanelControl = findViewById(R.id.inicio_tutores_mnt_btn_panel);
-        btnCrearTicket = findViewById(R.id.inicio_tutores_mnt_btn_crear_ticket);
-        btnValidarTicket = findViewById(R.id.inicio_tutores_mnt_btn_validar_ticket);
-        btnEstadoTicket = findViewById(R.id.inicio_tutores_mnt_btn_estado_ticket);
-        btnHistorialTicket = findViewById(R.id.inicio_tutores_mnt_btn_historial_ticket);
-        btnCerrarSesion = findViewById(R.id.inicio_tutores_mnt_btn_cerrar_sesion);
-        imagenUsuario = findViewById(R.id.inicio_tutores_mnt_btn_add_foto_perfil);
 
         // Método para añadir el Toolabr a la activity.
         setToolbar(toolbar);
@@ -71,11 +68,9 @@ public class inicioTutoresMnt extends AppCompatActivity {
         añadirImagen();
 
         // Funcionalidad de los botones del menú.
-        clickPanelControl();
         clickCrearTicket();
         clickValidarTicket();
         clickEstadoTicket();
-        clickHistorialTicket();
         clickCerrarSesion();
     }
 
@@ -217,8 +212,8 @@ public class inicioTutoresMnt extends AppCompatActivity {
                 if (requestCode == PICK_CAMERA_CODE) {
                     imagenUsuario.setImageURI(uri);
                 } else if (requestCode == PICK_GALLERY_CODE) {
-                    uri = data.getData();
-                    imagenUsuario.setImageURI(uri);
+                    Uri path = data.getData();
+                    imagenUsuario.setImageURI(path);
                 }
                 Toast.makeText(this, "Imagen actualizada correctamente", Toast.LENGTH_SHORT).show();
             } else {
@@ -260,21 +255,12 @@ public class inicioTutoresMnt extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Si la opción seleccionada es Ajustes, iniciamos la actividad de ajustes.
         if (item.getItemId() == R.id.ajustes) {
-            startActivity(new Intent(inicioTutoresMnt.this, ajustes.class));
+            startActivity(new Intent(InicioTutores.this, Ajustes.class));
             return true;
         } else {
-            Toast.makeText(inicioTutoresMnt.this, "Error al acceder a Ajustes", Toast.LENGTH_SHORT).show();
+            Toast.makeText(InicioTutores.this, "Error al acceder a Ajustes", Toast.LENGTH_SHORT).show();
             return false;
         }
-    }
-
-    /**
-     * Método que le añade la funcionalidad OnClick al botón de Panel de Control.
-     */
-    private void clickPanelControl() {
-        btnPanelControl.setOnClickListener((View) -> {
-            startActivity(new Intent(inicioTutoresMnt.this, panelControl.class));
-        });
     }
 
     /**
@@ -282,7 +268,7 @@ public class inicioTutoresMnt extends AppCompatActivity {
      */
     private void clickCrearTicket() {
         btnCrearTicket.setOnClickListener((View) -> {
-            startActivity(new Intent(inicioTutoresMnt.this, crearTicketImg.class));
+            startActivity(new Intent(InicioTutores.this, CrearTicketImg.class));
         });
     }
 
@@ -291,7 +277,7 @@ public class inicioTutoresMnt extends AppCompatActivity {
      */
     private void clickValidarTicket() {
         btnValidarTicket.setOnClickListener((View) -> {
-            //startActivity(new Intent(inicioTutoresMnt.this, validarTicket.class));
+            //startActivity(new Intent(inicioTutores.this, validarTicket.class));
         });
     }
 
@@ -300,16 +286,7 @@ public class inicioTutoresMnt extends AppCompatActivity {
      */
     private void clickEstadoTicket() {
         btnEstadoTicket.setOnClickListener((View) -> {
-            //startActivity(new Intent(inicioTutoresMnt.this, estadoTicket.class));
-        });
-    }
-
-    /**
-     * Método que le añade la funcionalidad OnClick al botón de Historial Ticket.
-     */
-    private void clickHistorialTicket() {
-        btnHistorialTicket.setOnClickListener((View) -> {
-            //startActivity(new Intent(inicioTutoresMnt.this, historialTicket.class));
+            //startActivity(new Intent(inicioTutores.this, estadoTicket.class));
         });
     }
 
@@ -318,8 +295,8 @@ public class inicioTutoresMnt extends AppCompatActivity {
      */
     private void clickCerrarSesion() {
         btnCerrarSesion.setOnClickListener((View) -> {
-            login.cambiarEstadoCheckbox(inicioTutoresMnt.this, false);
-            startActivity(new Intent(inicioTutoresMnt.this, login.class));
+            Login.cambiarEstadoCheckbox(InicioTutores.this, false);
+            startActivity(new Intent(InicioTutores.this, Login.class));
         });
     }
 }

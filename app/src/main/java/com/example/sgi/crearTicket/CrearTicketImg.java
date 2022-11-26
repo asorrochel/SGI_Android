@@ -27,13 +27,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.sgi.R;
-import com.example.sgi.inicio.inicioProfesorAlumno;
-import com.example.sgi.inicio.inicioProfesoresMnt;
-import com.example.sgi.inicio.inicioTutores;
-import com.example.sgi.inicio.inicioTutoresMnt;
-import com.example.sgi.network.ApiAula;
+import com.example.sgi.inicio.InicioProfesorAlumno;
+import com.example.sgi.inicio.InicioProfesoresMnt;
+import com.example.sgi.inicio.InicioTutores;
+import com.example.sgi.inicio.InicioTutoresMnt;
+import com.example.sgi.network.IApiAula;
 import com.example.sgi.network.ApiClient;
-import com.example.sgi.network.ApiTicket;
+import com.example.sgi.network.IApiTicket;
 import com.example.sgi.utils.Aula;
 import com.example.sgi.utils.Pair;
 import com.example.sgi.utils.Ticket;
@@ -42,7 +42,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,7 +50,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class crearTicketImg extends AppCompatActivity {
+public class CrearTicketImg extends AppCompatActivity {
 
     // Declaración de Variables.
     EditText titulo, equipo, comentario;
@@ -280,17 +279,17 @@ public class crearTicketImg extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             if (u.getRolUsuario().equalsIgnoreCase("ROL_TUTOR")) {
-                                startActivity(new Intent(crearTicketImg.this, inicioTutores.class));
-                                Toast.makeText(crearTicketImg.this, "Ticket creado correctamente", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(CrearTicketImg.this, InicioTutores.class));
+                                Toast.makeText(CrearTicketImg.this, "Ticket creado correctamente", Toast.LENGTH_SHORT).show();
                             } else if (u.getRolUsuario().equalsIgnoreCase("ROL_TUT_MANT")) {
-                                startActivity(new Intent(crearTicketImg.this, inicioTutoresMnt.class));
-                                Toast.makeText(crearTicketImg.this, "Ticket creado correctamente", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(CrearTicketImg.this, InicioTutoresMnt.class));
+                                Toast.makeText(CrearTicketImg.this, "Ticket creado correctamente", Toast.LENGTH_SHORT).show();
                             } else if (u.getRolUsuario().equalsIgnoreCase("ROL_PROF_MANT")) {
-                                startActivity(new Intent(crearTicketImg.this, inicioProfesoresMnt.class));
-                                Toast.makeText(crearTicketImg.this, "Ticket creado correctamente", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(CrearTicketImg.this, InicioProfesoresMnt.class));
+                                Toast.makeText(CrearTicketImg.this, "Ticket creado correctamente", Toast.LENGTH_SHORT).show();
                             } else if (u.getRolUsuario().equalsIgnoreCase("ROL_PROFESOR")) {
-                                startActivity(new Intent(crearTicketImg.this, inicioProfesorAlumno.class));
-                                Toast.makeText(crearTicketImg.this, "Ticket creado correctamente", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(CrearTicketImg.this, InicioProfesorAlumno.class));
+                                Toast.makeText(CrearTicketImg.this, "Ticket creado correctamente", Toast.LENGTH_SHORT).show();
                             }
                         }
                     })
@@ -357,26 +356,26 @@ public class crearTicketImg extends AppCompatActivity {
     }
 
     public void guardarTicket(Ticket ticket){
-        Call<Ticket> guardarTicket = ApiClient.getClient().create(ApiTicket.class).addUser(ticket);
+        Call<Ticket> guardarTicket = ApiClient.getClient().create(IApiTicket.class).addTicket(ticket);
         guardarTicket.enqueue(new Callback<Ticket>() {
             @Override
             public void onResponse(Call<Ticket> call, Response<Ticket> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(crearTicketImg.this,"Creado correctamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CrearTicketImg.this,"Creado correctamente", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(crearTicketImg.this,"Error gato", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CrearTicketImg.this,"Error gato", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Ticket> call, Throwable t) {
-                Toast.makeText(crearTicketImg.this,"Error gati", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CrearTicketImg.this,"Error gati", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void rellenarAulasAPI() {
-        Call<List<Aula>> call = ApiClient.getClient().create(ApiAula.class).getAulas();
+        Call<List<Aula>> call = ApiClient.getClient().create(IApiAula.class).getAulas();
         call.enqueue(new Callback<List<Aula>>() {
             @Override
             public void onResponse(Call<List<Aula>> call, Response<List<Aula>> response) {
@@ -390,13 +389,13 @@ public class crearTicketImg extends AppCompatActivity {
                         aulaValor[indice] = a.getAula();
                         indice++;
                     }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(crearTicketImg.this,R.layout.dropdowm_item, aulaValor);
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(CrearTicketImg.this,R.layout.dropdowm_item, aulaValor);
                     autoCompleteTextView.setAdapter(adapter);
                 }
             }
             @Override
             public void onFailure(Call<List<Aula>> call, Throwable t) {
-                Toast.makeText(crearTicketImg.this,"ERROR DE CONEXION",Toast.LENGTH_SHORT).show();
+                Toast.makeText(CrearTicketImg.this,"ERROR DE CONEXION",Toast.LENGTH_SHORT).show();
             }
         });
     }
