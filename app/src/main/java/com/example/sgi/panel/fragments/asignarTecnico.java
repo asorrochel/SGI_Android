@@ -2,41 +2,80 @@ package com.example.sgi.panel.fragments;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.content.DialogInterface;
-import android.content.Intent;
+
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
+
 import com.example.sgi.R;
+import com.example.sgi.network.ApiClient;
+import com.example.sgi.network.ApiUsuario;
 import com.example.sgi.utils.Usuario;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import java.util.ArrayList;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class asignarTecnico extends AppCompatActivity {
 
-    private ArrayList<Usuario> userList;
+    private List<Usuario> userList;
     private RecyclerView recyclerView;
-    ListAdapterMnt adapter;
+    AdapterTecnicosMnt adapter;
     Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_asignar_tecnico);
+
+        //setToolbar(toolbar);
         recyclerView = findViewById(R.id.at_rv);
-        userList = new ArrayList<>();
-        adapter = new ListAdapterMnt(userList);
-        toolbar = findViewById(R.id.atToolBar);
+        //toolbar = findViewById(R.id.atToolBar);
 
-        setToolbar(toolbar);
+        recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
+        //recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        setUserinfo();
-        setAdapter();
+        mostrarUsuariosMnt();
+
+    }
+
+    private void mostrarUsuariosMnt(){
+        Call<List<Usuario>> call = ApiClient.getClient().create(ApiUsuario.class).getUsuariosMnt();
+        call.enqueue(new Callback<List<Usuario>>() {
+            @Override
+            public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
+                if(response.isSuccessful()){
+                    userList = response.body();
+                    adapter = new AdapterTecnicosMnt(userList,getApplicationContext());
+                    recyclerView.setAdapter(adapter);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Usuario>> call, Throwable t) {
+                Toast.makeText(asignarTecnico.this,"ERROR DE CONEXION",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    /*
+    private void setToolbar(Toolbar toolbar) {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Ticket");
+        //getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
+    }
+    */
 
 
+    /*
         adapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,34 +93,5 @@ public class asignarTecnico extends AppCompatActivity {
                         .show();
             }
         });
-    }
-
-    private void setAdapter() {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
-    }
-
-    private void setUserinfo() {
-        userList.add(new Usuario("Jose","Perez","ROL_MNT"));
-        userList.add(new Usuario("Mioa","Perez","ROL_MNT"));
-        userList.add(new Usuario("Pedro","Perez","ROL_MNT"));
-        userList.add(new Usuario("Mateo","Perez","ROL_MNT"));
-    }
-
-    private void setToolbar(Toolbar toolbar) {
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Ticket");
-        //getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return false;
-    }
-
-
+         */
 }

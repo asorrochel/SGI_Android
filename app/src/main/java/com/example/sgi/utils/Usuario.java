@@ -2,7 +2,9 @@ package com.example.sgi.utils;
 
 import android.net.Uri;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
     private String nombre, apellidos, correo, contraseña, rolUsuario;
     private Uri imagen;
 

@@ -5,56 +5,75 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sgi.R;
+import com.example.sgi.crearTicket.AdapterAulas;
+import com.example.sgi.crearTicket.crearTicketImg;
+import com.example.sgi.network.ApiAula;
+import com.example.sgi.network.ApiClient;
+import com.example.sgi.utils.Aula;
+import com.example.sgi.utils.Pair;
 import com.example.sgi.utils.Ticket;
 import com.google.android.material.card.MaterialCardView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class ListAdapterTicketsNuevos extends RecyclerView.Adapter<ListAdapterTicketsNuevos.ViewHolder> {
-    private List<Ticket> mData;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class AdapterTicketsNuevos extends RecyclerView.Adapter<AdapterTicketsNuevos.MyViewHolder> {
+
     private LayoutInflater mInflater;
+    final AdapterTicketsNuevos.OnItemClickListener listener;
+    TextView titulo, aula, equipo;
+
+    private List<Ticket> ticketNuevoList;
     private Context context;
-    final ListAdapterTicketsNuevos.OnItemClickListener listener;
 
     public interface OnItemClickListener {
         void onItemClick(Ticket item);
     }
 
-    public ListAdapterTicketsNuevos(List<Ticket> itemList,Context context, ListAdapterTicketsNuevos.OnItemClickListener listener){
+    public AdapterTicketsNuevos(List<Ticket> itemList, Context context, AdapterTicketsNuevos.OnItemClickListener listener){
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
-        this.mData = itemList;
+        this.ticketNuevoList = itemList;
         this.listener = listener;
     }
 
     @NonNull
     @Override
-    public ListAdapterTicketsNuevos.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.from(parent.getContext()).inflate(R.layout.item_list_tickets,parent,false);
-        return new ListAdapterTicketsNuevos.ViewHolder(view);
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = mInflater.from(parent.getContext())
+                .inflate(R.layout.item_list_tickets,parent,false);
+        return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final ListAdapterTicketsNuevos.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
         holder.cv.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition));
-        holder.bindData(mData.get(position));
+        holder.bindData(ticketNuevoList.get(position));
     }
 
     @Override
-    public int getItemCount(){return mData.size();}
+    public int getItemCount(){return ticketNuevoList.size();}
 
-    public void setItems(List<Ticket> items) {mData = items;}
+    public void setItems(List<Ticket> items) {
+        ticketNuevoList = items;}
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView titulo, aula, equipo;
+    public class MyViewHolder extends RecyclerView.ViewHolder{
         MaterialCardView cv;
-        ViewHolder(View itemView) {
+        MyViewHolder(View itemView) {
             super(itemView);
             titulo = itemView.findViewById(R.id.ilt_titulo);
             equipo = itemView.findViewById(R.id.ilt_equipo);
@@ -65,7 +84,7 @@ public class ListAdapterTicketsNuevos extends RecyclerView.Adapter<ListAdapterTi
         void bindData(final Ticket item) {
             titulo.setText((item.getTitulo()));
             equipo.setText(item.getEquipo());
-            aula.setText(item.getAula());
+            aula.setText(item.getAula().getAula());
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

@@ -1,6 +1,8 @@
 package com.example.sgi.utils;
 
-public class Aula {
+import java.io.Serializable;
+
+public class Aula implements Serializable {
     private int idAula;
     private String aula;
 
